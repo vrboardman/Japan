@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan · May 28 – Jun 10, 2025</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono&display=swap');</style>
+<style>
+:root{
+  --indigo:#2D3561;--gold:#C49A3C;--moss:#3D6B4F;--ink:#1A1A2E;
+  --paper:#FAF8F3;--cloud:#F0EDE6;--mist:#E8E4DC;
+  --rest:#7B5E4A;--culture:#2D3561;--hike:#3D6B4F;--travel:#C49A3C;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;background:#F8F6F0;color:var(--ink);}
+
+/* ── HERO ── */
+.hero{background:var(--indigo);color:#fff;padding:3rem 2rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'日本';position:absolute;font-family:'Noto Serif JP',serif;font-size:13rem;opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.22em;color:rgba(255,255,255,.45);margin-bottom:.6rem;text-transform:uppercase;}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:300;letter-spacing:.06em;margin-bottom:.4rem;}
+.hero-dates{font-size:.88rem;color:rgba(255,255,255,.55);margin-bottom:1.8rem;letter-spacing:.04em;}
+.legend{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:.5rem;}
+.leg{display:flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.65);cursor:pointer;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.14);transition:all .18s;}
+.leg:hover,.leg.on{background:rgba(255,255,255,.11);color:#fff;border-color:rgba(255,255,255,.35);}
+.ldot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ctrl-row{display:flex;gap:.6rem;justify-content:center;margin-top:.9rem;}
+.ctrl-btn{font-size:.72rem;font-family:'DM Mono',monospace;color:rgba(255,255,255,.5);background:transparent;border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:4px 12px;cursor:pointer;transition:all .18s;letter-spacing:.05em;}
+.ctrl-btn:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* ── STATS BAR ── */
+.stats{background:var(--indigo);border-top:1px solid rgba(255,255,255,.08);padding:.9rem 2rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;}
+.stat-item{text-align:center;}
+.stat-v{font-family:'Noto Serif JP',serif;font-size:1.4rem;color:#fff;font-weight:300;}
+.stat-l{font-size:.6rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.13em;margin-top:2px;}
+
+/* ── HOTEL OVERVIEW ── */
+.hotel-overview{max-width:980px;margin:2rem auto 0;padding:0 1.25rem;}
+.section-hdr{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--mist);}
+.hotels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.9rem;margin-bottom:.6rem;}
+.hcard{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:1rem;}
+.hcard-nights{font-family:'DM Mono',monospace;font-size:.62rem;color:#bbb;margin-bottom:.25rem;}
+.hcard-name{font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.25;}
+.hcard-brand{font-size:.68rem;color:var(--gold);font-family:'DM Mono',monospace;margin-top:2px;}
+.hcard-price{font-family:'Noto Serif JP',serif;font-size:1.15rem;color:var(--indigo);margin-top:.45rem;}
+.hcard-price span{font-size:.66rem;font-family:'DM Mono',monospace;color:#aaa;}
+.hcard-times{font-size:.7rem;color:#777;margin-top:.35rem;line-height:1.5;}
+.hcard-why{font-size:.71rem;color:#888;margin-top:.4rem;line-height:1.45;font-style:italic;}
+.h-note{font-size:.71rem;color:#bbb;text-align:center;font-style:italic;margin-top:.5rem;padding-bottom:.5rem;}
+
+/* ── TIMELINE ── */
+.timeline{max-width:980px;margin:1.5rem auto 0;padding:0 1.25rem 4rem;}
+
+/* ── DAY CARD ── */
+.day-card{margin-bottom:1rem;border-radius:12px;overflow:hidden;border:1px solid var(--mist);background:#fff;transition:box-shadow .2s;}
+.day-card:hover{box-shadow:0 3px 16px rgba(0,0,0,.07);}
+.day-card.hidden{display:none;}
+
+/* DAY HEADER (clickable) */
+.day-hdr{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:0;cursor:pointer;user-select:none;}
+.day-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:76px;padding:1.1rem .6rem;color:#fff;font-family:'Noto Serif JP',serif;}
+.day-badge.rest{background:var(--rest);}
+.day-badge.culture{background:var(--culture);}
+.day-badge.hike{background:var(--hike);}
+.day-badge.travel{background:var(--travel);}
+.badge-num{font-size:1.6rem;font-weight:300;line-height:1;}
+.badge-wday{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;opacity:.75;margin-top:2px;}
+.badge-icon{margin-top:7px;font-size:1rem;}
+.day-summary{padding:.9rem 1.1rem;flex:1;}
+.day-title{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;color:var(--ink);line-height:1.3;}
+.day-subtitle{font-size:.74rem;color:#5A4A2A;margin-top:3px;font-family:'DM Mono',monospace;}
+.day-pills{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.5rem;}
+.day-pill{font-size:.62rem;padding:2px 8px;border-radius:10px;font-family:'DM Mono',monospace;}
+.pill-hotel{background:#FFF8E8;color:#8A6A1A;border:1px solid #E8D5A0;}
+.pill-cost{background:#EDF7EE;color:#2A6038;border:1px solid #B4DEB9;}
+.pill-dist{background:#EDF2FB;color:#1A3D8A;border:1px solid #B0C4F0;}
+.toggle-btn{padding:1rem 1.25rem;color:#ccc;font-size:.9rem;transition:transform .25s;}
+.toggle-btn.open{transform:rotate(180deg);}
+
+/* DAY BODY */
+/* day-body: details handles collapse */
+
+.day-body-inner{padding:.75rem 1.1rem 1.1rem;background:#FDFCF8;}
+
+/* HOTEL STRIP */
+.hotel-strip{background:#FFFBF0;border:1px solid #E5D49A;border-radius:8px;padding:.75rem 1rem;margin-bottom:.85rem;display:flex;flex-wrap:wrap;gap:.4rem .75rem;align-items:center;}
+.hs-name{font-size:.84rem;font-weight:600;color:#5A3E00;flex:1;min-width:150px;}
+.hs-badge{font-size:.63rem;padding:2px 8px;border-radius:10px;font-family:'DM Mono',monospace;}
+.hsb-in{background:#E8F4E8;color:#2A6038;border:1px solid #A8D5A8;}
+.hsb-out{background:#FEF0E8;color:#7A3A10;border:1px solid #F5C0A0;}
+.hsb-price{background:#EEF2FF;color:#2030A0;border:1px solid #B0BCEE;}
+.hsb-brand{background:#FFF3CC;color:#7A5500;border:1px solid #E8C840;}
+.hs-note{font-size:.72rem;color:#9A7040;width:100%;margin-top:.25rem;line-height:1.45;}
+
+/* ACTIVITIES */
+.activities{display:flex;flex-direction:column;}
+.act{display:grid;grid-template-columns:96px 1fr;gap:.7rem;padding:.5rem 0;border-top:1px solid var(--cloud);align-items:start;}
+.act:first-child{border-top:none;padding-top:0;}
+.act-time{font-family:'DM Mono',monospace;font-size:.66rem;color:#555;padding-top:2px;line-height:1.4;font-weight:500;}
+.act-name{font-size:.84rem;font-weight:500;color:var(--ink);line-height:1.3;}
+.act-name.transit{font-weight:400;color:#666;}
+.act-tags{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:3px;}
+.tag{font-size:.62rem;padding:2px 7px;border-radius:10px;font-family:'DM Mono',monospace;}
+.t-cost{background:#EDF7EE;color:#2A6038;border:1px solid #B4DEB9;}
+.t-train{background:#EDF2FB;color:#1A3D8A;border:1px solid #B0C4F0;}
+.t-bus{background:#FEF3E2;color:#7A4F00;border:1px solid #F5D08A;}
+.t-walk{background:#F3F0FF;color:#4B3B8A;border:1px solid #C5BCE8;}
+.t-dur{background:var(--cloud);color:#666;border:1px solid var(--mist);}
+.t-free{background:#EDF7EE;color:#2A6038;border:1px solid #B4DEB9;}
+.act-note{font-size:.74rem;color:#3A3020;margin-top:4px;line-height:1.55;}
+.act-tip{font-size:.72rem;color:#1A5A9A;margin-top:4px;line-height:1.45;font-weight:500;}
+
+/* COST SUMMARY */
+.cost-section{max-width:980px;margin:0 auto;padding:2rem 1.25rem 3rem;}
+.cost-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:.9rem;margin-bottom:.75rem;}
+.cc{background:#fff;border:1px solid var(--mist);border-radius:10px;padding:.9rem;text-align:center;}
+.cc-val{font-family:'Noto Serif JP',serif;font-size:1.3rem;font-weight:300;color:var(--indigo);}
+.cc-lbl{font-size:.64rem;color:#aaa;text-transform:uppercase;letter-spacing:.1em;margin-top:3px;font-family:'DM Mono',monospace;}
+.cc.highlight{border-color:var(--indigo);border-width:2px;}
+.cc.highlight .cc-val{color:var(--indigo);}
+
+/* ROUTE */
+.route-bar{background:var(--indigo);padding:2rem 1.5rem;text-align:center;}
+.route-eye{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:.9rem;}
+.route-visual{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;max-width:720px;margin:0 auto;}
+.rc{text-align:center;padding:.4rem .7rem;}
+.rc-name{font-family:'Noto Serif JP',serif;font-size:.88rem;color:#fff;}
+.rc-days{font-size:.6rem;color:rgba(255,255,255,.4);font-family:'DM Mono',monospace;margin-top:2px;}
+.rarrow{color:rgba(255,255,255,.25);padding:0 3px;font-size:.8rem;}
+
+@media(max-width:600px){
+  .day-badge{min-width:58px;padding:.9rem .4rem;}
+  .badge-num{font-size:1.3rem;}
+  .act{grid-template-columns:72px 1fr;}
+  .hotels-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* ── IMAGE STRIP ── */
+.day-img-strip{display:flex;gap:6px;margin-bottom:.85rem;border-radius:8px;overflow:hidden;height:110px;}
+.day-img-strip img{flex:1;min-width:0;object-fit:cover;filter:brightness(.92);transition:filter .2s;}
+.day-img-strip img:hover{filter:brightness(1.05);}
+
+/* ── DAY HERO IMAGE ── */
+.day-hero-img{width:100%;height:130px;object-fit:cover;object-position:center 60%;display:block;
+  border-bottom:3px solid transparent;}
+.day-card[data-type="rest"] .day-hero-img{border-color:var(--rest);}
+.day-card[data-type="culture"] .day-hero-img{border-color:var(--culture);}
+.day-card[data-type="hike"] .day-hero-img{border-color:var(--hike);}
+.day-card[data-type="travel"] .day-hero-img{border-color:var(--travel);}
+
+/* ── COLORED PILLS ── */
+.pill-hotel{background:linear-gradient(135deg,#8B6914,#C49A3C);color:#fff!important;border:none!important;}
+.pill-cost{background:linear-gradient(135deg,#1B5E30,#2E8B57);color:#fff!important;border:none!important;}
+.pill-dist{background:linear-gradient(135deg,#1A3578,#2D5ABF);color:#fff!important;border:none!important;}
+
+/* ── COLORED HOTEL STRIP ── */
+.hotel-strip{background:linear-gradient(135deg,#2D2A1E,#3D3520)!important;border:1px solid #7A6228!important;}
+.hotel-strip .hs-name{color:#F5D980!important;}
+.hotel-strip .hs-name span{color:#C4A84A!important;}
+.hotel-strip .hs-note{color:#C4A84A!important;}
+.hsb-in{background:#1B5E30!important;color:#fff!important;border:none!important;}
+.hsb-out{background:#7A1A1A!important;color:#fff!important;border:none!important;}
+.hsb-price{background:#1A3578!important;color:#fff!important;border:none!important;}
+.hsb-brand{background:#5A3D00!important;color:#FFD700!important;border:1px solid #8A6200!important;}
+
+/* ── COLORED ACT TAGS ── */
+.t-train{background:#1A3D8A!important;color:#fff!important;border:none!important;}
+.t-bus{background:#7A4200!important;color:#fff!important;border:none!important;}
+.t-walk{background:#4B2080!important;color:#fff!important;border:none!important;}
+.t-cost{background:#1B5E30!important;color:#fff!important;border:none!important;}
+.t-free{background:#1B5E30!important;color:#fff!important;border:none!important;}
+.t-dur{background:#555!important;color:#fff!important;border:none!important;}
+
+/* ── COLORED DAY HEADERS ── */
+.day-card[data-type="rest"] .day-hdr{background:linear-gradient(to right,#5C3D28,#FAF8F3 60%);}
+.day-card[data-type="culture"] .day-hdr{background:linear-gradient(to right,#1E2548,#FAF8F3 60%);}
+.day-card[data-type="hike"] .day-hdr{background:linear-gradient(to right,#1E3D2A,#FAF8F3 60%);}
+.day-card[data-type="travel"] .day-hdr{background:linear-gradient(to right,#4A3A10,#FAF8F3 60%);}
+
+/* ── SITE PHOTO CAPTIONS ── */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1rem;border-radius:8px;overflow:hidden;}
+.photo-item{position:relative;height:90px;overflow:hidden;}
+.photo-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.photo-item:hover img{transform:scale(1.05);}
+.photo-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));
+  color:#fff;font-size:.62rem;padding:4px 6px;font-family:'DM Mono',monospace;}
+
+/* ── TIPS COLORFUL ── */
+.act-tip{background:linear-gradient(135deg,#EEF5FF,#E5EEFF);border-left:3px solid #2D3561;
+  border-radius:0 6px 6px 0;padding:5px 8px!important;color:#1A3578!important;}
+
+/* ── HOTEL CARD COLORFUL ── */
+.hcard{background:linear-gradient(160deg,#fff,#FAFAF5)!important;border-top:3px solid var(--gold)!important;}
+.hcard-name{color:var(--ink);}
+.hcard-price{color:var(--indigo);}
+
+/* ── COST CARD HIGHLIGHT ── */
+.cc.highlight{background:linear-gradient(135deg,#1E2548,#2D3561)!important;border:none!important;}
+.cc.highlight .cc-val{color:#FFD700!important;}
+.cc.highlight .cc-lbl{color:rgba(255,255,255,.6)!important;}
+.cc[style*="gold"]{background:linear-gradient(135deg,#3D2E00,#5A4500)!important;border:none!important;}
+
+/* ── HERO DRAGON SVG OVERLAY ── */
+.hero-art{position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  opacity:.12;pointer-events:none;width:280px;}
+
+/* ── SECTION DIVIDERS ── */
+.route-bar{background:linear-gradient(135deg,#1A1F3D,#2D3561,#1A1F3D)!important;}
+.stats{background:linear-gradient(to right,#1E2240,#2D3561,#1E2240)!important;}
+
+/* ── SUMMARY BAR COLORFUL ── */
+.stat-v{font-size:1.6rem!important;}
+
+/* ── TIMELINE LEFT BORDER ACCENT ── */
+.day-card[data-type="rest"]{border-left:4px solid var(--rest)!important;}
+.day-card[data-type="culture"]{border-left:4px solid var(--culture)!important;}
+.day-card[data-type="hike"]{border-left:4px solid var(--hike)!important;}
+.day-card[data-type="travel"]{border-left:4px solid var(--travel)!important;}
+
+@media(max-width:600px){
+  .photo-grid{grid-template-columns:1fr 1fr;}
+  .photo-grid .photo-item:last-child{display:none;}
+  .day-hero-img{height:90px;}
+}
+
+
+.day-card {
+  box-shadow: 0 2px 12px rgba(100,85,50,0.10), 0 1px 3px rgba(100,85,50,0.08) !important;
+}
+.hcard {
+  box-shadow: 0 2px 8px rgba(100,85,50,0.08) !important;
+}
+
+/* Stone-path look for the hotel overview section */
+.hotel-overview {
+  background: rgba(255,253,248,0.85);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  margin-top: 1.5rem;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(180,160,110,0.2);
+}
+
+/* Cost section matches */
+.cost-section {
+  background: rgba(255,253,248,0.80);
+  border-radius: 16px;
+  margin: 1rem auto;
+  border: 1px solid rgba(180,160,110,0.15);
+}
+
+/* Section headers: ink brush style */
+.section-hdr {
+  font-family: 'Noto Serif JP', serif !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.08em !important;
+  color: #3D3020 !important;
+  border-bottom: 1px solid rgba(140,120,70,0.3) !important;
+}
+
+/* Zen stone accent markers on the timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: calc(1.25rem + 38px);
+  top: 2.5rem;
+  bottom: 4rem;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(160,140,90,0.25) 5%,
+    rgba(160,140,90,0.25) 95%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.act:nth-child(even){background:rgba(180,160,110,0.04);border-radius:4px;}
+.act-tip{border-left:3px solid #2D3561!important;background:linear-gradient(135deg,#EEF2FF,#E8EEFF)!important;}
+
+.day-card {
+  background: rgba(253,249,240,0.96) !important;
+  box-shadow:
+    0 4px 20px rgba(80,60,30,0.18),
+    0 1px 4px rgba(80,60,30,0.12),
+    0 0 0 1px rgba(180,155,100,0.15) !important;
+}
+.hcard {
+  background: rgba(253,249,240,0.95) !important;
+  box-shadow: 0 2px 10px rgba(80,60,30,0.12) !important;
+}
+
+/* Hotel overview: translucent washi */
+.hotel-overview {
+  background: rgba(245,238,220,0.88);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(160,130,80,0.25);
+}
+
+/* Cost section */
+.cost-section {
+  background: rgba(245,238,220,0.82);
+  border-radius: 16px;
+  margin: 1rem auto;
+  border: 1px solid rgba(160,130,80,0.20);
+}
+
+/* Section headers */
+.section-hdr {
+  font-family: 'Noto Serif JP', serif !important;
+  letter-spacing: 0.08em !important;
+  color: #3D2E18 !important;
+  border-bottom: 1px solid rgba(140,110,60,0.3) !important;
+}
+
+/* Activity rows: faint sepia tint on alternates */
+.act:nth-child(even){ background: rgba(160,130,80,0.04); border-radius: 4px; }
+
+/* Day body inner: warm white washi */
+.day-body-inner { background: rgba(253,249,240,0.98) !important; }
+
+/* Tip boxes: ink-blue on sepia */
+.act-tip {
+  border-left: 3px solid #2D3561 !important;
+  background: linear-gradient(135deg,rgba(238,242,255,0.9),rgba(232,238,255,0.9)) !important;
+}
+
+/* Subtle shadow lift */
+.day-card:hover {
+  box-shadow:
+    0 8px 32px rgba(80,60,30,0.22),
+    0 2px 6px rgba(80,60,30,0.14) !important;
+  transform: translateY(-2px);
+}
+
+
+/* ══════════════════════════════════════════
+   JAPANESE POND — aerial sepia, STRONG lines
+   Koi pond from above: raked gravel border,
+   lily pads, bold water ripple geometry
+══════════════════════════════════════════ */
+
+body {
+  background-color: #C8B89A !important;
+  position: relative;
+}
+
+/* ── LAYER 1: base warm sepia depth gradient */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 52% 48%,
+      #A89070 0%,
+      #B8A480 40%,
+      #C8B89A 75%,
+      #D4C8AD 100%
+    );
+}
+
+/* ── LAYER 2: strong geometric pond pattern */
+body::before { content:""; position:fixed; inset:0; z-index:1; pointer-events:none; }
+
+/* ── LAYER 3: pond SVG drawn directly on body via inline SVG bg */
+/* We'll use the ::before for the inline SVG pond art */
+
+/* All content sits above background layers */
+.hero, .stats, .hotel-overview, .timeline,
+.route-bar, .cost-section { position: relative; z-index: 2; }
+
+/* Cards: aged washi paper floating on water */
+.day-card {
+  background: rgba(253,249,240,0.97) !important;
+  box-shadow:
+    0 4px 20px rgba(80,60,30,0.20),
+    0 1px 4px rgba(80,60,30,0.13),
+    0 0 0 1px rgba(160,130,80,0.18) !important;
+}
+.hcard {
+  background: rgba(253,249,240,0.96) !important;
+  box-shadow: 0 2px 10px rgba(80,60,30,0.13) !important;
+}
+
+/* Hotel overview: translucent washi */
+.hotel-overview {
+  background: rgba(245,238,220,0.90);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(140,110,60,0.28);
+}
+.cost-section {
+  background: rgba(245,238,220,0.86);
+  border-radius: 16px;
+  margin: 1rem auto;
+  border: 1px solid rgba(140,110,60,0.22);
+}
+.section-hdr {
+  font-family: 'Noto Serif JP', serif !important;
+  letter-spacing: 0.08em !important;
+  color: #3D2E18 !important;
+  border-bottom: 1px solid rgba(120,90,40,0.35) !important;
+}
+.act:nth-child(even){ background: rgba(150,120,70,0.05); border-radius:4px; }
+.day-body-inner { background: rgba(253,249,240,0.98) !important; }
+.act-tip {
+  border-left: 3px solid #2D3561 !important;
+  background: linear-gradient(135deg,rgba(238,242,255,0.92),rgba(232,238,255,0.92)) !important;
+}
+.day-card:hover {
+  box-shadow:
+    0 8px 32px rgba(80,60,30,0.24),
+    0 2px 6px rgba(80,60,30,0.15) !important;
+  transform: translateY(-2px);
+}
+
+
+/* ══ DETAILS/SUMMARY — native collapse, works on iPhone ══ */
+details.day-card { display:block; }
+details.day-card > summary { list-style:none; }
+details.day-card > summary::-webkit-details-marker { display:none; }
+details.day-card > summary { cursor:pointer; }
+
+/* Hide JS toggle arrow; use CSS-driven arrow on summary */
+.toggle-btn { display:none !important; }
+.day-hdr::after {
+  content:'▼';
+  font-size:.8rem;
+  color:#ccc;
+  padding:0 1.25rem;
+  transition:transform .25s;
+  align-self:center;
+  flex-shrink:0;
+}
+details[open] > .day-hdr::after { transform:rotate(180deg); color:#888; }
+details.day-card > summary.day-hdr { display:grid; }
+
+/* ══ LANGUAGE TOGGLE ══ */
+/* Default: show English, hide Spanish */
+html[lang="en"] .es { display:none !important; }
+html[lang="es"] .en { display:none !important; }
+
+/* Flag toggle bar */
+#lang-bar {
+  position:fixed; top:14px; right:16px; z-index:9999;
+  display:flex; align-items:center; gap:4px;
+  background:rgba(255,251,240,0.94);
+  border:1px solid rgba(180,150,90,0.35);
+  border-radius:30px; padding:5px 12px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 2px 14px rgba(100,75,30,0.18);
+}
+#lang-bar button {
+  background:none; border:none; cursor:pointer;
+  font-size:1.5rem; line-height:1; padding:2px 5px;
+  border-radius:8px; transition:all .18s; opacity:0.45;
+}
+#lang-bar button.active { opacity:1; transform:scale(1.18); background:rgba(180,150,90,0.15); }
+#lang-bar button:hover { opacity:0.85; }
+#lang-bar .divider { width:1px; height:18px; background:rgba(160,130,70,0.30); margin:0 2px; }
+#lang-bar .lang-label {
+  font-family:'DM Mono',monospace; font-size:.58rem;
+  color:#8A7040; letter-spacing:.10em; text-transform:uppercase;
+}
+
+
+details.day-card .day-body { display: block; }
+details.day-card:not([open]) .day-body { display: none; }
+details.day-card .day-hero-img { display: block; }
+details.day-card:not([open]) .day-hero-img { display: none; }
+
+
+/* ══ DETAILS/SUMMARY ══ */
+details.day-card > summary { list-style:none; }
+details.day-card > summary::-webkit-details-marker { display:none; }
+details.day-card > summary { cursor:pointer; }
+.toggle-btn { display:none !important; }
+.day-hdr::after { content:'▼'; font-size:.8rem; color:#ccc; padding:0 1.25rem;
+  transition:transform .25s; align-self:center; flex-shrink:0; }
+details[open] > .day-hdr::after { transform:rotate(180deg); color:#888; }
+details.day-card > summary.day-hdr { display:grid; }
+/* ══ LANGUAGE ══ */
+
+/* ══ COLORED PILLS & TAGS ══ */
+.pill-hotel{background:linear-gradient(135deg,#8B6914,#C49A3C);color:#fff!important;border:none!important;}
+.pill-cost{background:linear-gradient(135deg,#1B5E30,#2E8B57);color:#fff!important;border:none!important;}
+.pill-dist{background:linear-gradient(135deg,#1A3578,#2D5ABF);color:#fff!important;border:none!important;}
+.hotel-strip{background:linear-gradient(135deg,#2D2A1E,#3D3520)!important;border:1px solid #7A6228!important;}
+.hotel-strip .hs-name{color:#F5D980!important;}
+.hotel-strip .hs-note{color:#C4A84A!important;}
+.hsb-in{background:#1B5E30!important;color:#fff!important;border:none!important;}
+.hsb-out{background:#7A1A1A!important;color:#fff!important;border:none!important;}
+.hsb-price{background:#1A3578!important;color:#fff!important;border:none!important;}
+.hsb-brand{background:#5A3D00!important;color:#FFD700!important;border:1px solid #8A6200!important;}
+.t-train{background:#1A3D8A!important;color:#fff!important;border:none!important;}
+.t-bus{background:#7A4200!important;color:#fff!important;border:none!important;}
+.t-walk{background:#4B2080!important;color:#fff!important;border:none!important;}
+.t-cost{background:#1B5E30!important;color:#fff!important;border:none!important;}
+.t-free{background:#1B5E30!important;color:#fff!important;border:none!important;}
+.t-dur{background:#555!important;color:#fff!important;border:none!important;}
+.day-card[data-type="rest"] .day-hdr{background:linear-gradient(to right,#5C3D28,#FAF8F3 60%);}
+.day-card[data-type="culture"] .day-hdr{background:linear-gradient(to right,#1E2548,#FAF8F3 60%);}
+.day-card[data-type="hike"] .day-hdr{background:linear-gradient(to right,#1E3D2A,#FAF8F3 60%);}
+.day-card[data-type="travel"] .day-hdr{background:linear-gradient(to right,#4A3A10,#FAF8F3 60%);}
+.day-card[data-type="rest"]{border-left:4px solid var(--rest)!important;}
+.day-card[data-type="culture"]{border-left:4px solid var(--culture)!important;}
+.day-card[data-type="hike"]{border-left:4px solid var(--hike)!important;}
+.day-card[data-type="travel"]{border-left:4px solid var(--travel)!important;}
+.act-tip{background:linear-gradient(135deg,rgba(238,242,255,0.9),rgba(232,238,255,0.9))!important;
+  border-left:3px solid #2D3561!important;border-radius:0 6px 6px 0;padding:5px 8px!important;color:#1A3578!important;}
+.day-img-strip{display:flex;gap:6px;margin-bottom:.85rem;border-radius:8px;overflow:hidden;height:110px;}
+.day-img-strip img{flex:1;min-width:0;object-fit:cover;}
+.day-hero-img{width:100%;height:130px;object-fit:cover;object-position:center 60%;display:block;}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1rem;border-radius:8px;overflow:hidden;}
+.photo-item{position:relative;height:90px;overflow:hidden;}
+.photo-item img{width:100%;height:100%;object-fit:cover;}
+.photo-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));
+  color:#fff;font-size:.62rem;padding:4px 6px;font-family:'DM Mono',monospace;}
+.hcard{background:linear-gradient(160deg,#fff,#FAFAF5)!important;border-top:3px solid var(--gold)!important;}
+.cc.highlight{background:linear-gradient(135deg,#1E2548,#2D3561)!important;border:none!important;}
+.cc.highlight .cc-val{color:#FFD700!important;}
+.cc.highlight .cc-lbl{color:rgba(255,255,255,.6)!important;}
+
+
+/* iOS Safari tap fixes */
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+button, .leg, .ctrl-btn, summary, .day-hdr { 
+  cursor: pointer; 
+  -webkit-appearance: none;
+  touch-action: manipulation;
+}
+.leg { 
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.65);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: all .18s;
+}
+.leg.on { background: rgba(255,255,255,0.11); color: #fff; border-color: rgba(255,255,255,0.35); }
+
+</style>
+</head>
+<body>
+<svg id="pond-bg" xmlns="http://www.w3.org/2000/svg"
+  style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;">
+  <defs><radialGradient id="wd" cx="50%" cy="50%" r="55%">
+    <stop offset="0%" stop-color="#7A6040" stop-opacity="0.30"/>
+    <stop offset="70%" stop-color="#9A8060" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#B89A70" stop-opacity="0"/>
+  </radialGradient></defs>
+  <ellipse cx="50%" cy="50%" rx="38%" ry="30%" fill="url(#wd)"/>
+  <ellipse cx="20%" cy="22%" rx="2.5%" ry="1.8%" fill="#6B5030" opacity="0.55"/>
+  <ellipse cx="20%" cy="22%" rx="5%" ry="3.5%" stroke="#6B5030" stroke-width="2.2" fill="none" opacity="0.48"/>
+  <ellipse cx="20%" cy="22%" rx="7.8%" ry="5.5%" stroke="#6B5030" stroke-width="1.6" fill="none" opacity="0.34"/>
+  <ellipse cx="20%" cy="22%" rx="11%" ry="7.5%" stroke="#6B5030" stroke-width="1.1" fill="none" opacity="0.22"/>
+  <ellipse cx="20%" cy="22%" rx="14.5%" ry="10%" stroke="#6B5030" stroke-width="0.7" fill="none" opacity="0.13"/>
+  <ellipse cx="76%" cy="55%" rx="2.2%" ry="1.6%" fill="#5A4228" opacity="0.50"/>
+  <ellipse cx="76%" cy="55%" rx="4.5%" ry="3.2%" stroke="#5A4228" stroke-width="2.0" fill="none" opacity="0.44"/>
+  <ellipse cx="76%" cy="55%" rx="7.2%" ry="5.1%" stroke="#5A4228" stroke-width="1.4" fill="none" opacity="0.30"/>
+  <ellipse cx="76%" cy="55%" rx="10%" ry="7.2%" stroke="#5A4228" stroke-width="0.9" fill="none" opacity="0.20"/>
+  <ellipse cx="76%" cy="55%" rx="13.5%" ry="9.5%" stroke="#5A4228" stroke-width="0.6" fill="none" opacity="0.12"/>
+  <ellipse cx="42%" cy="80%" rx="1.8%" ry="1.3%" fill="#6B5030" opacity="0.45"/>
+  <ellipse cx="42%" cy="80%" rx="3.8%" ry="2.7%" stroke="#6B5030" stroke-width="1.8" fill="none" opacity="0.38"/>
+  <ellipse cx="42%" cy="80%" rx="6.2%" ry="4.4%" stroke="#6B5030" stroke-width="1.2" fill="none" opacity="0.26"/>
+  <ellipse cx="42%" cy="80%" rx="9%" ry="6.3%" stroke="#6B5030" stroke-width="0.8" fill="none" opacity="0.16"/>
+  <ellipse cx="88%" cy="18%" rx="2.0%" ry="1.4%" fill="#5A4228" opacity="0.42"/>
+  <ellipse cx="88%" cy="18%" rx="4.2%" ry="3.0%" stroke="#5A4228" stroke-width="1.7" fill="none" opacity="0.36"/>
+  <ellipse cx="88%" cy="18%" rx="6.8%" ry="4.8%" stroke="#5A4228" stroke-width="1.1" fill="none" opacity="0.24"/>
+  <ellipse cx="88%" cy="18%" rx="9.8%" ry="7.0%" stroke="#5A4228" stroke-width="0.7" fill="none" opacity="0.15"/>
+  <ellipse cx="50%" cy="48%" rx="3.0%" ry="2.2%" fill="#7A6040" opacity="0.30"/>
+  <ellipse cx="50%" cy="48%" rx="6.5%" ry="4.6%" stroke="#7A6040" stroke-width="1.8" fill="none" opacity="0.26"/>
+  <ellipse cx="50%" cy="48%" rx="10%" ry="7.2%" stroke="#7A6040" stroke-width="1.2" fill="none" opacity="0.18"/>
+  <ellipse cx="50%" cy="48%" rx="14.5%" ry="10.5%" stroke="#7A6040" stroke-width="0.8" fill="none" opacity="0.12"/>
+  <ellipse cx="18%" cy="20%" rx="4.2%" ry="2.8%" fill="#6A5528" opacity="0.68"/>
+  <ellipse cx="18%" cy="18.5%" rx="1.0%" ry="0.7%" fill="#E8C8A0" opacity="0.82"/>
+  <ellipse cx="17%" cy="17.8%" rx="0.65%" ry="1.0%" fill="#DDB880" opacity="0.65" transform="rotate(-28,17%,17.8%)"/>
+  <ellipse cx="19%" cy="17.8%" rx="0.65%" ry="1.0%" fill="#DDB880" opacity="0.65" transform="rotate(28,19%,17.8%)"/>
+  <ellipse cx="74%" cy="53%" rx="3.0%" ry="2.0%" fill="#6A5528" opacity="0.62"/>
+  <ellipse cx="74%" cy="51.7%" rx="0.75%" ry="0.52%" fill="#E8C8A0" opacity="0.78"/>
+  <ellipse cx="73%" cy="51.0%" rx="0.5%" ry="0.78%" fill="#DDB880" opacity="0.60" transform="rotate(-30,73%,51%)"/>
+  <ellipse cx="75%" cy="51.0%" rx="0.5%" ry="0.78%" fill="#DDB880" opacity="0.60" transform="rotate(30,75%,51%)"/>
+  <ellipse cx="40%" cy="78%" rx="2.2%" ry="1.5%" fill="#6A5528" opacity="0.55"/>
+  <ellipse cx="82%" cy="80%" rx="2.6%" ry="1.8%" fill="#6A5528" opacity="0.58"/>
+  <ellipse cx="36%" cy="44%" rx="5.5%" ry="1.7%" fill="#7A5A2A" opacity="0.25" transform="rotate(-18,36%,44%)"/>
+  <ellipse cx="60%" cy="38%" rx="4.5%" ry="1.5%" fill="#6B4A1A" opacity="0.22" transform="rotate(22,60%,38%)"/>
+  <ellipse cx="28%" cy="65%" rx="4.0%" ry="1.4%" fill="#8B6A3A" opacity="0.20" transform="rotate(8,28%,65%)"/>
+  <ellipse cx="32%" cy="30%" rx="3.0%" ry="1.2%" fill="#EDE0C0" opacity="0.14" transform="rotate(-10,32%,30%)"/>
+  <ellipse cx="68%" cy="25%" rx="2.2%" ry="0.9%" fill="#EDE0C0" opacity="0.11" transform="rotate(15,68%,25%)"/>
+</svg>
+<div id="lang-bar">
+  <span class="lang-label">LANG</span>
+  <div class="divider"></div>
+  <button id="btn-en" class="active" data-lang="en" title="English">&#127482;&#127480;</button>
+  <button id="btn-es" data-lang="es" title="Español">&#127474;&#127485;</button>
+</div>
+<script>
+(function(){
+  function setLang(l){
+    document.getElementById('root').setAttribute('lang',l);
+    document.getElementById('btn-en').className=(l==='en')?'active':'';
+    document.getElementById('btn-es').className=(l==='es')?'active':'';
+  }
+  function attachBtn(id,lang){
+    var btn=document.getElementById(id);
+    if(!btn)return;
+    ['click','touchend'].forEach(function(evt){
+      btn.addEventListener(evt,function(e){e.preventDefault();e.stopPropagation();setLang(lang);},{passive:false});
+    });
+  }
+  attachBtn('btn-en','en');
+  attachBtn('btn-es','es');
+
+  /* Fix filterDays for iOS — attach touch events to leg buttons */
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('button.leg').forEach(function(btn){
+      btn.addEventListener('touchend', function(e){
+        e.preventDefault();
+        var oc = btn.getAttribute('onclick');
+        if(oc) { try{ eval(oc); }catch(ex){} }
+      }, {passive:false});
+    });
+    document.querySelectorAll('button.ctrl-btn').forEach(function(btn){
+      btn.addEventListener('touchend', function(e){
+        e.preventDefault();
+        var oc = btn.getAttribute('onclick');
+        if(oc) { try{ eval(oc); }catch(ex){} }
+      }, {passive:false});
+    });
+  });
+})();
+</script>
+<!-- Pond background: ovals only — ripples, pads, koi, depth -->
+<svg id="pond-bg" xmlns="http://www.w3.org/2000/svg"
+  style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;">
+  <defs>
+    <radialGradient id="wd" cx="50%" cy="50%" r="55%">
+      <stop offset="0%"   stop-color="#7A6040" stop-opacity="0.30"/>
+      <stop offset="70%"  stop-color="#9A8060" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#B89A70" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Deep water centre -->
+  <ellipse cx="50%" cy="50%" rx="38%" ry="30%" fill="url(#wd)"/>
+
+  <!-- ════ RIPPLE CLUSTER 1 — top-left ════ -->
+  <ellipse cx="20%" cy="22%" rx="2.5%" ry="1.8%" fill="#6B5030" opacity="0.55"/>
+  <ellipse cx="20%" cy="22%" rx="5%"   ry="3.5%" stroke="#6B5030" stroke-width="2.2" fill="none" opacity="0.48"/>
+  <ellipse cx="20%" cy="22%" rx="7.8%" ry="5.5%" stroke="#6B5030" stroke-width="1.6" fill="none" opacity="0.34"/>
+  <ellipse cx="20%" cy="22%" rx="11%"  ry="7.5%" stroke="#6B5030" stroke-width="1.1" fill="none" opacity="0.22"/>
+  <ellipse cx="20%" cy="22%" rx="14.5%"ry="10%"  stroke="#6B5030" stroke-width="0.7" fill="none" opacity="0.13"/>
+  <ellipse cx="20%" cy="22%" rx="18%"  ry="12.5%"stroke="#6B5030" stroke-width="0.4" fill="none" opacity="0.08"/>
+
+  <!-- ════ RIPPLE CLUSTER 2 — right side ════ -->
+  <ellipse cx="76%" cy="55%" rx="2.2%" ry="1.6%" fill="#5A4228" opacity="0.50"/>
+  <ellipse cx="76%" cy="55%" rx="4.5%" ry="3.2%" stroke="#5A4228" stroke-width="2.0" fill="none" opacity="0.44"/>
+  <ellipse cx="76%" cy="55%" rx="7.2%" ry="5.1%" stroke="#5A4228" stroke-width="1.4" fill="none" opacity="0.30"/>
+  <ellipse cx="76%" cy="55%" rx="10%"  ry="7.2%" stroke="#5A4228" stroke-width="0.9" fill="none" opacity="0.20"/>
+  <ellipse cx="76%" cy="55%" rx="13.5%"ry="9.5%" stroke="#5A4228" stroke-width="0.6" fill="none" opacity="0.12"/>
+  <ellipse cx="76%" cy="55%" rx="17%"  ry="12%"  stroke="#5A4228" stroke-width="0.3" fill="none" opacity="0.07"/>
+
+  <!-- ════ RIPPLE CLUSTER 3 — bottom centre ════ -->
+  <ellipse cx="42%" cy="80%" rx="1.8%" ry="1.3%" fill="#6B5030" opacity="0.45"/>
+  <ellipse cx="42%" cy="80%" rx="3.8%" ry="2.7%" stroke="#6B5030" stroke-width="1.8" fill="none" opacity="0.38"/>
+  <ellipse cx="42%" cy="80%" rx="6.2%" ry="4.4%" stroke="#6B5030" stroke-width="1.2" fill="none" opacity="0.26"/>
+  <ellipse cx="42%" cy="80%" rx="9%"   ry="6.3%" stroke="#6B5030" stroke-width="0.8" fill="none" opacity="0.16"/>
+  <ellipse cx="42%" cy="80%" rx="12%"  ry="8.5%" stroke="#6B5030" stroke-width="0.5" fill="none" opacity="0.09"/>
+
+  <!-- ════ RIPPLE CLUSTER 4 — bottom-right ════ -->
+  <ellipse cx="83%" cy="82%" rx="1.5%" ry="1.1%" fill="#7A6040" opacity="0.40"/>
+  <ellipse cx="83%" cy="82%" rx="3.2%" ry="2.3%" stroke="#7A6040" stroke-width="1.6" fill="none" opacity="0.34"/>
+  <ellipse cx="83%" cy="82%" rx="5.5%" ry="3.9%" stroke="#7A6040" stroke-width="1.0" fill="none" opacity="0.22"/>
+  <ellipse cx="83%" cy="82%" rx="8%"   ry="5.7%" stroke="#7A6040" stroke-width="0.6" fill="none" opacity="0.14"/>
+  <ellipse cx="83%" cy="82%" rx="11%"  ry="7.8%" stroke="#7A6040" stroke-width="0.4" fill="none" opacity="0.08"/>
+
+  <!-- ════ RIPPLE CLUSTER 5 — upper right ════ -->
+  <ellipse cx="88%" cy="18%" rx="2.0%" ry="1.4%" fill="#5A4228" opacity="0.42"/>
+  <ellipse cx="88%" cy="18%" rx="4.2%" ry="3.0%" stroke="#5A4228" stroke-width="1.7" fill="none" opacity="0.36"/>
+  <ellipse cx="88%" cy="18%" rx="6.8%" ry="4.8%" stroke="#5A4228" stroke-width="1.1" fill="none" opacity="0.24"/>
+  <ellipse cx="88%" cy="18%" rx="9.8%" ry="7.0%" stroke="#5A4228" stroke-width="0.7" fill="none" opacity="0.15"/>
+  <ellipse cx="88%" cy="18%" rx="13%"  ry="9.2%" stroke="#5A4228" stroke-width="0.4" fill="none" opacity="0.08"/>
+
+  <!-- ════ RIPPLE CLUSTER 6 — mid-left ════ -->
+  <ellipse cx="8%"  cy="60%" rx="1.6%" ry="1.2%" fill="#6B5030" opacity="0.38"/>
+  <ellipse cx="8%"  cy="60%" rx="3.4%" ry="2.5%" stroke="#6B5030" stroke-width="1.5" fill="none" opacity="0.32"/>
+  <ellipse cx="8%"  cy="60%" rx="5.6%" ry="4.0%" stroke="#6B5030" stroke-width="1.0" fill="none" opacity="0.20"/>
+  <ellipse cx="8%"  cy="60%" rx="8.0%" ry="5.7%" stroke="#6B5030" stroke-width="0.6" fill="none" opacity="0.12"/>
+
+  <!-- ════ RIPPLE CLUSTER 7 — centre (subtle, large) ════ -->
+  <ellipse cx="50%" cy="48%" rx="3.0%" ry="2.2%" fill="#7A6040" opacity="0.30"/>
+  <ellipse cx="50%" cy="48%" rx="6.5%" ry="4.6%" stroke="#7A6040" stroke-width="1.8" fill="none" opacity="0.26"/>
+  <ellipse cx="50%" cy="48%" rx="10%"  ry="7.2%" stroke="#7A6040" stroke-width="1.2" fill="none" opacity="0.18"/>
+  <ellipse cx="50%" cy="48%" rx="14.5%"ry="10.5%"stroke="#7A6040" stroke-width="0.8" fill="none" opacity="0.12"/>
+  <ellipse cx="50%" cy="48%" rx="19.5%"ry="14%"  stroke="#7A6040" stroke-width="0.5" fill="none" opacity="0.07"/>
+  <ellipse cx="50%" cy="48%" rx="25%"  ry="18%"  stroke="#7A6040" stroke-width="0.3" fill="none" opacity="0.04"/>
+
+  <!-- ════ LILY PADS — solid filled ovals, darker sepia ════ -->
+  <!-- Pad 1 — large, top-left near cluster 1 -->
+  <ellipse cx="18%" cy="20%" rx="4.2%" ry="2.8%" fill="#6A5528" opacity="0.68"/>
+  <ellipse cx="18%" cy="20%" rx="2.0%" ry="1.3%" fill="#7A6535" opacity="0.45"/>
+  <!-- Pad 1 veins as thin ovals -->
+  <ellipse cx="16.5%"cy="20%" rx="0.9%" ry="0.4%" fill="#9A8050" opacity="0.35" transform="rotate(-25,16.5%,20%)"/>
+  <ellipse cx="19.5%"cy="19.5%"rx="0.9%"ry="0.4%" fill="#9A8050" opacity="0.35" transform="rotate(25,19.5%,19.5%)"/>
+  <ellipse cx="18%"  cy="22%" rx="0.7%" ry="0.35%"fill="#9A8050" opacity="0.30" transform="rotate(5,18%,22%)"/>
+  <!-- Lotus on pad 1 -->
+  <ellipse cx="18%" cy="18.5%"rx="1.0%" ry="0.7%" fill="#E8C8A0" opacity="0.82"/>
+  <ellipse cx="17%"  cy="17.8%"rx="0.65%"ry="1.0%" fill="#DDB880" opacity="0.65" transform="rotate(-28,17%,17.8%)"/>
+  <ellipse cx="19%"  cy="17.8%"rx="0.65%"ry="1.0%" fill="#DDB880" opacity="0.65" transform="rotate(28,19%,17.8%)"/>
+  <ellipse cx="17.5%"cy="17.2%"rx="0.55%"ry="0.9%" fill="#E8C8A0" opacity="0.50" transform="rotate(-50,17.5%,17.2%)"/>
+  <ellipse cx="18.5%"cy="17.1%"rx="0.55%"ry="0.9%" fill="#E8C8A0" opacity="0.50" transform="rotate(50,18.5%,17.1%)"/>
+  <ellipse cx="18%"  cy="17.0%"rx="0.5%" ry="0.85%"fill="#DDB880" opacity="0.45" transform="rotate(0,18%,17%)"/>
+
+  <!-- Pad 2 — medium, centre-right -->
+  <ellipse cx="74%" cy="53%" rx="3.0%" ry="2.0%" fill="#6A5528" opacity="0.62"/>
+  <ellipse cx="74%" cy="53%" rx="1.4%" ry="0.9%" fill="#7A6535" opacity="0.40"/>
+  <ellipse cx="72.5%"cy="53%" rx="0.7%"ry="0.32%"fill="#9A8050" opacity="0.30" transform="rotate(-20,72.5%,53%)"/>
+  <ellipse cx="75.5%"cy="52.5%"rx="0.7%"ry="0.32%"fill="#9A8050" opacity="0.30" transform="rotate(20,75.5%,52.5%)"/>
+  <!-- Lotus on pad 2 -->
+  <ellipse cx="74%" cy="51.7%"rx="0.75%"ry="0.52%"fill="#E8C8A0" opacity="0.78"/>
+  <ellipse cx="73%"  cy="51.0%"rx="0.5%" ry="0.78%"fill="#DDB880" opacity="0.60" transform="rotate(-30,73%,51%)"/>
+  <ellipse cx="75%"  cy="51.0%"rx="0.5%" ry="0.78%"fill="#DDB880" opacity="0.60" transform="rotate(30,75%,51%)"/>
+  <ellipse cx="74%"  cy="50.5%"rx="0.45%"ry="0.72%"fill="#E8C8A0" opacity="0.45"/>
+
+  <!-- Pad 3 — small, bottom -->
+  <ellipse cx="40%" cy="78%" rx="2.2%" ry="1.5%" fill="#6A5528" opacity="0.55"/>
+  <ellipse cx="40%" cy="78%" rx="1.0%" ry="0.65%"fill="#7A6535" opacity="0.35"/>
+  <ellipse cx="40%" cy="76.8%"rx="0.6%" ry="0.42%"fill="#E8C8A0" opacity="0.70"/>
+  <ellipse cx="39.3%"cy="76.2%"rx="0.42%"ry="0.65%"fill="#DDB880" opacity="0.55" transform="rotate(-25,39.3%,76.2%)"/>
+  <ellipse cx="40.7%"cy="76.2%"rx="0.42%"ry="0.65%"fill="#DDB880" opacity="0.55" transform="rotate(25,40.7%,76.2%)"/>
+
+  <!-- Pad 4 — small, upper right -->
+  <ellipse cx="85%" cy="16%" rx="2.0%" ry="1.3%" fill="#6A5528" opacity="0.52"/>
+  <ellipse cx="83.5%"cy="16%"rx="0.5%" ry="0.25%"fill="#9A8050" opacity="0.28" transform="rotate(-18,83.5%,16%)"/>
+
+  <!-- Pad 5 — tiny, left edge -->
+  <ellipse cx="5%"  cy="58%" rx="1.5%" ry="1.0%" fill="#6A5528" opacity="0.48"/>
+
+  <!-- Pad 6 — medium, bottom right -->
+  <ellipse cx="82%" cy="80%" rx="2.6%" ry="1.8%" fill="#6A5528" opacity="0.58"/>
+  <ellipse cx="82%" cy="80%" rx="1.2%" ry="0.8%" fill="#7A6535" opacity="0.38"/>
+  <ellipse cx="82%" cy="78.8%"rx="0.65%"ry="0.45%"fill="#E8C8A0" opacity="0.72"/>
+  <ellipse cx="81.2%"cy="78.2%"rx="0.45%"ry="0.70%"fill="#DDB880" opacity="0.58" transform="rotate(-28,81.2%,78.2%)"/>
+  <ellipse cx="82.8%"cy="78.2%"rx="0.45%"ry="0.70%"fill="#DDB880" opacity="0.58" transform="rotate(28,82.8%,78.2%)"/>
+
+  <!-- ════ KOI FISH — elongated ovals ════ -->
+  <!-- Koi 1 -->
+  <ellipse cx="36%" cy="44%" rx="5.5%" ry="1.7%" fill="#7A5A2A" opacity="0.25" transform="rotate(-18,36%,44%)"/>
+  <ellipse cx="32.5%"cy="43%"rx="1.8%" ry="0.9%" fill="#7A5A2A" opacity="0.18" transform="rotate(-18,32.5%,43%)"/>
+  <ellipse cx="36%" cy="44%" rx="2.5%" ry="0.8%" fill="#C8A060" opacity="0.12" transform="rotate(-18,36%,44%)"/>
+
+  <!-- Koi 2 -->
+  <ellipse cx="60%" cy="38%" rx="4.5%" ry="1.5%" fill="#6B4A1A" opacity="0.22" transform="rotate(22,60%,38%)"/>
+  <ellipse cx="64%"  cy="39.5%"rx="1.5%"ry="0.7%" fill="#6B4A1A" opacity="0.16" transform="rotate(22,64%,39.5%)"/>
+
+  <!-- Koi 3 -->
+  <ellipse cx="28%" cy="65%" rx="4.0%" ry="1.4%" fill="#8B6A3A" opacity="0.20" transform="rotate(8,28%,65%)"/>
+  <ellipse cx="31.8%"cy="65.5%"rx="1.3%"ry="0.65%"fill="#8B6A3A" opacity="0.15" transform="rotate(8,31.8%,65.5%)"/>
+
+  <!-- Koi 4 — small, deep centre -->
+  <ellipse cx="52%" cy="62%" rx="3.2%" ry="1.1%" fill="#7A5A2A" opacity="0.18" transform="rotate(-5,52%,62%)"/>
+  <ellipse cx="55%"  cy="61.8%"rx="1.1%"ry="0.55%"fill="#7A5A2A" opacity="0.13" transform="rotate(-5,55%,61.8%)"/>
+
+  <!-- Koi 5 — upper area -->
+  <ellipse cx="44%" cy="28%" rx="3.8%" ry="1.3%" fill="#6B4A1A" opacity="0.17" transform="rotate(35,44%,28%)"/>
+
+  <!-- ════ EXTRA scattered ovals — floating debris, reflections ════ -->
+  <ellipse cx="30%" cy="38%" rx="1.1%" ry="0.7%" fill="#8B7040" opacity="0.18" transform="rotate(12,30%,38%)"/>
+  <ellipse cx="65%" cy="72%" rx="1.4%" ry="0.9%" fill="#7A6030" opacity="0.16" transform="rotate(-8,65%,72%)"/>
+  <ellipse cx="14%" cy="45%" rx="0.8%" ry="0.5%" fill="#8B7040" opacity="0.20"/>
+  <ellipse cx="92%" cy="42%" rx="0.9%" ry="0.6%" fill="#7A6030" opacity="0.17"/>
+  <ellipse cx="55%" cy="90%" rx="1.2%" ry="0.7%" fill="#8B7040" opacity="0.15"/>
+  <ellipse cx="70%" cy="10%" rx="1.0%" ry="0.65%"fill="#7A6030" opacity="0.18"/>
+  <ellipse cx="38%" cy="58%" rx="0.7%" ry="0.45%"fill="#9A8050" opacity="0.14"/>
+  <ellipse cx="22%" cy="88%" rx="0.9%" ry="0.55%"fill="#8B7040" opacity="0.16"/>
+  <ellipse cx="90%" cy="70%" rx="0.8%" ry="0.50%"fill="#7A6030" opacity="0.15"/>
+
+  <!-- Light shimmer — pale ovals suggesting sun on water -->
+  <ellipse cx="32%" cy="30%" rx="3.0%" ry="1.2%" fill="#EDE0C0" opacity="0.14" transform="rotate(-10,32%,30%)"/>
+  <ellipse cx="68%" cy="25%" rx="2.2%" ry="0.9%" fill="#EDE0C0" opacity="0.11" transform="rotate(15,68%,25%)"/>
+  <ellipse cx="55%" cy="70%" rx="2.5%" ry="1.0%" fill="#EDE0C0" opacity="0.10" transform="rotate(-5,55%,70%)"/>
+  <ellipse cx="15%" cy="50%" rx="1.8%" ry="0.7%" fill="#EDE0C0" opacity="0.12" transform="rotate(20,15%,50%)"/>
+
+</svg>
+
+
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-art" viewBox="0 0 280 400" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Dragon body sinuous curve -->
+  <path d="M200,20 Q240,80 200,140 Q160,200 200,260 Q240,320 180,380" stroke="white" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- Scales -->
+  <path d="M210,50 Q225,45 215,60" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M195,80 Q215,72 202,92" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M208,115 Q226,108 212,128" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M197,148 Q218,138 205,160" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M208,180 Q228,172 214,194" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M198,215 Q220,205 205,228" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M209,248 Q230,240 215,262" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M200,282 Q222,273 207,296" stroke="white" stroke-width="3" fill="none"/>
+  <!-- Dragon head -->
+  <ellipse cx="200" cy="20" rx="22" ry="16" fill="white" opacity="0.85"/>
+  <circle cx="192" cy="15" r="3" fill="#2D3561"/>
+  <circle cx="208" cy="15" r="3" fill="#2D3561"/>
+  <!-- Horns -->
+  <path d="M188,8 Q182,0 185,10" stroke="white" stroke-width="3" fill="none"/>
+  <path d="M212,8 Q218,0 215,10" stroke="white" stroke-width="3" fill="none"/>
+  <!-- Whiskers -->
+  <path d="M178,22 Q165,18 158,22" stroke="white" stroke-width="2" fill="none"/>
+  <path d="M178,26 Q163,28 158,32" stroke="white" stroke-width="2" fill="none"/>
+  <!-- Claws -->
+  <path d="M185,140 Q170,148 165,142 M185,140 Q172,155 166,152 M185,140 Q175,162 170,158" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M195,260 Q178,265 173,258 M195,260 Q180,272 175,268 M195,260 Q182,278 177,274" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Fire breath -->
+  <path d="M178,28 Q155,35 145,28 Q138,42 150,45 Q135,50 140,60" stroke="#FFD700" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M178,28 Q160,40 155,55" stroke="#FF8C00" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+</svg><svg style="position:absolute;bottom:0;left:0;right:0;opacity:.08;pointer-events:none;" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,60 C150,100 350,0 600,60 C850,120 1050,20 1200,60 L1200,120 L0,120 Z" fill="white"/>
+  <path d="M0,80 C200,40 400,110 600,80 C800,50 1000,100 1200,80 L1200,120 L0,120 Z" fill="white" opacity="0.5"/>
+</svg>
+
+
+  <div class="hero-eyebrow"><span class="en">The Riveras&#39; Trip</span><span class="es">El Viaje de los Rivera</span></div>
+  <h1>Japan</h1>
+  <div class="hero-dates"><span class="en">May 28 – June 10, 2025 &nbsp;·&nbsp; Tokyo &nbsp;·&nbsp; Takayama &nbsp;·&nbsp; Kyoto &nbsp;·&nbsp; Osaka</span><span class="es">28 May – 10 Jun 2025 &nbsp;·&nbsp; Tokio &nbsp;·&nbsp; Takayama &nbsp;·&nbsp; Kioto &nbsp;·&nbsp; Osaka</span></div>
+  <div class="legend">
+    <button class="leg on" onclick="filterDays('all',this)"><span class="ldot" style="background:#fff"></span><span class="en">All days</span><span class="es">Todos los días</span></button>
+    <button class="leg" onclick="filterDays('rest',this)"><span class="ldot" style="background:#7B5E4A"></span><span class="en">Rest</span><span class="es">Descanso</span></button>
+    <button class="leg" onclick="filterDays('culture',this)"><span class="ldot" style="background:#2D3561"></span><span class="en">Culture</span><span class="es">Cultura</span></button>
+    <button class="leg" onclick="filterDays('hike',this)"><span class="ldot" style="background:#3D6B4F"></span><span class="en">Hike</span><span class="es">Caminata</span></button>
+    <button class="leg" onclick="filterDays('travel',this)"><span class="ldot" style="background:#C49A3C"></span><span class="en">Travel</span><span class="es">Viaje</span></button>
+  </button>
+  <div class="ctrl-row">
+    <button class="ctrl-btn" onclick="expandAll()"><span class="en">Expand All</span><span class="es">Expandir Todo</span></button>
+    <button class="ctrl-btn" onclick="collapseAll()"><span class="en">Collapse All</span><span class="es">Colapsar Todo</span></button>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item"><div class="stat-v">14</div><div class="stat-l"><span class="en">Days</span><span class="es">Días</span></div></div>
+  <div class="stat-item"><div class="stat-v">4</div><div class="stat-l"><span class="en">Cities</span><span class="es">Ciudades</span></div></div>
+  <div class="stat-item"><div class="stat-v">5</div><div class="stat-l"><span class="en">Hotels</span><span class="es">Hoteles</span></div></div>
+  <div class="stat-item"><div class="stat-v">2</div><div class="stat-l"><span class="en">Hikes</span><span class="es">Caminatas</span></div></div>
+  <div class="stat-item"><div class="stat-v">~$290–$400</div><div class="stat-l"><span class="en">Est. $<span class="en">/night</span><span class="es">/noche</span> avg</span><span class="es">Est. $/noche prom.</span></div></div>
+  <div class="stat-item"><div class="stat-v">¥47,030+</div><div class="stat-l"><span class="en">Rail costs</span><span class="es">Costos de tren</span></div></div>
+</div>
+
+<!-- TIMELINE -->
+<div style="text-align:center;padding:.5rem 0;position:relative;z-index:1;">
+<svg viewBox="0 0 600 30" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;opacity:.18;">
+  <line x1="0" y1="8" x2="600" y2="8" stroke="#8B7540" stroke-width="0.8"/>
+  <line x1="0" y1="14" x2="600" y2="14" stroke="#8B7540" stroke-width="0.8"/>
+  <line x1="0" y1="20" x2="600" y2="20" stroke="#8B7540" stroke-width="0.8"/>
+  <ellipse cx="300" cy="14" rx="22" ry="13" fill="#F5F3EE" stroke="#8B7540" stroke-width="1"/>
+  <ellipse cx="300" cy="14" rx="32" ry="18" stroke="#8B7540" stroke-width="0.6" fill="none"/>
+  <ellipse cx="300" cy="14" rx="42" ry="22" stroke="#8B7540" stroke-width="0.4" fill="none"/>
+  <text x="300" y="18" text-anchor="middle" font-family="serif" font-size="10" fill="#8B7540">⛩</text>
+  <line x1="0" y1="8" x2="258" y2="8" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="342" y1="8" x2="600" y2="8" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="0" y1="14" x2="268" y2="14" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="332" y1="14" x2="600" y2="14" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="0" y1="20" x2="258" y2="20" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="342" y1="20" x2="600" y2="20" stroke="#F5F3EE" stroke-width="2"/>
+</svg>
+</div>
+
+
+<div style="max-width:980px;margin:1.5rem auto 0;padding:0 1.25rem;position:relative;z-index:2;">
+  <div style="font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;color:#3D2E18;
+    margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(140,110,60,0.3);">
+    <span class="en">Route Map — Japan</span><span class="es">Mapa de Ruta — Japón</span>
+  </div>
+  <div style="background:rgba(253,249,240,0.97);border:1px solid rgba(160,130,80,0.22);
+    border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(80,60,30,0.12);">
+    <div style="position:relative;width:100%;border-radius:8px;overflow:hidden;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m64!1m12!1m3!1d3286754!2d136.5!3d35.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m49!3e0!4m5!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2sTokyo%2C+Japan!3m2!1d35.6762!2d139.6503!4m5!1s0x60184dfa89076e8d%3A0x22c5a5c11ebd2f72!2sKamakura%2C+Japan!3m2!1d35.3193!2d139.5467!4m5!1s0x6003212b87b4dfe9%3A0x29eb0cfbfc04b8b5!2sTakayama%2C+Gifu%2C+Japan!3m2!1d36.1460!2d137.2523!4m5!1s0x6002eef5eff57a6d%3A0x21f3bc61b3aed10a!2sShirakawa-go%2C+Japan!3m2!1d36.2576!2d136.9066!4m5!1s0x6001a8d6cd3cc3f1%3A0xd11a5f0b379d2f1e!2sKyoto%2C+Japan!3m2!1d35.0116!2d135.7681!4m5!1s0x6000ead7083d534b%3A0x3ab35c3ca17c7b36!2sOsaka%2C+Japan!3m2!1d34.6937!2d135.5023!4m5!1s0x6001a98eb78d5e97%3A0x5610ae8c2b1ead15!2sNara%2C+Japan!3m2!1d34.6851!2d135.8048!4m5!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2sTokyo%2C+Japan!3m2!1d35.6762!2d139.6503!5e0!3m2!1sen!2sus!4v1700000000000"
+      width="100%"
+      height="450"
+      style="border:0;display:block;"
+      allowfullscreen=""
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Japan Trip Route">
+    </iframe>
+  </div>
+  </div>
+  <div style="text-align:center;margin-top:.6rem;">
+    <a href="https://www.google.com/maps/dir/Tokyo,Japan/Kamakura,Japan/Takayama,Japan/Shirakawa-go,Japan/Kyoto,Japan/Osaka,Japan/Nara,Japan/Nagiso,Japan/Tokyo,Japan"
+       target="_blank"
+       style="font-family:'DM Mono',monospace;font-size:.7rem;color:#2D3561;text-decoration:none;
+              background:rgba(255,251,240,0.9);border:1px solid rgba(45,53,97,0.25);
+              border-radius:20px;padding:5px 14px;display:inline-block;">
+      <span class="en">Open full route in Google Maps ↗</span><span class="es">Abrir ruta completa en Google Maps ↗</span>
+    </a>
+  </div>
+</div>
+
+
+
+<script>
+(function(){
+  function initMap(){
+    if(!document.getElementById('japan-map')) return;
+    var map = L.map('japan-map', {zoomControl:true, scrollWheelZoom:false, minZoom:4, maxZoom:12}).setView([36.5,137.0], 5);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abcd',
+      maxZoom: 13
+    }).addTo(map);
+
+    var japanBounds = L.latLngBounds(L.latLng(30.0, 128.0), L.latLng(46.0, 148.0));
+    map.setMaxBounds(japanBounds.pad(0.1));
+    map.on('drag', function(){ map.panInsideBounds(japanBounds, {animate:false}); });
+
+    var cities = [
+      {name:'Tokyo',       lat:35.68, lng:139.69, days:'Days 1-4, 12-14', es:'Días 1-4, 12-14'},
+      {name:'Kamakura',    lat:35.32, lng:139.55, days:'Day 4',            es:'Día 4'},
+      {name:'Takayama',    lat:36.15, lng:137.25, days:'Days 5-6',         es:'Días 5-6'},
+      {name:'Shirakawa-go',lat:36.26, lng:136.90, days:'Day 6',            es:'Día 6'},
+      {name:'Kyoto',       lat:35.01, lng:135.77, days:'Days 7-9',         es:'Días 7-9'},
+      {name:'Osaka',       lat:34.69, lng:135.50, days:'Day 10',           es:'Día 10'},
+      {name:'Nara',        lat:34.68, lng:135.83, days:'Day 11',           es:'Día 11'},
+      {name:'Kiso Valley', lat:35.68, lng:137.58, days:'Day 11',           es:'Día 11'},
+    ];
+
+    var icon = L.divIcon({
+      className:'',
+      html:'<div style="width:14px;height:14px;background:#2D3561;border:2.5px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.35);"></div>',
+      iconSize:[14,14], iconAnchor:[7,7]
+    });
+
+    var lang = document.getElementById('root') ? document.getElementById('root').getAttribute('lang') : 'en';
+    cities.forEach(function(c){
+      var label = '<b style="color:#1A1A2E;font-family:DM Sans,sans-serif;font-size:13px;">'+c.name+'</b><br/>'
+                + '<span style="color:#8B7040;font-family:DM Mono,monospace;font-size:11px;">'+(lang==='es'?c.es:c.days)+'</span>';
+      L.marker([c.lat, c.lng], {icon:icon})
+        .addTo(map)
+        .bindPopup(label, {maxWidth:160, className:'trip-popup'});
+    });
+
+    var routeCoords = cities.map(function(c){return [c.lat, c.lng];});
+    routeCoords.push(cities[0].lat, cities[0].lng);
+    L.polyline(
+      [[35.68,139.69],[35.32,139.55],[35.68,137.58],[36.15,137.25],[36.26,136.90],
+       [35.01,135.77],[34.69,135.50],[34.68,135.83],[35.68,139.69]],
+      {color:'#2D3561', weight:2.5, dashArray:'7,5', opacity:0.8}
+    ).addTo(map);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    setTimeout(initMap, 100);
+  }
+})();
+</script>
+
+</div>
+
+<div class="timeline">
+
+<details class="day-card" data-type="rest" open>
+  <summary class="day-hdr">
+    <div class="day-badge rest">
+      <div class="badge-num">1</div>
+      <div class="badge-wday">Thu</div>
+      <div class="badge-icon">🟫</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Arrival &nbsp;·&nbsp; Tokyo</span><span class="es">Llegada &nbsp;·&nbsp; Tokio</span></div>
+      <div class="day-subtitle"><span class="en">May 28 — Arrival Day</span><span class="es">28 May — Día de Llegada</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott</span><span class="day-pill pill-cost">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span></div>
+    </div>
+    <div class="toggle-btn open">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=900&q=80" alt="Day 1">
+<div class="day-body">
+    <div class="day-body-inner">
+      <div class="hotel-strip">
+  <div class="hs-name">Tokyo Marriott Hotel<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Bonvoy · Shinagawa</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
+  <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
+  <span class="hs-badge hsb-price">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span>
+  <span class="hs-badge hsb-brand"><span class="en">Bonvoy Points Eligible</span><span class="es">Elegible para Puntos Bonvoy</span></span>
+  <div class="hs-note">Keikyu line gives direct 30-min access from Haneda. Early arrival luggage storage available. Onsite restaurant and concierge simplify jet-lag day logistics.</div>
+</div>
+      <div class="activities"><div class="act">
+  <div class="act-time">04:45</div>
+  <div>
+    <div class="act-name"><span class="en">Land at Haneda Airport (HND)</span><span class="es">Llegada al Aeropuerto Haneda (HND)</span></div>
+    
+  </div>
+</div><div class="act">
+  <div class="act-time">05:45–07:15</div>
+  <div>
+    <div class="act-name transit"><span class="en">Haneda → Shinagawa area</span><span class="es">Haneda → Área de Shinagawa</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Keikyu Airport Line → Shinagawa (direct)</span><span class="tag t-cost">~¥410</span><span class="tag t-dur">~30–40 min</span></div><div class="act-note"><span class="en">Fastest option from HND. Alternatively: Tokyo Monorail to Hamamatsucho then JR Yamanote to Shinagawa (~50 min, ~¥590). Keikyu wins on speed and simplicity at 5 AM. Both accept IC cards (Suica/Pasmo).</span><span class="es">Opción más rápida desde HND. Alternativa: Monorraíl Tokyo a Hamamatsucho luego JR Yamanote a Shinagawa (~50 min, ~¥590). Keikyu gana en velocidad a las 5 AM. Ambos aceptan tarjetas IC (Suica/Pasmo).</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">07:30–09:00</div>
+  <div>
+    <div class="act-name"><span class="en">Breakfast + reset near hotel</span><span class="es">Desayuno + recuperación cerca del hotel</span></div>
+    <div class="act-note"><span class="en">Don't underestimate Japanese convenience store breakfast — 7-Eleven and FamilyMart sell excellent onigiri, tamagoyaki sandwiches, steamed buns, and hot coffee for under ¥500. Or find a local kissaten (old-school Tokyo coffee shop) for a morning set (toast, egg, coffee).</span><span class="es">No subestimes el desayuno en las tiendas de conveniencia japonesas — 7-Eleven y FamilyMart venden excelentes onigiri, sándwiches de tamagoyaki, bollos al vapor y café caliente por menos de ¥500. O busca una kissaten local (café antiguo de Tokio) para un set matutino (tostada, huevo, café).</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:00–12:00</div>
+  <div>
+    <div class="act-name"><span class="en">Setagaya Ward — gentle neighborhood walk</span><span class="es">Barrio Setagaya — caminata tranquila por el vecindario</span></div>
+    <div class="act-note"><span class="en">Setagaya is one of Tokyo's quietest residential wards — the real Tokyo that locals live in. Tree-lined streets, covered shotengai shopping arcades, small neighborhood shrines, indie bakeries, and craft coffee shops. No entry fees, no crowds, no agenda. Perfect for gentle jet-lag management: sunlight and walking reset your clock better than sleeping.</span><span class="es">Setagaya es uno de los barrios residenciales más tranquilos de Tokio — el Tokio real donde viven los locales. Calles arboladas, arcadas comerciales shotengai cubiertas, pequeños santuarios de barrio, panaderías independientes y cafeterías artesanales. Sin tarifas de entrada, sin multitudes, sin agenda. Perfecto para el jet lag: la luz solar y caminar reinician tu reloj mejor que dormir.</span></div><div class="act-tip">💡 <span class="en">The Setagaya area has great independent coffee roasters (Obscura Coffee, Tokyu Food Show). Slow morning here beats rushing to a tourist site on arrival day.</span><span class="es">La zona de Setagaya tiene excelentes tostadores de café independientes (Obscura Coffee, Tokyu Food Show). Una mañana tranquila aquí supera correr a un sitio turístico el día de llegada.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:00–14:30</div>
+  <div>
+    <div class="act-name"><span class="en">Rest / café / luggage storage if check-in not ready</span><span class="es">Descanso / café / guarda equipaje si no hay check-in</span></div>
+    <div class="act-note"><span class="en">Shinagawa Station has coin lockers (¥400–¥700/day) for bags. Use this window to activate a SIM card or pocket Wi-Fi (convenience stores sell IIJmio SIMs; pocket Wi-Fi can be pre-ordered for airport pickup). Light ramen lunch at one of Shinagawa station's basement options.</span><span class="es">La Estación Shinagawa tiene casilleros de monedas (¥400–¥700/día) para las maletas. Usa este tiempo para activar una SIM o Wi-Fi de bolsillo (las tiendas de conveniencia venden SIMs IIJmio; el Wi-Fi de bolsillo se puede pedir para recoger en el aeropuerto). Almuerzo ligero de ramen en el sótano de la estación.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Hotel check-in — Tokyo Marriott</span><span class="es">✅ Check-in — Tokyo Marriott</span></div>
+    
+  </div>
+</div><div class="act">
+  <div class="act-time">16:00–18:30</div>
+  <div>
+    <div class="act-name"><span class="en">Easy evening stroll + dinner</span><span class="es">Paseo vespertino tranquilo + cena</span></div>
+    <div class="act-note"><span class="en">Nakameguro canal (2 stops from Gotanda on Tokyu Meguro Line, ¥160) is Tokyo's most photogenic evening neighborhood — a narrow canal lined with low-lit boutiques, specialty coffee roasters, and intimate restaurants. For dinner: Afuri for yuzu shio ramen, a neighborhood izakaya for yakitori and cold Sapporo, or Nakameguro's many bistros for a long unhurried first dinner in Japan.</span><span class="es">El canal Nakameguro (2 paradas desde Gotanda en la Línea Tokyu Meguro, ¥160) es el vecindario más fotogénico de Tokio por las noches — un estrecho canal bordeado de boutiques con luz tenue, tostadores de café especial y restaurantes íntimos. Primera noche perfecta. Para cenar: un izakaya de barrio con yakitori y Sapporo frío, o el famoso ramen Afuri en Nakameguro.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="culture">
+  <summary class="day-hdr">
+    <div class="day-badge culture">
+      <div class="badge-num">2</div>
+      <div class="badge-wday">Fri</div>
+      <div class="badge-icon">🟦</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Imperial Palace · Meiji Jingu · Shibuya Sky</span><span class="es">Palacio Imperial · Meiji Jingu · Shibuya Sky</span></div>
+      <div class="day-subtitle"><span class="en">May 29 — Culture Day</span><span class="es">29 May — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott (cont.)</span><span class="day-pill pill-cost">Free–¥3,400 entries</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=900&q=80" alt="Day 2">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=75" alt="Imperial Palace"><div class="photo-cap">Imperial Palace</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1583400683082-aef1af9f1e4f?w=400&q=75" alt="Meiji Jingu"><div class="photo-cap">Meiji Jingu</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&q=75" alt="Shibuya Crossing"><div class="photo-cap">Shibuya Crossing</div></div></div>      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">08:00–09:15</div>
+  <div>
+    <div class="act-name"><span class="en">Imperial Palace East Gardens</span><span class="es">Jardines del Este del Palacio Imperial</span></div>
+    <div class="act-tags"><span class="tag t-free">Free entry</span></div><div class="act-note"><span class="en">You're walking the former inner grounds of Edo Castle, seat of Tokugawa shogunate power from 1603 to 1868. The massive stone walls, moats, and original gate structures (Ote-mon, Hirakawa-mon) have survived intact for 400 years — Tokyo's most tangible Edo-era remnant. The gardens are beautifully maintained with seasonal flowers. Opens at 9 AM; arrive early to beat tour groups.</span><span class="es">Estás caminando por los antiguos terrenos interiores del Castillo Edo, sede del poder del shogunato Tokugawa de 1603 a 1868. Las enormes murallas de piedra, fosos y puertas originales (Ote-mon, Hirakawa-mon) han sobrevivido intactos 400 años — el vestigio más tangible de la era Edo en Tokio. Los jardines están bellamente mantenidos con flores de temporada. Abre a las 9 AM; llega temprano para evitar grupos turísticos.</span></div><div class="act-tip">💡 <span class="en">Don't miss the Fujimi-yagura watchtower — the only original Edo Castle tower still standing, visible from the garden path.</span><span class="es">No te pierdas la torre de vigilancia Fujimi-yagura — la única torre original del Castillo Edo aún en pie, visible desde el camino del jardín.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:15–10:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Transit → Harajuku / Meiji Jingu</span><span class="es">Tránsito → Harajuku / Meiji Jingu</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Tokyo Metro Chiyoda Line or JR Chuo Line → Harajuku/Yoyogi</span><span class="tag t-cost">~¥200</span><span class="tag t-dur">~25 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">10:00–11:15</div>
+  <div>
+    <div class="act-name"><span class="en">Meiji Jingu Shrine</span><span class="es">Santuario Meiji Jingu</span></div>
+    <div class="act-tags"><span class="tag t-free">Free — main grounds</span><span class="tag t-cost">¥500 — inner garden optional</span></div><div class="act-note"><span class="en">Built in 1920 to enshrine Emperor Meiji and Empress Shoken, this shrine sits inside a 70-hectare forested sanctuary — entirely artificial, planted by 100,000 volunteers using 365 tree species donated from every Japanese prefecture. After 100+ years it feels like ancient old-growth forest. The 700-meter wooded sandori approach creates a profound transition from Harajuku's commercial bustle to sacred calm. Look for the sake barrel wall (kazaridaru) and the wooden ema wishing plaque wall. The inner garden (Gyoen, extra ¥500) has a famous iris pond — peak iris bloom is typically late May/early June.</span><span class="es">Construido en 1920 para venerar al Emperador Meiji y la Emperatriz Shoken, este santuario se encuentra dentro de un bosque sagrado de 70 hectáreas — completamente artificial, plantado por 100,000 voluntarios usando 365 especies de árboles donadas de cada prefectura japonesa. Después de más de 100 años parece bosque antiguo primigenio. El camino sandori arbolado de 700 metros crea una transición profunda del bullicio comercial de Harajuku a la calma sagrada. Busca el muro de barriles de sake (kazaridaru) y el muro de tablillas de deseos ema. El jardín interior (Gyoen, ¥500 extra) tiene un famoso estanque de iris — la floración máxima suele ser a finales de mayo/principios de junio.</span></div><div class="act-tip">💡 <span class="en">Weekday mornings sometimes feature traditional Shinto wedding processions passing through the main courtyard — respectful observation is welcomed.</span><span class="es">Las mañanas de días laborables a veces hay procesiones de bodas sintoístas tradicionales pasando por el patio principal — la observación respetuosa es bienvenida.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:15–12:45</div>
+  <div>
+    <div class="act-name"><span class="en">Lunch + Omotesando stroll</span><span class="es">Almuerzo + paseo por Omotesando</span></div>
+    <div class="act-note"><span class="en">Omotesando is Tokyo's most architecturally remarkable boulevard — flagship stores designed by Herzog &amp; de Meuron (Prada), Jun Aoki (Louis Vuitton), and Toyo Ito (Tod's). Walk the main avenue then cut into Ura-Harajuku backstreets (Cat Street) for independent boutiques and better-priced lunch options. Omotesando Hills mall has a dramatic spiral atrium worth ducking into. Budget lunch: ¥1,000–¥1,500 at a side-street café.</span><span class="es">Omotesando es el bulevar arquitectónicamente más notable de Tokio — tiendas insignia diseñadas por Herzog &amp; de Meuron (Prada), Jun Aoki (Louis Vuitton) y Toyo Ito (Tod's). Camina la avenida principal y luego explora las callejuelas traseras de Ura-Harajuku (Cat Street) para boutiques independientes y almuerzos más económicos. El centro comercial Omotesando Hills tiene un dramático atrio en espiral que vale la pena ver. Almuerzo: ¥1,000–¥1,500 en un café de callejuela.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:45–13:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Transit → Shibuya</span><span class="es">Tránsito → Shibuya</span></div>
+    <div class="act-tags"><span class="tag t-walk">🚶 15-min walk via Daikanyama (scenic)</span><span class="tag t-cost">Free</span></div><div class="act-note"><span class="en">Or 1-stop subway: Tokyo Metro Chiyoda Line (¥180, 3 min). Walking through Daikanyama is worthwhile — Tokyo's most fashionable low-key neighborhood. Stop at Tsutaya Books (world-famous design bookstore in a stunning courtyard complex).</span><span class="es">O 1 parada en metro: Línea Tokyo Metro Chiyoda (¥180, 3 min). Caminar por Daikanyama vale la pena — el barrio más elegante y discreto de Tokio. Para en Tsutaya Books (librería de diseño mundialmente famosa en un impresionante conjunto de patios).</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:30–14:30</div>
+  <div>
+    <div class="act-name"><span class="en">Shibuya Scramble Crossing — street level</span><span class="es">Cruce de Shibuya — a nivel de calle</span></div>
+    <div class="act-tags"><span class="tag t-free">Free</span></div><div class="act-note"><span class="en">Before going up to Shibuya Sky, experience the famous Scramble crossing from street level. Over 3,000 pedestrians cross simultaneously from all directions on every light change — the world's busiest intersection. Stand at the corner of Starbucks or 109 building and feel the organized chaos. Then head to Scramble Square for the observatory.</span><span class="es">Antes de subir a Shibuya Sky, vive el famoso cruce Scramble a nivel de calle. Más de 3,000 peatones cruzan simultáneamente desde todas las direcciones en cada cambio de semáforo — la intersección más concurrida del mundo. Párate en la esquina del Starbucks o el edificio 109 y siente el caos organizado. Luego dirígete al Scramble Square para el observatorio.</span></div><div class="act-tip">💡 <span class="en">The crossing is most impressive at evening rush (17:00–19:00) but midday is still spectacular.</span><span class="es">El cruce es más impresionante en la hora punta vespertina (17:00–19:00) pero al mediodía también es espectacular.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">14:30–15:45</div>
+  <div>
+    <div class="act-name"><span class="en">Shibuya Sky — open-air rooftop observatory</span><span class="es">Shibuya Sky — observatorio en la azotea</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥2,700 before 15:00 · ¥3,400 after 15:00</span></div><div class="act-note"><span class="en">The open-air rooftop of Shibuya Scramble Square at 230m gives 360° views across the entire Kanto plain. Mt. Fuji appears clearly on low-humidity days (late May mornings are ideal). Looking straight down at the Scramble crossing gives you a visceral sense of Tokyo's density that becomes a spatial reference for the whole trip. Book tickets online in advance — they sell out. Wind warning: it can be genuinely strong on the open deck; hold hats.</span><span class="es">La azotea al aire libre del Shibuya Scramble Square a 230m ofrece vistas de 360° sobre toda la llanura de Kanto. El Monte Fuji aparece claramente en días de baja humedad (las mañanas de finales de mayo son ideales). Mirar directamente hacia abajo al cruce Scramble te da una sensación visceral de la densidad de Tokio que se convierte en referencia espacial para todo el viaje. Reserva entradas en línea con anticipación — se agotan. Aviso de viento: puede ser realmente fuerte en la cubierta abierta; sujeta los sombreros.</span></div><div class="act-tip">💡 <span class="en">Afternoon slot (14:30–15:30) catches good light. Sunset slots (after 18:00) are pricier and book earliest. Arrive 15 min early for the elevator queue.</span><span class="es">El horario de tarde (14:30–15:30) tiene buena luz. Los horarios del atardecer (después de las 18:00) son más caros y se reservan primero. Llega 15 min antes para la cola del ascensor.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">16:00–18:30</div>
+  <div>
+    <div class="act-name"><span class="en">Dinner + return to hotel</span><span class="es">Cena + regreso al hotel</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote Line → Shinagawa or Osaki</span><span class="tag t-cost">~¥200</span><span class="tag t-dur">~15 min</span></div><div class="act-note"><span class="en">Shibuya options: Ichiran ramen (famous solo-booth system, ¥1,000), a standing sushi counter (Uobei for fun conveyor-belt format), or Nonbei Yokocho ('Memory Lane') — lantern-lit alleys of tiny yakitori bars under the train tracks, cold Sapporo and skewers from ¥500.</span><span class="es">Opciones en Shibuya: Ichiran ramen (famoso sistema de cabina individual, ¥1,000), una barra de sushi de pie (Uobei para el divertido formato de cinta transportadora), o Nonbei Yokocho ('Memory Lane') — callejones iluminados con linternas de pequeños bares de yakitori bajo las vías del tren, Sapporo frío y brochetas desde ¥500.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="hike">
+  <summary class="day-hdr">
+    <div class="day-badge hike">
+      <div class="badge-num">3</div>
+      <div class="badge-wday">Sat</div>
+      <div class="badge-icon">🟩</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Mt. Takao Hike</span><span class="es">Caminata al Monte Takao</span></div>
+      <div class="day-subtitle"><span class="en">May 30 — Hike Day</span><span class="es">30 May — Día de Caminata</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott (cont.)</span><span class="day-pill pill-cost">Free trails · ¥430 train</span><span class="day-pill pill-dist">4h hike</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Day 3">
+<div class="day-body">
+    <div class="day-body-inner">
+      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — day trip, return tonight</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">06:45–08:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Hotel → Shinjuku → Takaosanguchi</span><span class="es">Hotel → Shinjuku → Takaosanguchi</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote → Shinjuku (¥200) · then Keio Limited Express → Takaosanguchi (¥430)</span><span class="tag t-cost">¥630 total</span><span class="tag t-dur">~1h 10m total</span></div><div class="act-note"><span class="en">Keio Limited Express from Shinjuku to Takaosanguchi is 47 minutes non-stop. Board early on Saturday — Mt. Takao is extremely popular and morning trains fill quickly. Takaosanguchi is the terminus; impossible to miss. Grab an onigiri at the station convenience store for the trail.</span><span class="es">El Keio Limited Express de Shinjuku a Takaosanguchi son 47 minutos sin paradas. Aborda temprano el sábado — el Monte Takao es extremadamente popular y los trenes matutinos se llenan rápido. Takaosanguchi es el término; imposible perdérselo. Compra un onigiri en la tienda de conveniencia de la estación para el sendero.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">08:15–12:15</div>
+  <div>
+    <div class="act-name"><span class="en">Mt. Takao Hike — Trail 6 recommended (4 hours)</span><span class="es">Caminata Monte Takao — Sendero 6 recomendado (4 horas)</span></div>
+    <div class="act-tags"><span class="tag t-free">Free — all trails</span></div><div class="act-note"><span class="en">At 599m, Takao-san is Japan's most-visited mountain. Trail 1 (paved, steeper) passes the Yakuo-in Shingon Buddhist temple complex with dramatic tengu demon statues and cedar trees — best for culture. Trail 6 (unpaved, stream-side) crosses the Biwa waterfall, follows a mountain stream, and is less crowded — recommended for a genuine hike feel. Both reach the same summit. Late May means vivid fresh green canopy, cool temperatures, and clear air. Summit views: Mt. Fuji to the west, entire Tokyo skyline to the east.</span><span class="es">Con 599m, el Takao-san es la montaña más visitada de Japón. El Sendero 1 (pavimentado, más empinado) pasa por el complejo del templo budista Shingon Yakuo-in con dramáticas estatuas de demonios tengu y cedros — ideal para cultura. El Sendero 6 (sin pavimentar, junto al arroyo) cruza la cascada Biwa, sigue un arroyo de montaña y tiene menos gente — recomendado para una experiencia de senderismo auténtica. Ambos alcanzan la misma cima. Finales de mayo significa un dosel verde fresco y vívido, temperaturas frescas y aire claro. Vistas desde la cima: Monte Fuji al oeste, el horizonte completo de Tokio al este.</span></div><div class="act-tip">💡 <span class="en">Wear real hiking shoes — Trail 6 has stepping-stone river crossings. Bring cash for summit stalls. The Yakuo-in tororo soba (grated mountain yam noodles) is a local specialty and worth trying.</span><span class="es">Usa zapatos de senderismo reales — el Sendero 6 tiene cruces de río sobre piedras. Lleva efectivo para los puestos de la cima. El tororo soba de Yakuo-in (fideos con ñame de montaña rallado) es una especialidad local que vale la pena probar.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:15–13:00</div>
+  <div>
+    <div class="act-name"><span class="en">Summit lunch + begin descent</span><span class="es">Almuerzo en la cima + inicio del descenso</span></div>
+    <div class="act-note"><span class="en">The summit has food stalls and a restaurant. Try mitarashi dango (grilled rice dumplings with soy-sugar glaze), warm soba, or matcha soft-serve ice cream — a quintessential Japanese mountain food experience. On a clear May day, eating with a view of Mt. Fuji is genuinely memorable.</span><span class="es">La cima tiene puestos de comida y un restaurante. Prueba el mitarashi dango (bolitas de arroz a la parrilla con glaseado de soja y azúcar), soba caliente o helado suave de matcha — una experiencia gastronómica de montaña japonesa por excelencia. En un día claro de mayo, comer con vista al Monte Fuji es genuinamente memorable.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:00–14:00</div>
+  <div>
+    <div class="act-name"><span class="en">Cable car / lift down (optional)</span><span class="es">Teleférico / silla aérea hacia abajo (opcional)</span></div>
+    <div class="act-tags"><span class="tag t-cost">Cable car ¥490 one-way / ¥950 round-trip · Lift (chair-style) ¥320 one-way</span></div><div class="act-note"><span class="en">After 4 hours of hiking, the cable car is well earned. The lift covers the steepest lower section. Descending on foot via Trail 4 (mountain loop path) is also scenic if legs allow — adds 45 min.</span><span class="es">Después de 4 horas de senderismo, el teleférico está más que merecido. El ascensor cubre la sección inferior más empinada. Descender a pie por el Sendero 4 (camino circular de montaña) también es pintoresco si las piernas lo permiten — añade 45 min.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">14:00–15:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Return to Tokyo</span><span class="es">Regreso a Tokio</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Keio Line → Shinjuku · JR Yamanote → hotel area</span><span class="tag t-cost">¥630 total</span><span class="tag t-dur">~1h total</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">16:30–19:00</div>
+  <div>
+    <div class="act-name"><span class="en">Shower + relaxed dinner near hotel</span><span class="es">Ducha + cena tranquila cerca del hotel</span></div>
+    <div class="act-note"><span class="en">You'll be tired — keep dinner close. A proper shabu-shabu (hot pot with thinly sliced beef) or yakiniku (Japanese BBQ) is a great post-hike recovery meal. Alternatively a neighborhood izakaya with cold draft beer and yakitori skewers near Gotanda or Nakameguro.</span><span class="es">Estarás cansado — mantén la cena cerca. Un buen shabu-shabu (olla caliente con ternera en rodajas finas) o yakiniku (BBQ japonés) es una excelente comida de recuperación post-senderismo. Alternativamente, un izakaya de barrio con cerveza de barril fría y brochetas de yakitori cerca de Gotanda o Nakameguro.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="culture">
+  <summary class="day-hdr">
+    <div class="day-badge culture">
+      <div class="badge-num">4</div>
+      <div class="badge-wday">Sun</div>
+      <div class="badge-icon">🟦</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Kamakura — Great Buddha · Hase-dera · Seaside</span><span class="es">Kamakura — Gran Buda · Hase-dera · Costa</span></div>
+      <div class="day-subtitle"><span class="en">May 31 — Culture Day</span><span class="es">31 May — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott (cont.)</span><span class="day-pill pill-cost">¥300–¥400 entries · ¥1,240 rail</span><span class="day-pill pill-dist">~1h from Tokyo</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=900&q=80" alt="Day 4">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=400&q=75" alt="Great Buddha"><div class="photo-cap">Great Buddha</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Hase-dera Gardens"><div class="photo-cap">Hase-dera Gardens</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=75" alt="Kamakura Coast"><div class="photo-cap">Kamakura Coast</div></div></div>      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — day trip, return tonight</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">07:30–09:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Hotel → Tokyo Station → Kamakura</span><span class="es">Hotel → Estación Tokyo → Kamakura</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yokosuka Line — Tokyo Station direct to Kamakura, no transfers</span><span class="tag t-cost">~¥1,040</span><span class="tag t-dur">~1h direct</span></div><div class="act-note"><span class="en">The JR Yokosuka Line runs direct from Tokyo Station to Kamakura. Take an early train — Kamakura is very popular on Sundays and sites get crowded by 10 AM. Have your Suica/IC card loaded; all fares in Kamakura accept IC cards.</span><span class="es">La Línea JR Yokosuka va directo desde la Estación Tokyo a Kamakura. Toma un tren temprano — Kamakura es muy popular los domingos y los sitios se llenan antes de las 10 AM. Ten tu tarjeta Suica/IC cargada; todas las tarifas en Kamakura aceptan tarjetas IC.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:00–09:10</div>
+  <div>
+    <div class="act-name transit"><span class="en">Kamakura → Hase Station (Enoden tramway)</span><span class="es">Kamakura → Estación Hase (tranvía Enoden)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Enoshima Electric Railway (Enoden) — vintage single-track coastal tram</span><span class="tag t-cost">¥200</span><span class="tag t-dur">~5 min</span></div><div class="act-note"><span class="en">The Enoden is a charming vintage single-car tram that squeezes through residential streets so narrow that laundry nearly brushes the windows. A slice of old Shonan coastal life and fun in its own right.</span><span class="es">El Enoden es un encantador tranvía vintage de un vagón que se abre paso por calles residenciales tan estrechas que la ropa tendida casi roza las ventanas. Una muestra de la vida costera antigua de Shonan y divertido en sí mismo.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:15–10:00</div>
+  <div>
+    <div class="act-name"><span class="en">Kotoku-in — Great Buddha (Kamakura Daibutsu)</span><span class="es">Kotoku-in — Gran Buda (Kamakura Daibutsu)</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥300 entry · +¥20 to enter the statue interior</span></div><div class="act-note"><span class="en">Cast in 1252, this 13.35-meter bronze Amida Buddha once sat inside a giant wooden hall — the hall was destroyed by 14th–15th century typhoons and tsunamis, leaving the Buddha to sit permanently open-air. The weathered green patina and sheer scale (93 tons of bronze) are deeply impressive. You can enter the hollow interior and look up through the Buddha's shoulders — a strange, meditative experience. This is Kamakura's single most iconic image and it earns the title.</span><span class="es">Fundido en 1252, este Buda Amida de bronce de 13.35 metros una vez estuvo dentro de un gran salón de madera — el salón fue destruido por tifones y tsunamis de los siglos XIV-XV, dejando al Buda sentado permanentemente al aire libre. La pátina verde envejecida y la escala colosal (93 toneladas de bronce) son profundamente impresionantes. Puedes entrar al interior hueco y mirar hacia arriba a través de los hombros del Buda — una experiencia extraña y meditativa. Esta es la imagen más icónica de Kamakura y se merece el título.</span></div><div class="act-tip">💡 <span class="en">Arrive right at opening (8:00 AM) to get the Buddha without crowds for photos. By 10 AM tour groups arrive in force.</span><span class="es">Llega justo al abrir (8:00 AM) para fotografiar el Buda sin multitudes. Hacia las 10 AM los grupos de turistas llegan en masa.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">10:05–11:30</div>
+  <div>
+    <div class="act-name"><span class="en">Hase-dera Temple</span><span class="es">Templo Hase-dera</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥400 entry</span></div><div class="act-note"><span class="en">One of Kamakura's most beautiful temple complexes on a hillside with layered gardens, a cave system, a tranquil pond, and a 9.18m carved wooden Kannon (goddess of mercy) — one of Japan's largest wooden statues. In late May/early June the hillside hydrangea garden typically reaches peak bloom: thousands of blue, purple, and white hydrangeas terraced above the sea. The coastal viewing platform offers sweeping views of Sagami Bay and the Enoden tram below. Allow a full 75 minutes to explore properly.</span><span class="es">Uno de los complejos de templos más hermosos de Kamakura en una ladera con jardines escalonados, un sistema de cuevas, un estanque tranquilo y una Kannon de madera tallada de 9.18m (diosa de la misericordia) — una de las estatuas de madera más grandes de Japón. A finales de mayo/principios de junio el jardín de hortensias de la ladera alcanza su máximo florecimiento: miles de hortensias azules, moradas y blancas en terrazas sobre el mar. La plataforma costera ofrece vistas panorámicas de la Bahía de Sagami y el tranvía Enoden abajo. Reserva 75 minutos completos para explorarla correctamente.</span></div><div class="act-tip">💡 <span class="en">The hydrangea garden (ajisai) can have timed entry in peak season — check Hase-dera's website and book the slot in advance.</span><span class="es">El jardín de hortensias (ajisai) puede tener entrada cronometrada en temporada alta — consulta el sitio web de Hase-dera y reserva el horario con anticipación.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:30–13:00</div>
+  <div>
+    <div class="act-name"><span class="en">Lunch in Kamakura</span><span class="es">Almuerzo en Kamakura</span></div>
+    <div class="act-note"><span class="en">Kamakura is famous for shirasuboshi (whitebait rice bowls) served fresh from Sagami Bay. Komachi-dori (the main approach street to Tsurugaoka Hachimangu) has many options. Try a shirasu-don set for ¥1,200–¥1,800 at any of the seafood restaurants along the street. Alternatively, Kamakura has excellent local bakeries and matcha sweets shops.</span><span class="es">Kamakura es famosa por el shirasuboshi (cuencos de arroz con pescado blanco) servido fresco de la Bahía de Sagami. Komachi-dori (la calle principal de acceso al santuario Tsurugaoka Hachimangu) tiene muchas opciones. Prueba un set shirasu-don por ¥1,200–¥1,800 en cualquiera de los restaurantes de mariscos de la calle.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:00–15:00</div>
+  <div>
+    <div class="act-name"><span class="en">Komachi-dori shopping street + seaside stroll</span><span class="es">Calle comercial Komachi-dori + paseo costero</span></div>
+    <div class="act-tags"><span class="tag t-free">Free</span></div><div class="act-note"><span class="en">Komachi-dori is Kamakura's main shopping lane — incense, ceramics, bamboo crafts, and local sweets make it ideal for gifts. Walk north to Tsurugaoka Hachimangu shrine (Japan's most important Hachiman shrine, dedicated to the god of war — free entry) if time allows. Or walk south to Yuigahama Beach for a coastal end to the day.</span><span class="es">Komachi-dori es la principal calle comercial de Kamakura — incienso, cerámica, artesanías de bambú y dulces locales la hacen ideal para regalos. Camina al norte hasta el santuario Tsurugaoka Hachimangu (el santuario Hachiman más importante de Japón, dedicado al dios de la guerra — entrada gratuita) si el tiempo lo permite. O camina al sur hasta la Playa Yuigahama para terminar el día junto al mar.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00–16:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Return to Tokyo</span><span class="es">Regreso a Tokio</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yokosuka Line → Tokyo Station · JR Yamanote → hotel</span><span class="tag t-cost">~¥1,040</span><span class="tag t-dur">~1h 15m total</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="travel">
+  <summary class="day-hdr">
+    <div class="day-badge travel">
+      <div class="badge-num">5</div>
+      <div class="badge-wday">Mon</div>
+      <div class="badge-icon">🟧</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Tokyo → Nagoya → Takayama</span><span class="es">Tokio → Nagoya → Takayama</span></div>
+      <div class="day-subtitle"><span class="en">Jun 1 — Travel Day</span><span class="es">1 Jun — Día de Viaje</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Mercure Hida Takayama · Check-in 15:00</span><span class="day-pill pill-cost">¥20,170 rail</span><span class="day-pill pill-dist">~4.5h total travel</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1570459027562-4a916cc6113f?w=900&q=80" alt="Day 5">
+<div class="day-body">
+    <div class="day-body-inner">
+      <div class="hotel-strip">
+  <div class="hs-name">Mercure Hida Takayama<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Accor Hotels · Takayama Station area</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
+  <span class="hs-badge hsb-out">Check-out 11:00 AM</span>
+  <span class="hs-badge hsb-price">~$130–$180<span class="en">/night</span><span class="es">/noche</span></span>
+  <span class="hs-badge hsb-brand">Accor Silver/Gold Eligible</span>
+  <div class="hs-note"><span class="en">5-min walk from Takayama Station</span><span class="es">5 min a pie de la Estación Takayama</span> and Sanmachi old town. Best cost/location in Takayama — no Marriott within 15 miles. <span class="en">Breakfast available onsite</span><span class="es">Desayuno disponible en el hotel</span>. <span class="en">Compact but well-appointed for 2 nights</span><span class="es">Compacto pero bien equipado para 2 noches</span>.</div>
+</div>
+      <div class="activities"><div class="act">
+  <div class="act-time">07:30–08:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Hotel → Tokyo Station</span><span class="es">Hotel → Estación Tokyo</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote Line → Tokyo Station</span><span class="tag t-cost">~¥200</span><span class="tag t-dur">~20 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">08:30–10:10</div>
+  <div>
+    <div class="act-name"><span class="en">Tokyo → Nagoya (Shinkansen Nozomi/Hikari)</span><span class="es">Tokio → Nagoya (Shinkansen Nozomi/Hikari)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Tokaido Shinkansen — reserved seat</span><span class="tag t-cost">¥11,300/person</span><span class="tag t-dur">1h 40m</span></div><div class="act-note"><span class="en">The Nozomi or Hikari bullet train covers 350km in under 2 hours. Seats are wider than economy class on planes, with generous legroom. Reserve seats in advance (window seats on the right side for Mt. Fuji views ~40 min from Tokyo). The bento boxes sold on the platform are excellent — pick one up before boarding.</span><span class="es">El tren bala Nozomi o Hikari recorre 350 km en menos de 2 horas. Los asientos son más anchos que la clase económica en avión, con generoso espacio para las piernas. Reserva asientos con anticipación (asientos de ventana en el lado derecho para vistas del Monte Fuji ~40 min desde Tokio). Las cajas bento vendidas en el andén son excelentes — compra una antes de abordar.</span></div><div class="act-tip">💡 <span class="en">Mt. Fuji is visible from the right side (seats A/B) roughly 40 min into the journey on clear days. Worth the seat selection.</span><span class="es">El Monte Fuji es visible desde el lado derecho (asientos A/B) aproximadamente a los 40 min del trayecto en días claros. Vale la pena elegir el asiento.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">10:30–13:00</div>
+  <div>
+    <div class="act-name"><span class="en">Nagoya → Takayama (Limited Express Hida)</span><span class="es">Nagoya → Takayama (Expreso Limitado Hida)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Limited Express Hida — reserved seat, Nagoya Station</span><span class="tag t-cost">¥8,870/person</span><span class="tag t-dur">2h 30m</span></div><div class="act-note"><span class="en">This is one of Japan's great scenic train journeys — the Hida winds through the Kiso River valley and deep mountain gorges, steadily climbing into the Japan Alps. The landscape transitions from industrial Nagoya to dramatic narrow valleys with emerald rivers and cedar-forested ridges. Reserve window seats on either side — both directions offer outstanding views. Comfortable reserved seating with panoramic windows.</span><span class="es">Este es uno de los grandes viajes escénicos en tren de Japón — el Hida serpentea por el valle del Río Kiso y profundas gargantas de montaña, subiendo gradualmente hacia los Alpes japoneses. El paisaje transiciona de la industrial Nagoya a dramáticos valles estrechos con ríos esmeralda y crestas boscosas de cedro. Reserva asientos de ventana en cualquier lado — ambas direcciones ofrecen vistas excepcionales. Asientos reservados cómodos con ventanas panorámicas.</span></div><div class="act-tip">💡 <span class="en">This is a highlight of the whole trip for scenery. Stay awake. The gorge section after Shirakawakami is particularly dramatic.</span><span class="es">Este es un punto culminante del viaje en cuanto a paisajes. Mantente despierto. La sección de la garganta después de Shirakawakami es particularmente dramática.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:15–14:30</div>
+  <div>
+    <div class="act-name"><span class="en">Arrive Takayama + lunch + walk to hotel</span><span class="es">Llegada a Takayama + almuerzo + caminata al hotel</span></div>
+    <div class="act-note"><span class="en">Takayama Station is small and charming — the town begins immediately outside. Drop bags at the hotel (or store them at the station if check-in isn't ready) and find lunch at one of the Sanmachi area restaurants. Try Hida beef (local Wagyu) as a hoba-miso set (¥1,500–¥2,500) — this region is famous for it.</span><span class="es">La Estación Takayama es pequeña y encantadora — el pueblo comienza justo afuera. Deja las maletas en el hotel (o guárdalas en la estación si el check-in no está listo) y busca almuerzo en uno de los restaurantes de la zona Sanmachi. Prueba la carne Hida (Wagyu local) como set hoba-miso (¥1,500–¥2,500) — esta región es famosa por ello.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Hotel check-in — Mercure Hida Takayama</span><span class="es">✅ Check-in — Mercure Hida Takayama</span></div>
+    
+  </div>
+</div><div class="act">
+  <div class="act-time">15:30–17:30</div>
+  <div>
+    <div class="act-name"><span class="en">Takayama Old Town — Sanmachi Suji district</span><span class="es">Ciudad Antigua de Takayama — Distrito Sanmachi Suji</span></div>
+    <div class="act-tags"><span class="tag t-free">Free to walk · Museum entries ¥100–¥500</span></div><div class="act-note"><span class="en">Sanmachi is Takayama's preserved Edo-era merchant district — three parallel lanes of dark-wood merchant houses, sake breweries (look for cedar-ball sachets, sugidama, hanging above doorways to signal new sake season), craft shops, and small museums. Unlike many 'preserved' historic districts this is the real thing — families have lived and traded here for 300+ years. The Kusakabe Heritage House and Yoshijima Heritage House (both ~¥500) are outstanding examples of Hida merchant architecture.</span><span class="es">Sanmachi es el distrito comercial de la era Edo conservado de Takayama — tres calles paralelas de casas de comerciantes de madera oscura, cervecerías de sake (busca las bolsas de bolas de cedro, sugidama, colgando sobre las puertas para señalar la nueva temporada de sake), tiendas de artesanía y pequeños museos. A diferencia de muchos distritos históricos 'conservados', este es auténtico — las familias han vivido y comerciado aquí por más de 300 años. La Casa Patrimonial Kusakabe y la Casa Patrimonial Yoshijima (ambas ~¥500) son ejemplos excepcionales de arquitectura mercantil Hida.</span></div><div class="act-tip">💡 <span class="en">Late afternoon light on the dark wood facades is beautiful. Many sake breweries offer free tasting — Hirata Sake Brewery and Funasaka Brewing are both excellent.</span><span class="es">La luz de última hora de la tarde sobre las fachadas de madera oscura es hermosa. Muchas cervecerías de sake ofrecen cata gratuita — Hirata Sake Brewery y Funasaka Brewing son excelentes.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="culture">
+  <summary class="day-hdr">
+    <div class="day-badge culture">
+      <div class="badge-num">6</div>
+      <div class="badge-wday">Tue</div>
+      <div class="badge-icon">🟦</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Shirakawa-go UNESCO Village · Takayama Jinya</span><span class="es">Aldea UNESCO Shirakawa-go · Takayama Jinya</span></div>
+      <div class="day-subtitle"><span class="en">Jun 2 — Culture Day</span><span class="es">2 Jun — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Mercure Hida Takayama (cont.)</span><span class="day-pill pill-cost">¥600–¥1,100 entries + bus fare</span><span class="day-pill pill-dist">~1h bus each way</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80" alt="Day 6">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=400&q=75" alt="Shirakawa-go"><div class="photo-cap">Shirakawa-go</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1601823984359-98e30ba44d2d?w=400&q=75" alt="Gassho Houses"><div class="photo-cap">Gassho Houses</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1598887142487-3c854d51eabb?w=400&q=75" alt="Mountain Village"><div class="photo-cap">Mountain Village</div></div></div>      <div class="hotel-strip"><div class="hs-name">Mercure Hida Takayama — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">08:00–09:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Takayama → Shirakawa-go (bus)</span><span class="es">Takayama → Shirakawa-go (autobús)</span></div>
+    <div class="act-tags"><span class="tag t-bus">🚌 Nohi Bus or Kaetoku Bus — Takayama Nohi Bus Center</span><span class="tag t-cost">~¥2,600 round-trip / ~¥1,350 one-way</span><span class="tag t-dur">~50 min</span></div><div class="act-note"><span class="en">Buses run several times daily from Takayama Nohi Bus Center (adjacent to the station). Book in advance online or at the center — they fill up quickly. The mountain road winds through spectacular forested ridges.</span><span class="es">Los autobuses salen varias veces al día desde el Centro de Autobuses Nohi de Takayama (junto a la estación). Reserva con anticipación en línea o en el centro — se llenan rápido. La carretera de montaña serpentea por espectaculares crestas boscosas.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:15–12:00</div>
+  <div>
+    <div class="act-name"><span class="en">Shirakawa-go village + Shiroyama viewpoint</span><span class="es">Aldea Shirakawa-go + Mirador Shiroyama</span></div>
+    <div class="act-tags"><span class="tag t-free">Free to walk the village</span></div><div class="act-note"><span class="en">Shirakawa-go is a UNESCO World Heritage rural landscape — a cluster of traditional gassho-zukuri (hands-in-prayer) farmhouses with dramatically steep thatched roofs designed to shed the region's heavy snowfall and provide attic space for silkworm cultivation. The largest farmhouses are 5 stories tall and hundreds of years old. The village is small but extraordinarily well-preserved. Walk through the main settlement, then climb to the Shiroyama observation deck (15 min walk) for the classic elevated view of the whole valley. Best photos from the viewpoint are in morning light.</span><span class="es">Shirakawa-go es un paisaje rural Patrimonio de la Humanidad de la UNESCO — un conjunto de casas de campo gassho-zukuri tradicionales (manos en oración) con techos de paja dramáticamente empinados diseñados para desprender la fuerte nevada de la región y proporcionar espacio en el ático para la cría de gusanos de seda. Las casas de campo más grandes tienen 5 pisos de altura y cientos de años. El pueblo es pequeño pero extraordinariamente bien conservado. Camina por el asentamiento principal, luego sube a la plataforma de observación Shiroyama (15 min a pie) para la vista elevada clásica de todo el valle. Las mejores fotos desde el mirador son con luz de la mañana.</span></div><div class="act-tip">💡 <span class="en">The entire village smells of wood smoke and damp thatch. Take your time — sit by the Shō River, watch the ducks, and absorb the fact that people have lived in these houses continuously for over 300 years.</span><span class="es">Todo el pueblo huele a humo de leña y paja húmeda. Tómate tu tiempo — siéntate junto al Río Shō, observa los patos y asimila el hecho de que la gente ha vivido en estas casas continuamente durante más de 300 años.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:00–13:00</div>
+  <div>
+    <div class="act-name"><span class="en">Lunch in Shirakawa-go</span><span class="es">Almuerzo en Shirakawa-go</span></div>
+    <div class="act-note"><span class="en">The village has several restaurants serving Shirakawa-go specialties: doburoku (unfiltered sake, traditionally illegal and famous here), hoba-miso with mountain vegetables, and freshwater fish. The Irori no Yado restaurant inside one of the old farmhouses is atmospheric if seats are available.</span><span class="es">El pueblo tiene varios restaurantes que sirven especialidades de Shirakawa-go: doburoku (sake sin filtrar, tradicionalmente ilegal y famoso aquí), hoba-miso con verduras de montaña y pescado de agua dulce. El restaurante Irori no Yado dentro de una de las antiguas granjas es muy atmosférico si hay lugares disponibles.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:15–14:45</div>
+  <div>
+    <div class="act-name"><span class="en">Gassho-zukuri Minkaen — Open-Air Museum</span><span class="es">Gassho-zukuri Minkaen — Museo al Aire Libre</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥600 entry</span></div><div class="act-note"><span class="en">A collection of relocated gassho-zukuri farmhouses that you can enter and explore freely — hands-on experience of traditional mountain life: original tools, silkworm equipment, hearths, and architectural details. Far less crowded than the main village. Several of the largest houses (5-story structures) are fully furnished and staffed by guides. One of the best open-air museums in Japan for tactile historic experience.</span><span class="es">Una colección de casas de campo gassho-zukuri reubicadas que puedes entrar y explorar libremente — experiencia práctica de la vida tradicional de montaña: herramientas originales, equipo de gusanos de seda, hogares y detalles arquitectónicos. Mucho menos concurrido que el pueblo principal. Varias de las casas más grandes (estructuras de 5 pisos) están completamente amuebladas y con guías. Uno de los mejores museos al aire libre de Japón para experiencia histórica táctil.</span></div><div class="act-tip">💡 <span class="en">This is where you get to actually go inside the houses and understand how people lived in them — don't skip it for the main village alone.</span><span class="es">Aquí es donde puedes entrar realmente dentro de las casas y entender cómo vivía la gente en ellas — no lo omitas por el pueblo principal solamente.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00–16:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Return bus → Takayama</span><span class="es">Autobús de regreso → Takayama</span></div>
+    <div class="act-tags"><span class="tag t-bus">🚌 Nohi/Kaetoku Bus → Takayama</span><span class="tag t-cost">Included in round-trip ticket</span><span class="tag t-dur">~50 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">16:30–17:45</div>
+  <div>
+    <div class="act-name"><span class="en">Takayama Jinya — Edo magistrate office</span><span class="es">Takayama Jinya — Oficina del Magistrado Edo</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥500 entry (effective Apr 1, 2026)</span></div><div class="act-note"><span class="en">Japan's only remaining major Edo-period governmental magistrate office — built in 1615, used for 176 years as a regional government headquarters and rice warehouse. Unlike castle ruins or 'reconstructed' historic buildings, this is the real thing: original rooms, corridors, interrogation chambers, torture implements, rice storage, and administrative offices all intact. An extraordinary window into how Edo-period governance actually operated — less theatrical than Kyoto's attractions, more historically raw.</span><span class="es">La única oficina de magistrado gubernamental del período Edo que queda en Japón — construida en 1615, utilizada durante 176 años como sede del gobierno regional y almacén de arroz. A diferencia de las ruinas de castillos o edificios históricos 'reconstruidos', este es auténtico: habitaciones originales, corredores, cámaras de interrogatorio, instrumentos de tortura, almacenamiento de arroz y oficinas administrativas todos intactos. Una ventana extraordinaria a cómo funcionaba realmente el gobierno del período Edo — menos teatral que las atracciones de Kioto, más históricamente crudo.</span></div><div class="act-tip">💡 <span class="en">This is genuinely one of the best-preserved historic buildings in Japan and often overlooked by tourists. Worth every minute if you have any interest in the Edo period.</span><span class="es">Este es genuinamente uno de los edificios históricos mejor conservados de Japón y frecuentemente ignorado por los turistas. Vale cada minuto si tienes algún interés en el período Edo.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="travel">
+  <summary class="day-hdr">
+    <div class="day-badge travel">
+      <div class="badge-num">7</div>
+      <div class="badge-wday">Wed</div>
+      <div class="badge-icon">🟧</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Takayama → Nagoya → Kyoto</span><span class="es">Takayama → Nagoya → Kioto</span></div>
+      <div class="day-subtitle"><span class="en">Jun 3 — Travel Day</span><span class="es">3 Jun — Día de Viaje</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 The Chapter Kyoto · Check-in 15:00</span><span class="es">🏨 The Chapter Kioto · Check-in 15:00</span></span><span class="day-pill pill-cost">¥14,980 rail</span><span class="day-pill pill-dist">~4h total travel</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=900&q=80" alt="Day 7">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=75" alt="Gion Evening"><div class="photo-cap">Gion Evening</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Pontocho Alley"><div class="photo-cap">Pontocho Alley</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75" alt="Kyoto Canal"><div class="photo-cap">Kyoto Canal</div></div></div>      <div class="hotel-strip">
+  <div class="hs-name">The Chapter Kyoto<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Autograph Collection · Central Kyoto</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
+  <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
+  <span class="hs-badge hsb-price">~$280–$380<span class="en">/night</span><span class="es">/noche</span></span>
+  <span class="hs-badge hsb-brand"><span class="en">Bonvoy Points Eligible</span><span class="es">Elegible para Puntos Bonvoy</span></span>
+  <div class="hs-note">Boutique canal-side property — walkable to Gion, Pontocho, and Nishiki Market. Autograph Collection means design character and local curation vs. a standard Marriott. Excellent concierge for Kyoto temple bookings.</div>
+</div>
+      <div class="activities"><div class="act">
+  <div class="act-time">09:00–11:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Takayama → Nagoya (Limited Express Hida)</span><span class="es">Takayama → Nagoya (Expreso Limitado Hida)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Limited Express Hida — reserved seat, Takayama Station</span><span class="tag t-cost">¥9,070/person</span><span class="tag t-dur">2h 30m</span></div><div class="act-note"><span class="en">The return journey through the Alps — equally scenic going south. Morning light in the valleys can be spectacular. Consider a window seat on the left (east) side this time for different ridge views.</span><span class="es">El viaje de regreso a través de los Alpes — igual de pintoresco hacia el sur. La luz de la mañana en los valles puede ser espectacular. Considera asientos de ventana en el lado izquierdo esta vez para diferentes vistas de las crestas.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:00–12:50</div>
+  <div>
+    <div class="act-name transit"><span class="en">Nagoya → Kyoto (Shinkansen Nozomi/Hikari)</span><span class="es">Nagoya → Kioto (Shinkansen Nozomi/Hikari)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Tokaido Shinkansen — reserved seat, Nagoya Station</span><span class="tag t-cost">¥5,910/person</span><span class="tag t-dur">~50 min</span></div><div class="act-note"><span class="en">Short shinkansen hop — under an hour. Nagoya Station has excellent ekiben (station bento) if you missed lunch.</span><span class="es">Viaje corto en shinkansen — menos de una hora. La Estación Nagoya tiene excelentes ekiben (bento de estación) si te perdiste el almuerzo.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:15–14:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Arrive Kyoto Station + transfer to hotel</span><span class="es">Llegada a Estación Kioto + traslado al hotel</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Kyoto City Bus or taxi from Kyoto Station</span><span class="tag t-cost">¥230 bus · ~¥1,200 taxi</span><span class="tag t-dur">10–20 min</span></div><div class="act-note"><span class="en">Kyoto Station is a striking modern building (Hiroshi Hara, 1997) worth a look — dramatic glass atrium and rooftop sky garden. The city bus network is extensive and uses IC cards. Hotel Chapter Kyoto is near the canal/Kamo River area.</span><span class="es">La Estación de Kioto es un llamativo edificio moderno (Hiroshi Hara, 1997) que vale la pena ver — dramático atrio de vidrio y jardín aéreo en la azotea. La red de autobuses de la ciudad es extensa y usa tarjetas IC. El Hotel Chapter Kyoto está cerca del canal/Río Kamo.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Hotel check-in — The Chapter Kyoto</span><span class="es">✅ Check-in — The Chapter Kioto</span></div>
+    
+  </div>
+</div><div class="act">
+  <div class="act-time">16:30–19:30</div>
+  <div>
+    <div class="act-name"><span class="en">Gion and Pontocho evening walk</span><span class="es">Paseo nocturno por Gion y Pontocho</span></div>
+    <div class="act-tags"><span class="tag t-free">Free to walk</span></div><div class="act-note"><span class="en">Gion is Kyoto's historic geisha district — cobblestone Hanamikoji Street lined with ochaya (tea houses) where maiko and geiko entertain clients. The streets look exactly as they did 200 years ago. Arrive at dusk (around 18:00) when lanterns illuminate the wooden machiya facades and the atmosphere peaks. Walk north into Shimbashi-dori (even more photogenic, fewer tourists). Then cross the Kamo River to Pontocho — a single narrow alley of restaurants stretching 500m between the two rivers, with outdoor riverside dining platforms (kawayuka) from May to September. This is among the most atmospheric dining streets in Asia.</span><span class="es">Gion es el histórico distrito geisha de Kioto — la adoquinada calle Hanamikoji bordeada de ochaya (casas de té) donde maiko y geiko entretienen a los clientes. Las calles se ven exactamente como hace 200 años. Llega al anochecer (alrededor de las 18:00) cuando los faroles iluminan las fachadas de madera machiya y el ambiente alcanza su punto máximo. Camina al norte por Shimbashi-dori (aún más fotogénico, menos turistas). Luego cruza el Río Kamo hacia Pontocho — un estrecho callejón de restaurantes de 500m entre los dos ríos, con plataformas de comedor junto al río (kawayuka) de mayo a septiembre. Es una de las calles gastronómicas más atmosféricas de Asia.</span></div><div class="act-tip">💡 <span class="en">You may see maiko (apprentice geisha) in full costume walking to evening appointments around 17:30–18:30 on Hanamikoji. Never stop them for photos — observe respectfully from a distance.</span><span class="es">Puedes ver maiko (aprendices de geisha) en traje completo caminando a citas nocturnas alrededor de las 17:30–18:30 en Hanamikoji. Nunca las detengas para fotos — observa respetuosamente desde la distancia.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="culture">
+  <summary class="day-hdr">
+    <div class="day-badge culture">
+      <div class="badge-num">8</div>
+      <div class="badge-wday">Thu</div>
+      <div class="badge-icon">🟦</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Kiyomizu-dera · Higashiyama · Byodo-in (Uji)</span><span class="es">Kiyomizu-dera · Higashiyama · Byodo-in (Uji)</span></div>
+      <div class="day-subtitle"><span class="en">Jun 4 — Culture Day</span><span class="es">4 Jun — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 The Chapter Kyoto (cont.)</span><span class="day-pill pill-cost">¥500–¥1,000 entries · ¥240 rail</span><span class="day-pill pill-dist">Uji: 25 min from Kyoto</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Day 8">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75" alt="Kiyomizu-dera"><div class="photo-cap">Kiyomizu-dera</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?w=400&q=75" alt="Higashiyama Lane"><div class="photo-cap">Higashiyama Lane</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=400&q=75" alt="Byodo-in"><div class="photo-cap">Byodo-in</div></div></div>      <div class="hotel-strip"><div class="hs-name">The Chapter Kyoto — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">07:30–09:15</div>
+  <div>
+    <div class="act-name"><span class="en">Kiyomizu-dera Temple</span><span class="es">Templo Kiyomizu-dera</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥500 entry</span></div><div class="act-note"><span class="en">Founded in 778 AD, Kiyomizu-dera (Pure Water Temple) clings to the face of Otowa-san mountain on a massive wooden stage constructed without a single nail — a feat of Edo-period engineering. The main hall's veranda extends 13 meters over the hillside, offering sweeping views across Kyoto. The temple complex includes three waterfalls (Otowa waterfall — visitors drink from one of three streams for longevity, love, or success), a UNESCO World Heritage designation, and pagodas framed by maple and cherry trees. Arrive before 8 AM to experience it without tour groups.</span><span class="es">Fundado en 778 d.C., el Kiyomizu-dera (Templo del Agua Pura) se aferra a la ladera del monte Otowa-san sobre un enorme escenario de madera construido sin un solo clavo — una hazaña de la ingeniería del período Edo. La veranda del salón principal se extiende 13 metros sobre la ladera, ofreciendo vistas panorámicas de Kioto. El complejo del templo incluye tres cascadas (cascada Otowa — los visitantes beben de uno de tres arroyos para longevidad, amor o éxito), declaración Patrimonio de la Humanidad de la UNESCO, y pagodas enmarcadas por arces y cerezos. Llega antes de las 8 AM para vivirlo sin grupos turísticos.</span></div><div class="act-tip">💡 <span class="en">The view back toward the main stage from the Asakura-dō lookout across the valley is the classic Kiyomizu-dera photograph. Early morning mist in late May/June can make it extraordinary.</span><span class="es">La vista de regreso hacia el escenario principal desde el mirador Asakura-dō al otro lado del valle es la fotografía clásica de Kiyomizu-dera. La neblina de primera hora de la mañana a finales de mayo/junio puede hacerla extraordinaria.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:15–11:30</div>
+  <div>
+    <div class="act-name"><span class="en">Sannen-zaka + Ninen-zaka cobblestone lanes + Gion walk</span><span class="es">Calles empedradas Sannen-zaka + Ninen-zaka + Gion</span></div>
+    <div class="act-tags"><span class="tag t-free">Free — public streets</span></div><div class="act-note"><span class="en">Ninen-zaka and Sannen-zaka are two historic stone-paved lanes descending from Kiyomizu-dera through the Higashiyama hills — lined with traditional wooden buildings housing craft shops, matcha cafés, and pottery galleries. These are among the best-preserved historic streetscapes in Japan. Walk north into Gion's Shimbashi area (even more pristine, especially in morning quiet before tourist crowds) then through Maruyama Park to Chion-in and Shoren-in temples.</span><span class="es">Ninen-zaka y Sannen-zaka son dos carriles históricos pavimentados con piedra que descienden desde Kiyomizu-dera por las colinas de Higashiyama — bordeados de edificios de madera tradicionales con tiendas de artesanía, cafés de matcha y galerías de cerámica. Estos son algunos de los paisajes históricos mejor conservados de Japón. Camina al norte hacia la zona Shimbashi de Gion (aún más prístino, especialmente en la quietud matutina antes de las multitudes turísticas) y luego por el Parque Maruyama hasta los templos Chion-in y Shoren-in.</span></div><div class="act-tip">💡 <span class="en">A bowl of matcha soft-serve ice cream or a warm matcha-and-mochi set from one of the lane shops is the quintessential Higashiyama break. Budget ¥500–¥800.</span><span class="es">Un helado suave de matcha o un set cálido de matcha y mochi de una de las tiendas del callejón es el descanso por excelencia de Higashiyama. Presupuesto ¥500–¥800.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:30–13:00</div>
+  <div>
+    <div class="act-name"><span class="en">Lunch + rest in Kyoto central</span><span class="es">Almuerzo + descanso en el centro de Kioto</span></div>
+    <div class="act-note"><span class="en">Return to the hotel area or Nishiki Market — Kyoto's famous covered food market ('Kyoto's kitchen'). 400-year-old covered arcade with 130 stalls selling pickles, tofu, fresh fish, grilled skewers, sweets, and street food. Excellent for lunch grazing. Budget ¥1,000–¥2,000.</span><span class="es">Regresa al área del hotel o al Mercado Nishiki — el famoso mercado de comida cubierto de Kioto ('la cocina de Kioto'). Arcada cubierta de 400 años con 130 puestos que venden encurtidos, tofu, pescado fresco, brochetas a la parrilla, dulces y comida callejera. Excelente para almorzar probando de todo. Presupuesto ¥1,000–¥2,000.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:00–13:25</div>
+  <div>
+    <div class="act-name transit"><span class="en">Kyoto → Uji (JR Nara Line)</span><span class="es">Kioto → Uji (Línea JR Nara)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Nara Line — Kyoto Station to Uji Station (rapid service)</span><span class="tag t-cost">¥240/person</span><span class="tag t-dur">~25 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:40–15:40</div>
+  <div>
+    <div class="act-name"><span class="en">Byodo-in Temple — Phoenix Hall</span><span class="es">Templo Byodo-in — Salón del Fénix</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥700 — garden + museum · +¥300 — Phoenix Hall interior (timed entry)</span></div><div class="act-note"><span class="en">Built in 1052 during the height of Heian aristocratic culture, Byodo-in's Phoenix Hall (Hoo-do) is one of Japan's most perfect architectural achievements — a central hall flanked by wing corridors reflected in a large lotus pond. It represents the Pure Land Buddhist paradise of Amida Buddha. The Phoenix Hall's image appears on Japan's 10-yen coin — you're standing in front of something that every Japanese person has held in their hand. The adjacent Hoshokan museum houses the original 52 cloud-riding bodhisattva sculptures (apsaras) in extraordinary condition. The hall interior (extra ¥300, timed entry) reveals the golden Amida statue and original ceiling paintings.</span><span class="es">Construido en 1052 en el apogeo de la cultura aristocrática Heian, el Salón del Fénix (Hoo-do) del Byodo-in es uno de los logros arquitectónicos más perfectos de Japón — un salón central flanqueado por corredores alares reflejados en un gran estanque de lotos. Representa el paraíso de la Tierra Pura del Buda Amida. La imagen del Salón del Fénix aparece en la moneda de 10 yenes de Japón — estás frente a algo que cada japonés ha tenido en la mano. El museo Hoshokan adyacente alberga las 52 esculturas originales de bodhisattvas sobre nubes (apsaras) en condición extraordinaria. El interior del salón (¥300 extra, entrada cronometrada) revela la estatua dorada de Amida y pinturas originales del techo.</span></div><div class="act-tip">💡 <span class="en">Book the Phoenix Hall interior timed entry as soon as you arrive at the ticket counter — slots sell out within hours. The reflection in the pond is most perfect on still mornings.</span><span class="es">Reserva la entrada cronometrada al interior del Salón del Fénix tan pronto llegues a la taquilla — los horarios se agotan en horas. El reflejo en el estanque es más perfecto en las mañanas tranquilas.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:55–16:20</div>
+  <div>
+    <div class="act-name transit"><span class="en">Uji → Kyoto</span><span class="es">Uji → Kioto</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Nara Line → Kyoto Station</span><span class="tag t-cost">¥240/person</span><span class="tag t-dur">~25 min</span></div><div class="act-note"><span class="en">Uji is also Japan's most famous green tea growing region — pick up premium uji matcha or hojicha to take home. The covered shopping street near the station has several excellent tea shops.</span><span class="es">Uji también es la región productora de té verde más famosa de Japón — lleva a casa matcha uji premium o hojicha. La calle comercial cubierta cerca de la estación tiene varias tiendas de té excelentes.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">16:30–19:30</div>
+  <div>
+    <div class="act-name"><span class="en">Free evening — Kyoto at dusk</span><span class="es">Tarde libre — Kioto al atardecer</span></div>
+    <div class="act-note"><span class="en">Options: Nishiki Market for snacks, Teramachi shopping arcade, Fushimi Inari torii gates at sunset (30 min from Kyoto Station on JR Nara Line, ¥150 — the lower gates without the crowds). Or a quiet kaiseki dinner in Pontocho for a special evening splurge.</span><span class="es">Opciones: Mercado Nishiki para aperitivos, galería comercial Teramachi, puertas torii de Fushimi Inari al atardecer (30 min desde la Estación Kioto en Línea JR Nara, ¥150 — las puertas inferiores sin multitudes). O una cena kaiseki tranquila en Pontocho para una noche especial.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="hike">
+  <summary class="day-hdr">
+    <div class="day-badge hike">
+      <div class="badge-num">9</div>
+      <div class="badge-wday">Fri</div>
+      <div class="badge-icon">🟩</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Kurama → Kibune Sacred Mountain Hike</span><span class="es">Caminata Sagrada Kurama → Kibune</span></div>
+      <div class="day-subtitle"><span class="en">Jun 5 — Hike Day</span><span class="es">5 Jun — Día de Caminata</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 The Chapter Kyoto (cont.)</span><span class="day-pill pill-cost">¥500 entry · ¥470 train</span><span class="day-pill pill-dist">~3h 50m hike</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Day 9">
+<div class="day-body">
+    <div class="day-body-inner">
+      <div class="hotel-strip"><div class="hs-name">The Chapter Kyoto — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">07:30–08:15</div>
+  <div>
+    <div class="act-name transit"><span class="en">Kyoto central → Demachiyanagi Station</span><span class="es">Centro de Kioto → Estación Demachiyanagi</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Kyoto City Bus or Kyoto Metro → Demachiyanagi</span><span class="tag t-cost">~¥230</span><span class="tag t-dur">~20 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">08:15–08:50</div>
+  <div>
+    <div class="act-name transit"><span class="en">Demachiyanagi → Kurama Station (Eizan Railway)</span><span class="es">Demachiyanagi → Estación Kurama (Ferrocarril Eizan)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Eizan Electric Railway (Kurama Line) — single-car scenic train</span><span class="tag t-cost">¥470/person</span><span class="tag t-dur">~35 min</span></div><div class="act-note"><span class="en">The Eizan Railway is one of Kyoto's most beloved local train experiences — a single-car train that threads through residential Kyoto before ascending into dense cedar forest. In autumn the maple tunnel (momiji) is world-famous; in late May the fresh green canopy is equally beautiful. The final approach to Kurama feels like entering another world.</span><span class="es">El Ferrocarril Eizan es una de las experiencias de tren local más queridas de Kioto — un tren de un vagón que atraviesa Kioto residencial antes de ascender a un denso bosque de cedros. En otoño el túnel de arces (momiji) es mundialmente famoso; a finales de mayo el dosel verde fresco es igual de hermoso. La aproximación final a Kurama se siente como entrar a otro mundo.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">08:55–12:45</div>
+  <div>
+    <div class="act-name"><span class="en">Kurama → Kibune Hike through sacred forest (3h 50m)</span><span class="es">Caminata Kurama → Kibune por bosque sagrado (3h 50m)</span></div>
+    <div class="act-tags"><span class="tag t-cost">Kurama-dera temple ¥500</span></div><div class="act-note"><span class="en">Begin at Kurama-dera, a mountain temple complex founded in 770 AD and dedicated to Sonten (the deity of the universe) — one of Kyoto's most mystically atmospheric sites, with cedar forests, incense smoke, and mountain silence. The trail climbs steeply through old-growth cedar, passes the Okuno-in inner sanctuary at the summit, then descends through forested ridges to Kibune — a small valley shrine village. The Kibune-jinja shrine at the bottom is dedicated to the deity of water and has an ancient, numinous quality. Total hike: ~6km, approximately 900m elevation change.</span><span class="es">Comienza en Kurama-dera, un complejo de templos de montaña fundado en 770 d.C. y dedicado a Sonten (la deidad del universo) — uno de los sitios más místicamente atmosféricos de Kioto, con bosques de cedros, humo de incienso y silencio de montaña. El sendero sube abruptamente a través de cedros añosos, pasa por el santuario interior Okuno-in en la cima, luego desciende por crestas boscosas hasta Kibune — un pequeño pueblo santuario en el valle. El santuario Kibune-jinja al fondo está dedicado a la deidad del agua y tiene una calidad antigua y numinosa. Caminata total: ~6km, aproximadamente 900m de desnivel.</span></div><div class="act-tip">💡 <span class="en">The path between Kurama-dera's inner sanctuary and the ridge is the most dramatic and least-traveled section. Bring water — there are no vending machines on the mountain. The forest is genuinely ancient.</span><span class="es">El camino entre el santuario interior de Kurama-dera y la cresta es la sección más dramática y menos transitada. Lleva agua — no hay máquinas expendedoras en la montaña. El bosque es genuinamente antiguo.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:45–14:00</div>
+  <div>
+    <div class="act-name"><span class="en">Kibune lunch — kawadoko riverside dining</span><span class="es">Almuerzo en Kibune — comedor ribereño kawadoko</span></div>
+    <div class="act-note"><span class="en">Kibune is famous for kawadoko — elevated wooden dining platforms built directly over the Kibune River, used from May to September. Diners sit above the flowing stream in the forest with cold river air rising from below. Tables serve kaiseki-style multi-course meals (¥3,000–¥8,000) or lighter somen noodle sets (¥2,000–¥3,000). This is one of Japan's most unique and memorable dining experiences. Reservations strongly recommended for weekends — book online before the trip.</span><span class="es">Kibune es famoso por kawadoko — plataformas de comedor de madera elevadas construidas directamente sobre el Río Kibune, usadas de mayo a septiembre. Los comensales se sientan sobre el arroyo que fluye en el bosque con aire frío del río que sube desde abajo. Las mesas sirven comidas de varios platos estilo kaiseki (¥3,000–¥8,000) o sets de fideos somen más ligeros (¥2,000–¥3,000). Esta es una de las experiencias gastronómicas más únicas y memorables de Japón. Se recomiendan reservaciones con mucha anticipación para fines de semana — reserva en línea antes del viaje.</span></div><div class="act-tip">💡 <span class="en">Even if you can't get a riverside table, the small shops along the lane serve good soba and tofu sets. The forest atmosphere in Kibune is worth lingering in.</span><span class="es">Incluso si no consigues mesa junto al río, las pequeñas tiendas a lo largo del carril sirven buenos sets de soba y tofu. La atmósfera del bosque en Kibune merece detenerse a disfrutarla.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">14:00–15:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Return to Kyoto from Kibune</span><span class="es">Regreso a Kioto desde Kibune</span></div>
+    <div class="act-tags"><span class="tag t-bus">🚌 Kibune → Kurama-guchi bus (¥300) then Eizan Railway → Demachiyanagi · OR walk 20 min to Kibune-guchi and take Eizan back</span><span class="tag t-cost">~¥600–¥700 total</span><span class="tag t-dur">~50 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">16:30–19:00</div>
+  <div>
+    <div class="act-name"><span class="en">Recovery evening — Kyoto</span><span class="es">Tarde de recuperación — Kioto</span></div>
+    <div class="act-note"><span class="en">Legs will be tired. Stay close to the hotel — Pontocho for dinner (riverside platform if you didn't do Kibune), a long onsen soak if the hotel has facilities, or simply a quiet dinner at one of Kyoto's many outstanding tofu restaurants (yudofu — simmered tofu kaiseki is Kyoto's most traditional cuisine). Budget ¥2,000–¥4,000 for a good yudofu set.</span><span class="es">Las piernas estarán cansadas. Quédate cerca del hotel — Pontocho para cenar (plataforma junto al río si no fuiste a Kibune), un largo baño de onsen si el hotel tiene instalaciones, o simplemente una cena tranquila en uno de los muchos restaurantes de tofu de Kioto (yudofu — la cocina más tradicional de Kioto). Presupuesto ¥2,000–¥4,000 para un buen set yudofu.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="travel">
+  <summary class="day-hdr">
+    <div class="day-badge travel">
+      <div class="badge-num">10</div>
+      <div class="badge-wday">Sat</div>
+      <div class="badge-icon">🟧</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Kyoto → Osaka</span><span class="es">Kioto → Osaka</span></div>
+      <div class="day-subtitle"><span class="en">Jun 6 — Travel Day</span><span class="es">6 Jun — Día de Viaje</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Aloft Osaka Dojima · Check-in 15:00</span><span class="day-pill pill-cost">¥580 rail</span><span class="day-pill pill-dist">30 min from Kyoto</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1589452271712-64b8a66c7b71?w=900&q=80" alt="Day 10">
+<div class="day-body">
+    <div class="day-body-inner">
+      <div class="hotel-strip">
+  <div class="hs-name">Aloft Osaka Dojima<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Bonvoy · Dojima, Osaka</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
+  <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
+  <span class="hs-badge hsb-price">~$170–$230<span class="en">/night</span><span class="es">/noche</span></span>
+  <span class="hs-badge hsb-brand"><span class="en">Bonvoy Points Eligible</span><span class="es">Elegible para Puntos Bonvoy</span></span>
+  <div class="hs-note">Trendy Dojima district — 10-min walk to Dotonbori food scene, good subway access to Nara next morning. Aloft is Marriott's lifestyle brand: modern, social, bar-forward. Excellent base for Osaka's food and nightlife districts.</div>
+</div>
+      <div class="activities"><div class="act">
+  <div class="act-time">10:00–11:00</div>
+  <div>
+    <div class="act-name"><span class="en">Kyoto morning flex — Nishiki Market or last shopping</span><span class="es">Mañana libre en Kioto — Mercado Nishiki o últimas compras</span></div>
+    <div class="act-tags"><span class="tag t-free">Free to walk · market stalls ¥200–¥1,500</span></div><div class="act-note"><span class="en">Nishiki Market is Kyoto's famous 400-year-old covered food arcade — 130 stalls selling pickled vegetables, fresh tofu, Kyoto sweets, tamagoyaki, grilled skewers, and more. Perfect for last-morning browsing and gift buying. Or walk the Teramachi covered arcade for ceramics, fans, and craft paper. The Kyoto Handicraft Center near Heian Shrine is good for higher-end souvenirs.</span><span class="es">El Mercado Nishiki es el famoso pasaje de comida cubierto de 400 años de Kioto — 130 puestos que venden verduras encurtidas, tofu fresco, dulces de Kioto, tamagoyaki, brochetas a la parrilla y más. Perfecto para compras de última mañana y regalos. O camina por la galería cubierta Teramachi para cerámica, abanicos y papel artesanal. El Centro de Artesanía de Kioto cerca del Santuario Heian es bueno para souvenirs de mayor calidad.</span></div><div class="act-tip">💡 <span class="en">The covered arcades (Nishiki, Teramachi, Shinkyogoku) are open by 10 AM and at their liveliest on Saturday morning. Great place to stock up on Japanese foodie gifts to take home.</span><span class="es">Las galerías cubiertas (Nishiki, Teramachi, Shinkyogoku) abren a las 10 AM y están más animadas el sábado por la mañana. Excelente lugar para abastecerse de regalos gastronómicos japoneses para llevar a casa.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:00–11:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Kyoto → Osaka (JR Special Rapid)</span><span class="es">Kioto → Osaka (JR Expreso Especial)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Biwako/Kyoto Line — Special Rapid from Kyoto Station to Osaka</span><span class="tag t-cost">¥580/person</span><span class="tag t-dur">~29 min</span></div><div class="act-note"><span class="en">The JR Special Rapid is fast, frequent, and comfortable — no reservation needed. Departs every 15 min from Kyoto Station. For Aloft Dojima, exit at Osaka Station (JR) and take the subway 2 stops south.</span><span class="es">El JR Special Rapid es rápido, frecuente y cómodo — sin necesidad de reserva. Sale cada 15 min desde la Estación Kioto. Para el Aloft Dojima, baja en la Estación Osaka (JR) y toma el metro 2 paradas al sur.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:00–14:00</div>
+  <div>
+    <div class="act-name"><span class="en">Arrive Osaka + lunch + explore Dojima/Nakanoshima</span><span class="es">Llegada a Osaka + almuerzo + explorar Dojima/Nakanoshima</span></div>
+    <div class="act-note"><span class="en">Dojima and Nakanoshima form Osaka's historic business and cultural island district — elegant Meiji-era buildings, the National Museum of Art (free exterior, ¥430 inside), and the beautiful Nakanoshima rose garden along the river. Great for a post-travel lunch stroll. Try kitsune udon (sweet fried tofu atop noodles) at a local standing noodle shop — Osaka's everyday comfort food.</span><span class="es">Dojima y Nakanoshima forman el histórico distrito empresarial y cultural de Osaka — elegantes edificios de la era Meiji, el Museo Nacional de Arte (exterior gratis, ¥430 interior), y el hermoso jardín de rosas de Nakanoshima junto al río. Ideal para un paseo de almuerzo post-viaje. Prueba el kitsune udon (tofu frito dulce sobre fideos) en una tienda local de fideos de pie — la comida reconfortante cotidiana de Osaka.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Hotel check-in — Aloft Osaka Dojima</span><span class="es">✅ Check-in — Aloft Osaka Dojima</span></div>
+    
+  </div>
+</div><div class="act">
+  <div class="act-time">17:00–20:00</div>
+  <div>
+    <div class="act-name"><span class="en">Osaka food night — Dotonbori and Namba</span><span class="es">Noche gastronómica en Osaka — Dotonbori y Namba</span></div>
+    <div class="act-tags"><span class="tag t-free">Free to walk</span></div><div class="act-note"><span class="en">Dotonbori is Osaka's famous neon canal food district — the city's culinary soul and completely over-the-top in the best way. Osaka's food culture (kuidaore — 'eat until you drop') is a major part of Japanese identity. Must-try in Dotonbori: takoyaki (grilled octopus balls, ¥500–¥800), kushikatsu (breaded and fried skewers, never double-dip the sauce — Osaka rule), okonomiyaki (savory cabbage pancake), and fresh crab. Glico Running Man sign and the mechanical crab signs are iconic landmarks. The canal reflection at night is spectacular.</span><span class="es">Dotonbori es el famoso distrito gastronómico del canal de neón de Osaka — el alma culinaria de la ciudad y completamente excesivo en el mejor sentido. La cultura gastronómica de Osaka (kuidaore — 'comer hasta caer') es una parte importante de la identidad japonesa. Imprescindible en Dotonbori: takoyaki (bolitas de pulpo a la parrilla, ¥500–¥800), kushikatsu (brochetas empanadas y fritas, nunca doble inmersión en la salsa — regla de Osaka), okonomiyaki (tortita de col salada) y cangrejo fresco. El letrero del Hombre Corriendo Glico y los letreros de cangrejo mecánico son hitos icónicos. El reflejo del canal por la noche es espectacular.</span></div><div class="act-tip">💡 <span class="en">For higher-quality takoyaki than the tourist-oriented Dotonbori stalls, walk a few blocks to Namba area's side streets where locals eat. Wanaka Honke is a famous local takoyaki spot. Hozenji Yokocho — a tiny moss-covered alley shrine nearby — is one of Osaka's most atmospheric spots.</span><span class="es">Para takoyaki de mayor calidad que los puestos turísticos de Dotonbori, camina unas cuadras hasta las calles laterales del área de Namba donde comen los locales. Wanaka Honke es un famoso puesto local de takoyaki. Hozenji Yokocho — un pequeño santuario en callejón cubierto de musgo cercano — es uno de los lugares más atmosféricos de Osaka.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="hike">
+  <summary class="day-hdr">
+    <div class="day-badge hike">
+      <div class="badge-num">11</div>
+      <div class="badge-wday">Sun</div>
+      <div class="badge-icon">🟩</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Nara · Todai-ji · Kasuga Taisha → Kiso Valley Night</span><span class="es">Nara · Todai-ji · Kasuga Taisha → Noche en el Valle Kiso</span></div>
+      <div class="day-subtitle"><span class="en">Jun 7 — Mixed Day</span><span class="es">7 Jun — Día Mixto</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Minshuku Tsumago/Magome · Check-in ~17:30</span><span class="day-pill pill-cost">¥1,500 entries · ¥840 to Nara</span><span class="day-pill pill-dist">Nara 1h · Kiso 4h from Nara</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?w=900&q=80" alt="Day 11">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid">
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?w=400&q=75" alt="Nara Deer Park"><div class="photo-cap">Nara Deer Park</div></div>
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Todai-ji Temple"><div class="photo-cap">Todai-ji Temple</div></div>
+  <div class="photo-item"><img src="https://images.unsplash.com/photo-1601823984359-98e30ba44d2d?w=400&q=75" alt="Kiso Valley Post Town"><div class="photo-cap">Kiso Valley Post Town</div></div>
+</div>      <div class="hotel-strip">
+  <div class="hs-name">Minshuku — Tsumago or Magome<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Local family inn · Kiso Valley, Nagano</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in ~5:30 PM</span>
+  <span class="hs-badge hsb-out"><span class="en">Check-out by 9:00 AM</span><span class="es">Check-out antes de 9:00 AM</span></span>
+  <span class="hs-badge hsb-price">~$80–$120<span class="en">/night</span><span class="es">/noche</span> incl. dinner + breakfast</span>
+  <span class="hs-badge hsb-brand"><span class="en">Traditional Tatami Experience</span><span class="es">Experiencia Tradicional en Tatami</span></span>
+  <div class="hs-note"><span class="en">Futon on tatami, yukata robe, communal bath, multi-course dinner served in your room. The most culturally immersive accommodation of the trip. Dinner (typically 6 courses of mountain vegetables, river fish, and local sake) and breakfast are included — exceptional value. Book well in advance as these small inns fill quickly.</span><span class="es">Futón sobre tatami, bata yukata, baño comunal, cena de varios platos servida en tu habitación. El alojamiento más culturalmente inmersivo del viaje. Cena (tipicamente 6 platos de verduras de montaña, pescado de río y sake local) y desayuno incluidos — valor excepcional. Reservar con mucha anticipación.</span></div>
+</div>
+      <div class="activities"><div class="act">
+  <div class="act-time">07:30–08:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Osaka → Nara (JR Yamatoji Line)</span><span class="es">Osaka → Nara (Línea JR Yamatoji)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamatoji Line — Osaka/Namba Station to Nara (direct rapid)</span><span class="tag t-cost">¥840/person</span><span class="tag t-dur">~50 min</span></div><div class="act-note"><span class="en">Direct JR rapid service from Osaka to Nara — convenient and frequent.</span><span class="es">Servicio JR rápido directo de Osaka a Nara — conveniente y frecuente.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">08:45–10:45</div>
+  <div>
+    <div class="act-name"><span class="en">Todai-ji Temple — Great Buddha Hall</span><span class="es">Templo Todai-ji — Gran Salón del Buda</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥800 entry to Daibutsuden</span></div><div class="act-note"><span class="en">Todai-ji was built in 752 AD as the head temple of Japan's national provincial temple network — a massive state undertaking to secure Buddhist protection for Japan. The Daibutsuden (Great Buddha Hall) is the world's largest wooden building (57m tall, 50m wide) and houses the 15m Vairocana Buddha (Daibutsu) — the largest bronze statue in Japan. The scale is genuinely staggering in person. The free-roaming deer of Nara Park (considered divine messengers of the Kasuga shrine) wander freely through the temple grounds and will approach visitors for shika senbei (deer crackers, sold everywhere for ¥200). Deer will bow to request crackers — they have learned this from tourist interactions over decades.</span><span class="es">El Todai-ji fue construido en 752 d.C. como templo principal de la red nacional de templos provinciales de Japón — una masiva empresa estatal para asegurar la protección budista de Japón. El Daibutsuden (Gran Salón del Buda) es el edificio de madera más grande del mundo (57m de altura, 50m de ancho) y alberga el Buda Vairocana de 15m (Daibutsu) — la estatua de bronce más grande de Japón. La escala es genuinamente asombrosa en persona. Los ciervos de vida libre del Parque Nara (considerados mensajeros divinos del santuario Kasuga) deambulan libremente por los terrenos del templo y se acercan a los visitantes pidiendo shika senbei (galletas para ciervos, vendidas en todas partes por ¥200). Los ciervos hacen una reverencia para pedir galletas — han aprendido esto de las interacciones con turistas a lo largo de décadas.</span></div><div class="act-tip">💡 <span class="en">Buy shika senbei deer crackers from the orange-aproned vendors for ¥200. Hold them up for a bow! Watch your bags — deer are surprisingly bold and will pull items out.</span><span class="es">Compra galletas shika senbei para los ciervos de los vendedores con delantal naranja por ¥200. ¡Sostenlas para recibir una reverencia! Cuida tus bolsas — los ciervos son sorprendentemente atrevidos y sacarán cosas.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:00–12:15</div>
+  <div>
+    <div class="act-name"><span class="en">Kasuga Taisha — Special Inner Worship</span><span class="es">Kasuga Taisha — Culto Interior Especial</span></div>
+    <div class="act-tags"><span class="tag t-cost">¥700 — inner sanctuary (special worship / naihaisan)</span></div><div class="act-note"><span class="en">Kasuga Taisha was founded in 768 AD as the tutelary shrine of the Fujiwara clan — Japan's most powerful aristocratic family. The shrine complex is famous for its 3,000 bronze and stone lanterns (lit twice yearly at Setsubun and Obon festivals). The special worship inner entry (naihaisan at ¥700) gets you past the outer gates into the central sanctuary — closer to the vermilion-lacquered halls than regular visitors. The surrounding Kasugayama Primeval Forest (UNESCO-listed, entry prohibited since 841 AD) surrounds the shrine with 1,200-year-old old-growth forest.</span><span class="es">Kasuga Taisha fue fundado en 768 d.C. como santuario tutelar del clan Fujiwara — la familia aristocrática más poderosa de Japón. El complejo del santuario es famoso por sus 3,000 faroles de bronce y piedra (encendidos dos veces al año en los festivales Setsubun y Obon). La entrada interior de culto especial (naihaisan a ¥700) te lleva más allá de las puertas exteriores hacia el santuario central — más cerca de los salones lacados en bermellón que los visitantes regulares. El Bosque Primigenio Kasugayama circundante (declarado UNESCO, entrada prohibida desde 841 d.C.) rodea el santuario con bosque primigenio de 1,200 años.</span></div><div class="act-tip">💡 <span class="en">The approach through the forest path from Nara Park is itself beautiful — lined with stone lanterns under 1,000-year-old trees.</span><span class="es">El acceso por el camino del bosque desde el Parque Nara es en sí mismo hermoso — bordeado de faroles de piedra bajo árboles de 1,000 años.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">12:15–13:15</div>
+  <div>
+    <div class="act-name"><span class="en">Lunch in Nara</span><span class="es">Almuerzo en Nara</span></div>
+    <div class="act-note"><span class="en">Nara has excellent kakinoha-zushi (pressed sushi wrapped in persimmon leaf — a Nara specialty, ¥800–¥1,500) and warabi-mochi (bracken-starch jelly with kinako powder, Nara's famous sweet). Higashimuki and Mochiidono covered shopping arcades near the station have many options.</span><span class="es">Nara tiene excelente kakinoha-zushi (sushi prensado envuelto en hoja de caqui — especialidad de Nara, ¥800–¥1,500) y warabi-mochi (gelatina de almidón de helecho con polvo kinako, el famoso dulce de Nara). Las galerías comerciales cubiertas Higashimuki y Mochiidono cerca de la estación tienen muchas opciones.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:15–17:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Nara → Kiso Valley reposition</span><span class="es">Nara → Reposicionamiento en el Valle Kiso</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Nara → Nagoya (JR Kintetsu Limited Express or JR Yamato) then JR Chuo Line → Nagiso Station</span><span class="tag t-cost">~¥3,500–¥4,500 total</span><span class="tag t-dur">~4h including transfers</span></div><div class="act-note"><span class="en">Complex routing — Nara to Nagoya (~1h, ¥2,310 JR or ¥1,500+ Kintetsu) then JR Chuo Line from Nagoya to Nagiso Station (~1h 20m, ¥1,690). From Nagiso, a 10-min taxi or bus reaches Tsumago or Magome post towns. Exact routing depends on which minshuku you book. Confirm transfer timing with the inn when you book.</span><span class="es">Ruta compleja — Nara a Nagoya (~1h, ¥2,310 JR o ¥1,500+ Kintetsu) luego Línea JR Chuo de Nagoya a la Estación Nagiso (~1h 20m, ¥1,690). Desde Nagiso, un taxi o autobús de 10 min llega a los pueblos de Tsumago o Magome. La ruta exacta depende del minshuku que reserves. Confirma los horarios de traslado con el alojamiento al reservar.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">17:30–18:00</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Minshuku check-in — Tsumago or Magome</span><span class="es">✅ Check-in Minshuku — Tsumago o Magome</span></div>
+    <div class="act-note"><span class="en">Check-in is typically tied to the dinner service schedule. Call ahead if running late. Expect a warm welcome, slippers at the entrance, and a yukata robe waiting in your tatami room.</span><span class="es">El check-in generalmente está vinculado al horario del servicio de cena. Llama con anticipación si llegas tarde. Espera una cálida bienvenida, pantuflas en la entrada y una bata yukata esperando en tu habitación de tatami.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">18:30–21:00</div>
+  <div>
+    <div class="act-name"><span class="en">Multi-course dinner at the minshuku</span><span class="es">Cena de varios platos en el minshuku</span></div>
+    <div class="act-note"><span class="en">Traditional Japanese kaiseki-style dinner served in your room or communal dining area — typically 6–8 courses of seasonal mountain vegetables, river fish (ayu sweetfish or iwana char), local sake, pickles, and rice. This is the type of meal that travelers remember years later. Eat slowly and ask questions — the family will often share the story of each dish.</span><span class="es">Cena tradicional japonesa estilo kaiseki servida en tu habitación o comedor comunal — típicamente 6–8 platos de verduras de montaña de temporada, pescado de río (dulce ayu o iwana char), sake local, encurtidos y arroz. Este es el tipo de comida que los viajeros recuerdan años después. Come despacio y haz preguntas — la familia a menudo compartirá la historia de cada plato.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="travel">
+  <summary class="day-hdr">
+    <div class="day-badge travel">
+      <div class="badge-num">12</div>
+      <div class="badge-wday">Mon</div>
+      <div class="badge-icon">🟧</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Kiso Valley → Nagiso → Tokyo</span><span class="es">Valle Kiso → Nagiso → Tokio</span></div>
+      <div class="day-subtitle"><span class="en">Jun 8 — Travel Day</span><span class="es">8 Jun — Día de Viaje</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott Hotel · Check-in 15:00</span><span class="day-pill pill-cost">¥12,990 rail</span><span class="day-pill pill-dist">~4h total travel</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&q=80" alt="Day 12">
+<div class="day-body">
+    <div class="day-body-inner">
+      <div class="hotel-strip">
+  <div class="hs-name">Tokyo Marriott Hotel<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Bonvoy · Shinagawa, Tokyo</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
+  <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
+  <span class="hs-badge hsb-price">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span>
+  <span class="hs-badge hsb-brand"><span class="en">Bonvoy Points Eligible</span><span class="es">Elegible para Puntos Bonvoy</span></span>
+  <div class="hs-note"><span class="en">Return stay</span><span class="es">Estadía de regreso</span> — same property as nights 1–4. Familiar base for final Tokyo day and Haneda departure. Request late checkout (2:00 PM) with Bonvoy status if applicable — useful for Jun 10 departure.</div>
+</div>
+      <div class="activities"><div class="act">
+  <div class="act-time">08:00–09:00</div>
+  <div>
+    <div class="act-name"><span class="en">Tsumago/Magome morning walk before departure</span><span class="es">Paseo matutino en Tsumago/Magome antes de partir</span></div>
+    <div class="act-tags"><span class="tag t-free">Free — post town streets</span></div><div class="act-note"><span class="en">The Kiso Valley post towns (Tsumago and Magome) were stops on the historic Nakasendo highway that linked Edo (Tokyo) to Kyoto through the mountains — used by feudal lords, messengers, and merchants for 250 years. In the early morning before day-trippers arrive, these stone-paved lanes with their preserved Edo-period inns and shops are extraordinarily atmospheric. The short Nakasendo trail between the two towns (8km, ~2.5h) is one of Japan's best historic walks — not possible today with the schedule, but even a 30-min walk from your inn shows you why it's special.</span><span class="es">Los pueblos de postas del Valle Kiso (Tsumago y Magome) eran paradas en el histórico camino Nakasendo que unía Edo (Tokio) con Kioto a través de las montañas — utilizado por señores feudales, mensajeros y comerciantes durante 250 años. A primera hora de la mañana antes de que lleguen los excursionistas de día, estos callejones pavimentados con piedra con sus posadas y tiendas del período Edo conservadas son extraordinariamente atmosféricos. El corto sendero Nakasendo entre los dos pueblos (8km, ~2.5h) es una de las mejores caminatas históricas de Japón — no es posible hoy con el horario, pero incluso una caminata de 30 min desde tu alojamiento te muestra por qué es especial.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">08:00–09:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Local transfer → Nagiso Station</span><span class="es">Traslado local → Estación Nagiso</span></div>
+    <div class="act-tags"><span class="tag t-bus">🚌 Bus or taxi from Tsumago/Magome to Nagiso Station</span><span class="tag t-cost">~¥300–¥600</span><span class="tag t-dur">~10–20 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:10–10:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Nagiso → Nagoya (JR Chuo Line)</span><span class="es">Nagiso → Nagoya (Línea JR Chuo)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Chuo Main Line — Nagiso to Nagoya</span><span class="tag t-cost">¥1,690/person</span><span class="tag t-dur">1h 20m</span></div><div class="act-note"><span class="en">The Chuo Line from Nagiso to Nagoya follows the Kiso River valley — stunning early-morning light on the gorge and cedar forests.</span><span class="es">La Línea Chuo de Nagiso a Nagoya sigue el valle del río Kiso — impresionante luz de primera hora de la mañana sobre la garganta y los bosques de cedros.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:00–12:40</div>
+  <div>
+    <div class="act-name transit"><span class="en">Nagoya → Tokyo (Shinkansen Nozomi/Hikari)</span><span class="es">Nagoya → Tokio (Shinkansen Nozomi/Hikari)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Tokaido Shinkansen — reserved seat, Nagoya Station</span><span class="tag t-cost">¥11,300/person</span><span class="tag t-dur">1h 40m</span></div><div class="act-note"><span class="en">Final shinkansen of the trip. Window seats on the left (north) side for potential Mt. Fuji views ~60 min from Nagoya. Nagoya Station's underground food hall has excellent ekiben and pastry shops — worth 15 min exploring before the train.</span><span class="es">Último shinkansen del viaje. Asientos de ventana en el lado izquierdo (norte) para posibles vistas del Monte Fuji ~60 min desde Nagoya. El salón de comidas subterráneo de la Estación Nagoya tiene excelentes ekiben y pastelerías — vale la pena explorarlos 15 min antes del tren.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">13:15–14:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Tokyo arrival + transfer to hotel</span><span class="es">Llegada a Tokio + traslado al hotel</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote Line → Shinagawa/Gotanda</span><span class="tag t-cost">~¥200</span><span class="tag t-dur">~20 min</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">15:00</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Hotel check-in — Tokyo Marriott</span><span class="es">✅ Check-in — Tokyo Marriott</span></div>
+    
+  </div>
+</div><div class="act">
+  <div class="act-time">16:30–19:30</div>
+  <div>
+    <div class="act-name"><span class="en">Buffer evening / Setagaya / Nakameguro</span><span class="es">Tarde tranquila / Setagaya / Nakameguro</span></div>
+    <div class="act-note"><span class="en">A relaxed final-legs evening. Nakameguro canal or Daikanyama for a slow walk and dinner. A good time to revisit a favorite spot from the first days or try something new — Ebisu Garden Place has good restaurants and a pleasant evening atmosphere. Start packing for the departure tomorrow.</span><span class="es">Una tarde relajada de etapa final. Canal Nakameguro o Daikanyama para un paseo tranquilo y cena. Un buen momento para revisitar un lugar favorito de los primeros días o probar algo nuevo — Ebisu Garden Place tiene buenos restaurantes y una agradable atmósfera nocturna. Empieza a empacar para la salida de mañana.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="rest">
+  <summary class="day-hdr">
+    <div class="day-badge rest">
+      <div class="badge-num">13</div>
+      <div class="badge-wday">Tue</div>
+      <div class="badge-icon">🟫</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Asakusa · Senso-ji · Shopping · Final Packing</span><span class="es">Asakusa · Senso-ji · Compras · Último Empaque</span></div>
+      <div class="day-subtitle"><span class="en">Jun 9 — Rest Day</span><span class="es">9 Jun — Día de Descanso</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 Tokyo Marriott (last night)</span><span class="es">🏨 Tokyo Marriott (última noche)</span></span><span class="day-pill pill-cost">Free entry · shopping budget varies</span><span class="day-pill pill-dist">~30 min to Asakusa</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=900&q=80" alt="Day 13">
+<div class="day-body">
+    <div class="day-body-inner">
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&q=75" alt="Senso-ji Gate"><div class="photo-cap">Senso-ji Gate</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Nakamise Lane"><div class="photo-cap">Nakamise Lane</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=75" alt="Asakusa Night"><div class="photo-cap">Asakusa Night</div></div></div>      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — final night</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="activities"><div class="act">
+  <div class="act-time">09:00–11:00</div>
+  <div>
+    <div class="act-name"><span class="en">Senso-ji Temple + Asakusa district</span><span class="es">Templo Senso-ji + Distrito Asakusa</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Tokyo Metro Ginza Line → Asakusa Station · OR Toei Asakusa Line</span><span class="tag t-cost">~¥250</span><span class="tag t-dur">~30 min from Shinagawa</span></div><div class="act-note"><span class="en">Senso-ji is Tokyo's oldest and most visited temple — founded in 628 AD, rebuilt after WWII bombing in its current form. The Kaminarimon ('Thunder Gate') with its 700kg red lantern is one of Tokyo's most iconic images. Nakamise-dori (the 250m approach arcade) is lined with vendors selling traditional souvenirs: ningyo-yaki cakes, ningyo (dolls), fans, tenugui cotton towels, and sembei crackers. The temple grounds and five-story pagoda behind are genuinely beautiful in morning light. Asakusa retains more old-Tokyo atmosphere than almost any other neighborhood — rickshaws, traditional craft shops, low-rise streets. Perfect calm capstone to the trip.</span><span class="es">Senso-ji es el templo más antiguo y visitado de Tokio — fundado en 628 d.C., reconstruido después del bombardeo de la Segunda Guerra Mundial en su forma actual. El Kaminarimon ('Puerta del Trueno') con su farol rojo de 700 kg es una de las imágenes más icónicas de Tokio. Nakamise-dori (la arcada de acceso de 250m) está bordeada de vendedores de souvenirs tradicionales: pasteles ningyo-yaki, ningyo (muñecas), abanicos, toallas de algodón tenugui y galletas sembei. Los terrenos del templo y la pagoda de cinco pisos detrás son genuinamente hermosos con la luz de la mañana. Asakusa conserva más ambiente del antiguo Tokio que casi cualquier otro barrio — rickshaws, tiendas de artesanía tradicional, calles de poca altura. Broche de oro perfecto para el viaje.</span></div><div class="act-tip">💡 <span class="en">Arrive before 10 AM on Tuesday — weekday mornings in Asakusa are far less crowded than weekends. Walk the back streets behind the temple (Denboin-dori and Kotto-dori) for antique shops and traditional crafts away from the tourist arcade.</span><span class="es">Llega antes de las 10 AM el martes — las mañanas de días laborables en Asakusa son mucho menos concurridas que los fines de semana. Camina por las calles traseras detrás del templo (Denboin-dori y Kotto-dori) para tiendas de antigüedades y artesanías tradicionales fuera de la arcada turística.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:00–14:00</div>
+  <div>
+    <div class="act-name"><span class="en">Shopping + gifts — Asakusa and Ueno area</span><span class="es">Compras y regalos — Asakusa y zona Ueno</span></div>
+    <div class="act-tags"><span class="tag t-free">Free to walk</span></div><div class="act-note"><span class="en">Best Tokyo gift and souvenir options: Asakusa Nakamise-dori for traditional items (fans, tenugui, sembei). Kappabashi Kitchen Town (10 min walk from Asakusa — Japan's wholesale kitchen district) for beautiful Japanese knives, ceramics, lacquerware, and the famous plastic food replicas. Ameyoko Market in Ueno (10 min from Asakusa) for dried food, spices, nuts, and bargain shopping in a lively open-air market. For high-end gifts: Itoya stationery in Ginza or Takashimaya department store.</span><span class="es">Las mejores opciones de regalos y souvenirs en Tokio: Asakusa Nakamise-dori para artículos tradicionales (abanicos, tenugui, sembei). Kappabashi Kitchen Town (10 min a pie de Asakusa — el distrito mayorista de cocina de Japón) para hermosos cuchillos japoneses, cerámica, laca y las famosas réplicas de comida de plástico. Mercado Ameyoko en Ueno (10 min de Asakusa) para comida seca, especias, nueces y compras de gangas en un animado mercado al aire libre. Para regalos de alta gama: papelería Itoya en Ginza o grandes almacenes Takashimaya.</span></div><div class="act-tip">💡 <span class="en">Japanese knife shops in Kappabashi are the best in the world for quality and price. For checked luggage, a single good Japanese kitchen knife makes an extraordinary souvenir. Ask shops for certificates (required for customs in some countries).</span><span class="es">Las tiendas de cuchillos japoneses en Kappabashi son las mejores del mundo en calidad y precio. Para equipaje documentado, un buen cuchillo de cocina japonés es un souvenir extraordinario. Pide a las tiendas certificados (requeridos para aduanas en algunos países).</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">14:00–18:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Return to hotel + final packing + early dinner</span><span class="es">Regreso al hotel + empaque final + cena temprana</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Tokyo Metro → Shinagawa area</span><span class="tag t-cost">~¥250</span></div><div class="act-note"><span class="en">Leave time for unhurried packing — airlines are strict on luggage at Japanese airports. For final dinner: the hotel's onsite restaurant for convenience, or a nearby neighborhood spot. A farewell bowl of ramen or a tonkatsu (breaded pork cutlet) set is a satisfying last meal. If feeling celebratory, Ebisu or Daikanyama has excellent restaurants for a proper sit-down goodbye dinner.</span><span class="es">Deja tiempo para empacar sin apuros — las aerolíneas son estrictas con el equipaje en los aeropuertos japoneses. Para la cena final: el restaurante del hotel por comodidad, o un lugar de barrio cercano. Un tazón de despedida de ramen o un set de tonkatsu (chuleta de cerdo empanada) es una última comida satisfactoria. Si hay ganas de celebrar, Ebisu o Daikanyama tiene excelentes restaurantes para una cena de despedida formal.</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+<details class="day-card" data-type="travel">
+  <summary class="day-hdr">
+    <div class="day-badge travel">
+      <div class="badge-num">14</div>
+      <div class="badge-wday">Wed</div>
+      <div class="badge-icon">🟧</div>
+    </div>
+    <div class="day-summary">
+      <div class="day-title"><span class="en">Departure from HND</span><span class="es">Salida desde HND</span></div>
+      <div class="day-subtitle"><span class="en">Jun 10 — Departure Day</span><span class="es">10 Jun — Día de Salida</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 Check-out by 12:00 PM</span><span class="es">🏨 Check-out antes de 12:00 PM</span></span><span class="day-pill pill-cost">¥410 to airport</span><span class="day-pill pill-dist">~30 min to HND</span></div>
+    </div>
+    <div class="toggle-btn ">&#9660;</div>
+  </summary>
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=900&q=80" alt="Day 14">
+<div class="day-body">
+    <div class="day-body-inner">
+      
+      <div class="activities"><div class="act">
+  <div class="act-time">07:30–08:30</div>
+  <div>
+    <div class="act-name transit"><span class="en">Hotel → Haneda Airport (HND)</span><span class="es">Hotel → Aeropuerto Haneda (HND)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Keikyu Line from Shinagawa → Haneda Airport Terminal (direct)</span><span class="tag t-cost">~¥410/person</span><span class="tag t-dur">~30 min</span></div><div class="act-note"><span class="en">Same route as arrival, reversed. The Keikyu Airport Line runs frequently from Shinagawa. Terminal 2 for most international departures — confirm your terminal when checking in online.</span><span class="es">Mismo recorrido que la llegada, en sentido contrario. La Línea Keikyu Airport sale frecuentemente desde Shinagawa. Terminal 2 para la mayoría de salidas internacionales — confirma tu terminal al hacer el check-in en línea.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">09:00–11:55</div>
+  <div>
+    <div class="act-name"><span class="en">Airport buffer + immigration + boarding</span><span class="es">Margen en aeropuerto + migración + abordaje</span></div>
+    <div class="act-note"><span class="en">Japanese airports are efficient but international departures require immigration clearance — allow 2h 30m minimum for a 12:00 PM flight. HND International Terminal has excellent shopping (Japanese whisky, matcha products, food gifts) airside if you missed anything. Currency exchange rates at the airport are poor — use an ATM (7-Eleven airport ATMs accept foreign cards) for any remaining yen you want.</span><span class="es">Los aeropuertos japoneses son eficientes pero las salidas internacionales requieren despacho migratorio — reserva mínimo 2h 30m para un vuelo a las 12:00 PM. La Terminal Internacional de HND tiene excelentes tiendas (whisky japonés, productos de matcha, regalos de comida) después de los controles si te perdiste algo. Los tipos de cambio en el aeropuerto son malos — usa un cajero automático (los cajeros 7-Eleven aceptan tarjetas extranjeras) para los yenes que quieras.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">11:55</div>
+  <div>
+    <div class="act-name"><span class="en">✈ Flight departs HND</span><span class="es">✈ Vuelo sale de HND</span></div>
+    <div class="act-note"><span class="en">Sayonara! Japan will stay with you — the precision, the quiet, the extraordinary food, the ancient and the hypermodern living side by side. Safe travels home.</span><span class="es">¡Sayonara! Japón se quedará contigo — la precisión, la tranquilidad, la comida extraordinaria, lo antiguo y lo hipermoderno viviendo lado a lado. ¡Buen viaje de regreso a casa!</span></div>
+  </div>
+</div></div>
+    </div>
+  </div>
+</details>
+</div><!-- /timeline -->
+
+<!-- ROUTE -->
+<div class="route-bar">
+  <div class="route-eye"><span class="en">Route</span><span class="es">Ruta</span></div>
+  <div class="route-visual">
+    <div class="rc"><div class="rc-name">Tokyo</div><div class="rc-days"><span class="en">Days 1–4</span><span class="es">Días 1–4</span></div></div>
+    <div class="rarrow">→</div>
+    <div class="rc"><div class="rc-name">Takayama</div><div class="rc-days"><span class="en">Days 5–6</span><span class="es">Días 5–6</span></div></div>
+    <div class="rarrow">→</div>
+    <div class="rc"><div class="rc-name">Kyoto</div><div class="rc-days"><span class="en">Days 7–9</span><span class="es">Días 7–9</span></div></div>
+    <div class="rarrow">→</div>
+    <div class="rc"><div class="rc-name">Osaka</div><div class="rc-days"><span class="en">Day 10</span><span class="es">Día 10</span></div></div>
+    <div class="rarrow">→</div>
+    <div class="rc"><div class="rc-name">Nara + Kiso</div><div class="rc-days"><span class="en">Day 11</span><span class="es">Día 11</span></div></div>
+    <div class="rarrow">→</div>
+    <div class="rc"><div class="rc-name">Tokyo</div><div class="rc-days"><span class="en">Days 12–14</span><span class="es">Días 12–14</span></div></div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:.5rem 0;position:relative;z-index:1;">
+<svg viewBox="0 0 600 30" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;opacity:.18;">
+  <line x1="0" y1="8" x2="600" y2="8" stroke="#8B7540" stroke-width="0.8"/>
+  <line x1="0" y1="14" x2="600" y2="14" stroke="#8B7540" stroke-width="0.8"/>
+  <line x1="0" y1="20" x2="600" y2="20" stroke="#8B7540" stroke-width="0.8"/>
+  <ellipse cx="300" cy="14" rx="22" ry="13" fill="#F5F3EE" stroke="#8B7540" stroke-width="1"/>
+  <ellipse cx="300" cy="14" rx="32" ry="18" stroke="#8B7540" stroke-width="0.6" fill="none"/>
+  <ellipse cx="300" cy="14" rx="42" ry="22" stroke="#8B7540" stroke-width="0.4" fill="none"/>
+  <text x="300" y="18" text-anchor="middle" font-family="serif" font-size="10" fill="#8B7540">⛩</text>
+  <line x1="0" y1="8" x2="258" y2="8" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="342" y1="8" x2="600" y2="8" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="0" y1="14" x2="268" y2="14" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="332" y1="14" x2="600" y2="14" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="0" y1="20" x2="258" y2="20" stroke="#F5F3EE" stroke-width="2"/>
+  <line x1="342" y1="20" x2="600" y2="20" stroke="#F5F3EE" stroke-width="2"/>
+</svg>
+</div>
+
+<div style="max-width:980px;margin:0 auto;padding:0 1.25rem 2rem;">
+<div class="hotel-overview">
+  <div class="section-hdr"><span class="en">Accommodation Overview</span><span class="es">Resumen de Alojamiento</span></div>
+  <div class="hotels-grid">
+
+    <div class="hcard">
+      <div class="hcard-nights"><span class="en">NIGHTS 1–4 · May 28 – Jun 1</span><span class="es">NOCHES 1–4 · 28 May – 1 Jun</span></div>
+      <div class="hcard-name">Tokyo Marriott Hotel</div>
+      <div class="hcard-brand"><span class="en">Marriott Bonvoy · 5-star</span><span class="es">Marriott Bonvoy · 5 estrellas</span></div>
+      <div class="hcard-price">~$290–$360<span><span class="en">/night</span><span class="es">/noche</span></span></div>
+      <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
+      <div class="hcard-why"><span class="en">Shinagawa area — excellent Keikyu rail access to Haneda, close to Setagaya. Full-service Marriott, points-eligible. Concierge, onsite dining, and luggage storage for early Day 1 arrival.</span><span class="es">Zona Shinagawa — excelente acceso en tren Keikyu a Haneda, cerca de Setagaya. Marriott de servicio completo, elegible para puntos. Conserje, restaurante y guarda equipaje para llegada temprana del Día 1.</span></div>
+    </div>
+
+    <div class="hcard">
+      <div class="hcard-nights"><span class="en">NIGHTS 5–6 · Jun 1 – Jun 3</span><span class="es">NOCHES 5–6 · 1 Jun – 3 Jun</span></div>
+      <div class="hcard-name">Mercure Hida Takayama</div>
+      <div class="hcard-brand"><span class="en">Accor Hotels · 4-star</span><span class="es">Accor Hotels · 4 estrellas</span></div>
+      <div class="hcard-price">~$130–$180<span><span class="en">/night</span><span class="es">/noche</span></span></div>
+      <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 11:00 AM</div>
+      <div class="hcard-why">Best cost/location in Takayama — 5 min walk to Sanmachi old town and station. <span class="en">No Marriott within 15 miles</span><span class="es">Sin Marriott en 25 km a la redonda</span>; Accor is the closest brand-quality option. <span class="en">Breakfast available onsite</span><span class="es">Desayuno disponible en el hotel</span>.</div>
+    </div>
+
+    <div class="hcard">
+      <div class="hcard-nights"><span class="en">NIGHTS 7–9 · Jun 3 – Jun 6</span><span class="es">NOCHES 7–9 · 3 Jun – 6 Jun</span></div>
+      <div class="hcard-name">The Chapter Kyoto</div>
+      <div class="hcard-brand"><span class="en">Marriott Autograph Collection · 4-star</span><span class="es">Marriott Autograph Collection · 4 estrellas</span></div>
+      <div class="hcard-price">~$280–$380<span><span class="en">/night</span><span class="es">/noche</span></span></div>
+      <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
+      <div class="hcard-why">Boutique canal-side hotel in central Kyoto — walkable to Gion, Pontocho, and Nishiki Market. Autograph Collection means design character vs. a cookie-cutter Marriott. Points-eligible.</div>
+    </div>
+
+    <div class="hcard">
+      <div class="hcard-nights"><span class="en">NIGHT 10 · Jun 6 – Jun 7</span><span class="es">NOCHE 10 · 6 Jun – 7 Jun</span></div>
+      <div class="hcard-name">Aloft Osaka Dojima</div>
+      <div class="hcard-brand"><span class="en">Marriott Bonvoy · 4-star</span><span class="es">Marriott Bonvoy · 4 estrellas</span></div>
+      <div class="hcard-price">~$170–$230<span><span class="en">/night</span><span class="es">/noche</span></span></div>
+      <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
+      <div class="hcard-why">Trendy Dojima district — 10 min walk to Dotonbori food scene, good subway access to Nara next morning. Aloft is Marriott's lifestyle brand: modern, lively, bar-forward.</div>
+    </div>
+
+    <div class="hcard">
+      <div class="hcard-nights"><span class="en">NIGHT 11 · Jun 7 – Jun 8</span><span class="es">NOCHE 11 · 7 Jun – 8 Jun</span></div>
+      <div class="hcard-name">Minshuku (Tsumago or Magome)</div>
+      <div class="hcard-brand"><span class="en">Local family inn · Traditional</span><span class="es">Posada familiar local · Tradicional</span></div>
+      <div class="hcard-price">~$80–$120<span><span class="en">/night</span><span class="es">/noche</span> incl. dinner+breakfast</span></div>
+      <div class="hcard-times">✅ Check-in ~5:30 PM &nbsp;·&nbsp; <span class="en">Check-out by 9:00 AM</span><span class="es">Check-out antes de 9:00 AM</span></div>
+      <div class="hcard-why">Futon on tatami, yukata robe, communal bath, multi-course dinner served in your room. The most culturally immersive night of the trip. Dinner and breakfast included in rate — best value of the whole itinerary.</div>
+    </div>
+
+    <div class="hcard">
+      <div class="hcard-nights"><span class="en">NIGHTS 12–13 · Jun 8 – Jun 10</span><span class="es">NOCHES 12–13 · 8 Jun – 10 Jun</span></div>
+      <div class="hcard-name">Tokyo Marriott Hotel</div>
+      <div class="hcard-brand"><span class="en">Marriott Bonvoy · 5-star</span><span class="es">Marriott Bonvoy · 5 estrellas</span></div>
+      <div class="hcard-price">~$290–$360<span><span class="en">/night</span><span class="es">/noche</span></span></div>
+      <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
+      <div class="hcard-why"><span class="en">Return stay</span><span class="es">Estadía de regreso</span> — same property as nights 1–4. Familiar base for final Tokyo day and Haneda departure. <span class="en">Late checkout (2:00 PM) may be available with Bonvoy status</span><span class="es">Salida tardía (2:00 PM) disponible con estatus Bonvoy</span> — <span class="en">request in advance</span><span class="es">solicitar con anticipación</span>.</div>
+    </div>
+
+  </div>
+  <div class="h-note"><span class="en">Prices are approximate rack rates for May–June 2025. Marriott Bonvoy point redemptions or negotiated corporate rates may reduce costs significantly. Minshuku dinner+breakfast included in quoted rate.</span><span class="es">Los precios son tarifas de mostrador aproximadas para Mayo–Junio 2025. Las redenciones de puntos Bonvoy o tarifas corporativas pueden reducir los costos considerablemente. Cena+desayuno del minshuku incluidos en la tarifa.</span></div>
+</div>
+</div>
+
+<!-- COST SUMMARY -->
+<div class="cost-section">
+  <div class="section-hdr" style="font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--mist);"><span class="en">Rail Cost Summary (per person)</span><span class="es">Resumen de Costos de Tren (por persona)</span></div>
+  <div class="cost-grid">
+    <div class="cc"><div class="cc-val">¥11,300</div><div class="cc-lbl"><span class="en">Tokyo → Nagoya Shinkansen</span><span class="es">Tokio → Nagoya Shinkansen</span></div></div>
+    <div class="cc"><div class="cc-val">¥8,870</div><div class="cc-lbl"><span class="en">Nagoya → Takayama Hida</span><span class="es">Nagoya → Takayama Hida</span></div></div>
+    <div class="cc"><div class="cc-val">¥9,070</div><div class="cc-lbl"><span class="en">Takayama → Nagoya Hida</span><span class="es">Takayama → Nagoya Hida</span></div></div>
+    <div class="cc"><div class="cc-val">¥5,910</div><div class="cc-lbl"><span class="en">Nagoya → Kyoto Shinkansen</span><span class="es">Nagoya → Kioto Shinkansen</span></div></div>
+    <div class="cc"><div class="cc-val">¥580</div><div class="cc-lbl"><span class="en">Kyoto → Osaka JR Rapid</span><span class="es">Kioto → Osaka JR Rápido</span></div></div>
+    <div class="cc"><div class="cc-val">¥1,690</div><div class="cc-lbl"><span class="en">Nagiso → Nagoya Chuo Line</span><span class="es">Nagiso → Nagoya Línea Chuo</span></div></div>
+    <div class="cc"><div class="cc-val">¥11,300</div><div class="cc-lbl"><span class="en">Nagoya → Tokyo Shinkansen</span><span class="es">Nagoya → Tokio Shinkansen</span></div></div>
+    <div class="cc highlight"><div class="cc-val">¥48,720+</div><div class="cc-lbl"><span class="en">Total major rail / person</span><span class="es">Total trenes principales / persona</span></div></div>
+    <div class="cc" style="border:2px solid var(--gold);"><div class="cc-val" style="color:var(--gold);">~¥50,000</div><div class="cc-lbl"><span class="en">JR 21-Day Pass (compare)</span><span class="es">JR Pase 21 días (comparar)</span></div></div>
+  </div>
+  <div class="cost-foot"><span class="en">+ local trains ¥200–¥1,040 each · entry fees ¥300–¥800 · buses to Shirakawa-go ~¥2,600 round-trip</span><span class="es">+ trenes locales ¥200–¥1,040 c/u · entradas ¥300–¥800 · autobús a Shirakawa-go ~¥2,600 ida y vuelta</span><br>
+  <span class="en">JR Pass covers Shinkansen + Hida trains but NOT Keio Line (Takao), Enoden (Kamakura), or Eizan Railway (Kurama)</span><span class="es">El JR Pass cubre Shinkansen + trenes Hida pero NO la Línea Keio (Takao), Enoden (Kamakura), ni el Ferrocarril Eizan (Kurama)</span><br>
+  <span class="en">With 2 travelers: major rail ~¥97,440 total · JR Pass break-even adds up quickly once local trains are counted</span><span class="es">Con 2 viajeros: trenes principales ~¥97,440 total · El punto de equilibrio del JR Pass se alcanza rápido al contar trenes locales</span></div>
+</div>
+
+<script>
+function filterDays(type,el){
+  document.querySelectorAll('.leg').forEach(function(i){i.classList.remove('on');});
+  el.classList.add('on');
+  document.querySelectorAll('details.day-card').forEach(function(c){
+    c.style.display=(type==='all'||c.dataset.type===type)?'':'none';
+  });
+}
+function expandAll(){document.querySelectorAll('details.day-card').forEach(function(d){d.open=true;});}
+function collapseAll(){document.querySelectorAll('details.day-card').forEach(function(d){d.open=false;});}
+</script>
+</body>
+</html>
