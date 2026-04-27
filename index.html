@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Japan · May 28 – Jun 10, 2025</title>
+<title>Japan · May 28 – Jun 10, 2026</title>
 <style>@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono&display=swap');</style>
 <style>
 :root{
   --indigo:#2D3561;--gold:#C49A3C;--moss:#3D6B4F;--ink:#1A1A2E;
   --paper:#FAF8F3;--cloud:#F0EDE6;--mist:#E8E4DC;
-  --rest:#7B5E4A;--culture:#2D3561;--hike:#3D6B4F;--travel:#C49A3C;
+  --rest:#7B5E4A;--culture:#5B9BD5;--hike:#3D6B4F;--travel:#C49A3C;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;background:#F8F6F0;color:var(--ink);}
@@ -836,11 +836,11 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 
   <div class="hero-eyebrow"><span class="en">The Riveras&#39; Trip</span><span class="es">El Viaje de los Rivera</span></div>
   <h1>Japan</h1>
-  <div class="hero-dates"><span class="en">May 28 – June 10, 2025 &nbsp;·&nbsp; Tokyo &nbsp;·&nbsp; Takayama &nbsp;·&nbsp; Kyoto &nbsp;·&nbsp; Osaka</span><span class="es">28 May – 10 Jun 2025 &nbsp;·&nbsp; Tokio &nbsp;·&nbsp; Takayama &nbsp;·&nbsp; Kioto &nbsp;·&nbsp; Osaka</span></div>
+  <div class="hero-dates"><span class="en">May 28 – June 10, 2026 &nbsp;·&nbsp; Tokyo &nbsp;·&nbsp; Takayama &nbsp;·&nbsp; Kyoto &nbsp;·&nbsp; Osaka</span><span class="es">28 May – 10 Jun 2026 &nbsp;·&nbsp; Tokio &nbsp;·&nbsp; Takayama &nbsp;·&nbsp; Kioto &nbsp;·&nbsp; Osaka</span></div>
   <div class="legend">
     <button class="leg on" onclick="filterDays('all',this)"><span class="ldot" style="background:#fff"></span><span class="en">All days</span><span class="es">Todos los días</span></button>
     <button class="leg" onclick="filterDays('rest',this)"><span class="ldot" style="background:#7B5E4A"></span><span class="en">Rest</span><span class="es">Descanso</span></button>
-    <button class="leg" onclick="filterDays('culture',this)"><span class="ldot" style="background:#2D3561"></span><span class="en">Culture</span><span class="es">Cultura</span></button>
+    <button class="leg" onclick="filterDays('culture',this)"><span class="ldot" style="background:#5B9BD5"></span><span class="en">Culture</span><span class="es">Cultura</span></button>
     <button class="leg" onclick="filterDays('hike',this)"><span class="ldot" style="background:#3D6B4F"></span><span class="en">Hike</span><span class="es">Caminata</span></button>
     <button class="leg" onclick="filterDays('travel',this)"><span class="ldot" style="background:#C49A3C"></span><span class="en">Travel</span><span class="es">Viaje</span></button>
   </button>
@@ -927,38 +927,44 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
     map.setMaxBounds(japanBounds.pad(0.1));
     map.on('drag', function(){ map.panInsideBounds(japanBounds, {animate:false}); });
 
-    var cities = [
-      {name:'Tokyo',       lat:35.68, lng:139.69, days:'Days 1-4, 12-14', es:'Días 1-4, 12-14'},
-      {name:'Kamakura',    lat:35.32, lng:139.55, days:'Day 4',            es:'Día 4'},
-      {name:'Takayama',    lat:36.15, lng:137.25, days:'Days 5-6',         es:'Días 5-6'},
-      {name:'Shirakawa-go',lat:36.26, lng:136.90, days:'Day 6',            es:'Día 6'},
-      {name:'Kyoto',       lat:35.01, lng:135.77, days:'Days 7-9',         es:'Días 7-9'},
-      {name:'Osaka',       lat:34.69, lng:135.50, days:'Day 10',           es:'Día 10'},
-      {name:'Nara',        lat:34.68, lng:135.83, days:'Day 11',           es:'Día 11'},
-      {name:'Kiso Valley', lat:35.68, lng:137.58, days:'Day 11',           es:'Día 11'},
+        // Overnight stays (large indigo pins)
+    var stays = [
+      {name:'THE KNOT TOKYO Shinjuku',    lat:35.6885, lng:139.6885, nights:'4 nights · May 28–Jun 1', hotel:'THE KNOT TOKYO Shinjuku'},
+      {name:'Ichinomatsu · Takayama',     lat:36.1407, lng:137.2460, nights:'2 nights · Jun 1–3',     hotel:'Ichinomatsu Japanese Modern'},
+      {name:'The Chapter · Kyoto',        lat:35.0143, lng:135.7694, nights:'3 nights · Jun 3–6',     hotel:'The Chapter Kyoto'},
+      {name:'Aloft Osaka Dojima',         lat:34.6955, lng:135.4953, nights:'2 nights · Jun 6–8',     hotel:'Aloft Osaka Dojima'},
+      {name:'THE KNOT TOKYO · Shinjuku', lat:35.6885, lng:139.6885, nights:'2 nights · Jun 8–10 (return)',    hotel:'THE KNOT TOKYO Shinjuku'},
     ];
-
-    var icon = L.divIcon({
+    // Day-trip destinations (small gold pins)
+    var daytrips = [
+      {name:'Kamakura',     lat:35.320, lng:139.547, days:'Day trip · May 31'},
+      {name:'Shirakawa-go', lat:36.258, lng:136.906, days:'Day trip · Jun 2'},
+      {name:'Nara',         lat:34.685, lng:135.805, days:'Day trip · Jun 7'},
+      {name:'Kiso Valley',  lat:35.595, lng:137.595, days:'Day trip · Jun 8'},
+    ];
+    var stayIcon = L.divIcon({
       className:'',
-      html:'<div style="width:14px;height:14px;background:#2D3561;border:2.5px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.35);"></div>',
-      iconSize:[14,14], iconAnchor:[7,7]
+      html:'<div style="width:18px;height:18px;background:#2D3561;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.45);"></div>',
+      iconSize:[18,18], iconAnchor:[9,9]
     });
-
-    var lang = document.getElementById('root') ? document.getElementById('root').getAttribute('lang') : 'en';
-    cities.forEach(function(c){
-      var label = '<b style="color:#1A1A2E;font-family:DM Sans,sans-serif;font-size:13px;">'+c.name+'</b><br/>'
-                + '<span style="color:#8B7040;font-family:DM Mono,monospace;font-size:11px;">'+(lang==='es'?c.es:c.days)+'</span>';
-      L.marker([c.lat, c.lng], {icon:icon})
-        .addTo(map)
-        .bindPopup(label, {maxWidth:160, className:'trip-popup'});
+    var tripIcon = L.divIcon({
+      className:'',
+      html:'<div style="width:11px;height:11px;background:#FAF8F3;border:2.5px solid #C49A3C;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,0.25);"></div>',
+      iconSize:[11,11], iconAnchor:[5,5]
     });
-
-    var routeCoords = cities.map(function(c){return [c.lat, c.lng];});
-    routeCoords.push(cities[0].lat, cities[0].lng);
+    stays.forEach(function(c){
+      var label = '<b style="color:#1A1A2E;font-family:DM Sans,sans-serif;font-size:13px;">'+c.hotel+'</b><br/>'
+                + '<span style="color:#2D3561;font-family:DM Mono,monospace;font-size:11px;">&#x1F319; '+c.nights+'</span>';
+      L.marker([c.lat, c.lng], {icon:stayIcon}).addTo(map).bindPopup(label, {maxWidth:210, className:'trip-popup'});
+    });
+    daytrips.forEach(function(c){
+      var label = '<b style="color:#1A1A2E;font-family:DM Sans,sans-serif;font-size:12px;">'+c.name+'</b><br/>'
+                + '<span style="color:#8B7040;font-family:DM Mono,monospace;font-size:11px;">&#x1F4CD; '+c.days+'</span>';
+      L.marker([c.lat, c.lng], {icon:tripIcon}).addTo(map).bindPopup(label, {maxWidth:160, className:'trip-popup'});
+    });
     L.polyline(
-      [[35.68,139.69],[35.32,139.55],[35.68,137.58],[36.15,137.25],[36.26,136.90],
-       [35.01,135.77],[34.69,135.50],[34.68,135.83],[35.68,139.69]],
-      {color:'#2D3561', weight:2.5, dashArray:'7,5', opacity:0.8}
+      [[35.6885,139.6885],[36.1407,137.2460],[35.0143,135.7694],[34.6955,135.4953],[35.6215,139.7369]],
+      {color:'#2D3561', weight:2.5, dashArray:'7,5', opacity:0.7}
     ).addTo(map);
   }
 
@@ -977,14 +983,14 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="rest" open>
   <summary class="day-hdr">
     <div class="day-badge rest">
-      <div class="badge-num">1</div>
+      <div class="badge-num">28</div>
       <div class="badge-wday">Thu</div>
       <div class="badge-icon">🟫</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Arrival &nbsp;·&nbsp; Tokyo</span><span class="es">Llegada &nbsp;·&nbsp; Tokio</span></div>
-      <div class="day-subtitle"><span class="en">May 28 — Arrival Day</span><span class="es">28 May — Día de Llegada</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott</span><span class="day-pill pill-cost">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span></div>
+      <div class="day-subtitle"><span class="en">May 28, 2026 — Arrival Day</span><span class="es">28 May 2026 — Día de Llegada</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 THE KNOT TOKYO Shinjuku</span><span class="day-pill pill-cost">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span></div>
     </div>
     <div class="toggle-btn open">&#9660;</div>
   </summary>
@@ -992,54 +998,38 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <div class="day-body">
     <div class="day-body-inner">
       <div class="hotel-strip">
-  <div class="hs-name">Tokyo Marriott Hotel<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Bonvoy · Shinagawa</span></div>
+  <div class="hs-name">THE KNOT TOKYO Shinjuku<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Confirmed · Itinerary 73424697622455 · Check-in 3:00 PM</span></div>
   <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
   <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
   <span class="hs-badge hsb-price">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span>
   <span class="hs-badge hsb-brand"><span class="en">Bonvoy Points Eligible</span><span class="es">Elegible para Puntos Bonvoy</span></span>
-  <div class="hs-note">Keikyu line gives direct 30-min access from Haneda. Early arrival luggage storage available. Onsite restaurant and concierge simplify jet-lag day logistics.</div>
+  <div class="hs-note">AA 27 arrives HND 3:50 PM — expect to reach the hotel by 5:00 PM. Keikyu line gives direct 30-min access from Haneda. Onsite restaurant and concierge simplify jet-lag day logistics.</div>
 </div>
       <div class="activities"><div class="act">
-  <div class="act-time">04:45</div>
+  <div class="act-time">3:50 PM</div>
   <div>
-    <div class="act-name"><span class="en">Land at Haneda Airport (HND)</span><span class="es">Llegada al Aeropuerto Haneda (HND)</span></div>
+    <div class="act-name"><span class="en">✈ AA 27 · LAX→HND · Seats 16J/16K/16L · Departs LAX 12:15 PM (May 27) · Arrives HND 3:50 PM</span><span class="es">✈ AA 27 · LAX→HND · Asientos 16J/16K/16L · Sale LAX 12:15 PM (27 May) · Llega HND 3:50 PM</span></div>
     
   </div>
 </div><div class="act">
-  <div class="act-time">05:45–07:15</div>
+  <div class="act-time">16:30–17:30</div>
   <div>
-    <div class="act-name transit"><span class="en">Haneda → Shinagawa area</span><span class="es">Haneda → Área de Shinagawa</span></div>
-    <div class="act-tags"><span class="tag t-train">🚃 Keikyu Airport Line → Shinagawa (direct)</span><span class="tag t-cost">~¥410</span><span class="tag t-dur">~30–40 min</span></div><div class="act-note"><span class="en">Fastest option from HND. Alternatively: Tokyo Monorail to Hamamatsucho then JR Yamanote to Shinagawa (~50 min, ~¥590). Keikyu wins on speed and simplicity at 5 AM. Both accept IC cards (Suica/Pasmo).</span><span class="es">Opción más rápida desde HND. Alternativa: Monorraíl Tokyo a Hamamatsucho luego JR Yamanote a Shinagawa (~50 min, ~¥590). Keikyu gana en velocidad a las 5 AM. Ambos aceptan tarjetas IC (Suica/Pasmo).</span></div>
+    <div class="act-name transit"><span class="en">Haneda → Shinjuku · THE KNOT TOKYO check-in</span><span class="es">Haneda → Shinjuku · Check-in THE KNOT TOKYO</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Keikyu Airport Line → Shinagawa → JR Yamanote → Shinjuku</span><span class="tag t-cost">~¥600</span><span class="tag t-dur">~50 min</span></div>
+    <div class="act-note"><span class="en">From HND: Pick up a Suica IC card at the Haneda arrival hall before boarding. Take Keikyu Airport Line to Shinagawa (~30 min, ~¥410), then JR Yamanote Line north to Shinjuku (~15 min, ~¥200). Check in at THE KNOT TOKYO Shinjuku (check-in from 3:00 PM). Freshen up — you've earned it after 11h 35m in the air. The hotel concierge can recommend nearby dinner options for the evening.</span><span class="es">Desde HND: Recoge una tarjeta Suica IC en la sala de llegadas de Haneda antes de abordar. Toma la Línea Keikyu a Shinagawa (~30 min, ~¥410), luego JR Yamanote norte a Shinjuku (~15 min, ~¥200). Haz el check-in en THE KNOT TOKYO Shinjuku (check-in desde las 3:00 PM). Descansa — te lo has ganado después de 11h 35m en el aire.</span></div>
   </div>
 </div><div class="act">
-  <div class="act-time">07:30–09:00</div>
+  <div class="act-time">18:30–21:00</div>
   <div>
-    <div class="act-name"><span class="en">Breakfast + reset near hotel</span><span class="es">Desayuno + recuperación cerca del hotel</span></div>
-    <div class="act-note"><span class="en">Don't underestimate Japanese convenience store breakfast — 7-Eleven and FamilyMart sell excellent onigiri, tamagoyaki sandwiches, steamed buns, and hot coffee for under ¥500. Or find a local kissaten (old-school Tokyo coffee shop) for a morning set (toast, egg, coffee).</span><span class="es">No subestimes el desayuno en las tiendas de conveniencia japonesas — 7-Eleven y FamilyMart venden excelentes onigiri, sándwiches de tamagoyaki, bollos al vapor y café caliente por menos de ¥500. O busca una kissaten local (café antiguo de Tokio) para un set matutino (tostada, huevo, café).</span></div>
+    <div class="act-name"><span class="en">Nakameguro canal — first evening in Tokyo</span><span class="es">Canal Nakameguro — primera noche en Tokio</span></div>
+    <div class="act-note"><span class="en">Nakameguro canal is Tokyo's most photogenic evening neighborhood — a narrow canal lined with low-lit boutiques, specialty coffee roasters, and intimate restaurants. After a transpacific flight and afternoon check-in, this is the perfect first outing: lanterns reflect off the water, the air carries charcoal and coffee. Two stops from Gotanda on the Tokyu Meguro Line (¥160). For dinner: Afuri for yuzu shio ramen, a canal-side izakaya for yakitori and cold Sapporo, or one of Nakameguro's many bistros.</span><span class="es">El canal Nakameguro es el barrio más fotogénico de Tokio por la noche — un canal angosto bordeado de boutiques con poca luz, tostadores de café de especialidad y restaurantes íntimos. Después de un vuelo transpacífico y el check-in de la tarde, esta es la escapada perfecta para la primera noche: los faroles se reflejan en el agua y el aire huele a carbón y café. A dos paradas de Gotanda en la Línea Tokyu Meguro (¥160). Para cenar: Afuri para ramen yuzu shio, una izakaya junto al canal para yakitori y Sapporo frío, o alguno de los muchos bistros de Nakameguro.</span></div>
+    <div class="act-tip">💡 <span class="en">Nakameguro has excellent coffee roasters and the canal walk is beautiful at night. Don't stay out too late — Day 2 starts at 8 AM at the Imperial Palace.</span><span class="es">Nakameguro tiene excelentes tostadores de café y el paseo por el canal es hermoso de noche. No te quedes hasta muy tarde — el Día 2 empieza a las 8 AM en el Palacio Imperial.</span></div>
   </div>
 </div><div class="act">
-  <div class="act-time">09:00–12:00</div>
+  <div class="act-time">21:00</div>
   <div>
-    <div class="act-name"><span class="en">Setagaya Ward — gentle neighborhood walk</span><span class="es">Barrio Setagaya — caminata tranquila por el vecindario</span></div>
-    <div class="act-note"><span class="en">Setagaya is one of Tokyo's quietest residential wards — the real Tokyo that locals live in. Tree-lined streets, covered shotengai shopping arcades, small neighborhood shrines, indie bakeries, and craft coffee shops. No entry fees, no crowds, no agenda. Perfect for gentle jet-lag management: sunlight and walking reset your clock better than sleeping.</span><span class="es">Setagaya es uno de los barrios residenciales más tranquilos de Tokio — el Tokio real donde viven los locales. Calles arboladas, arcadas comerciales shotengai cubiertas, pequeños santuarios de barrio, panaderías independientes y cafeterías artesanales. Sin tarifas de entrada, sin multitudes, sin agenda. Perfecto para el jet lag: la luz solar y caminar reinician tu reloj mejor que dormir.</span></div><div class="act-tip">💡 <span class="en">The Setagaya area has great independent coffee roasters (Obscura Coffee, Tokyu Food Show). Slow morning here beats rushing to a tourist site on arrival day.</span><span class="es">La zona de Setagaya tiene excelentes tostadores de café independientes (Obscura Coffee, Tokyu Food Show). Una mañana tranquila aquí supera correr a un sitio turístico el día de llegada.</span></div>
-  </div>
-</div><div class="act">
-  <div class="act-time">12:00–14:30</div>
-  <div>
-    <div class="act-name"><span class="en">Rest / café / luggage storage if check-in not ready</span><span class="es">Descanso / café / guarda equipaje si no hay check-in</span></div>
-    <div class="act-note"><span class="en">Shinagawa Station has coin lockers (¥400–¥700/day) for bags. Use this window to activate a SIM card or pocket Wi-Fi (convenience stores sell IIJmio SIMs; pocket Wi-Fi can be pre-ordered for airport pickup). Light ramen lunch at one of Shinagawa station's basement options.</span><span class="es">La Estación Shinagawa tiene casilleros de monedas (¥400–¥700/día) para las maletas. Usa este tiempo para activar una SIM o Wi-Fi de bolsillo (las tiendas de conveniencia venden SIMs IIJmio; el Wi-Fi de bolsillo se puede pedir para recoger en el aeropuerto). Almuerzo ligero de ramen en el sótano de la estación.</span></div>
-  </div>
-</div><div class="act">
-  <div class="act-time">15:00</div>
-  <div>
-    <div class="act-name"><span class="en">✅ Hotel check-in — Tokyo Marriott</span><span class="es">✅ Check-in — Tokyo Marriott</span></div>
-    
-  </div>
-</div><div class="act">
-  <div class="act-time">16:00–18:30</div>
-  <div>
-    <div class="act-name"><span class="en">Easy evening stroll + dinner</span><span class="es">Paseo vespertino tranquilo + cena</span></div>
-    <div class="act-note"><span class="en">Nakameguro canal (2 stops from Gotanda on Tokyu Meguro Line, ¥160) is Tokyo's most photogenic evening neighborhood — a narrow canal lined with low-lit boutiques, specialty coffee roasters, and intimate restaurants. For dinner: Afuri for yuzu shio ramen, a neighborhood izakaya for yakitori and cold Sapporo, or Nakameguro's many bistros for a long unhurried first dinner in Japan.</span><span class="es">El canal Nakameguro (2 paradas desde Gotanda en la Línea Tokyu Meguro, ¥160) es el vecindario más fotogénico de Tokio por las noches — un estrecho canal bordeado de boutiques con luz tenue, tostadores de café especial y restaurantes íntimos. Primera noche perfecta. Para cenar: un izakaya de barrio con yakitori y Sapporo frío, o el famoso ramen Afuri en Nakameguro.</span></div>
+    <div class="act-name"><span class="en">Return to hotel · early night</span><span class="es">Regreso al hotel · noche temprana</span></div>
+    <div class="act-note"><span class="en">An early night sets you up perfectly for Day 2. Tomorrow requires an 8 AM start at the Imperial Palace East Gardens — lights out by 22:00 is wise. Japan's first full morning awaits.</span><span class="es">Una noche temprana te prepara perfectamente para el Día 2. Mañana se requiere salida a las 8 AM en los Jardines del Este del Palacio Imperial — es prudente apagar las luces antes de las 22:00. La primera mañana completa en Japón te espera.</span></div>
   </div>
 </div></div>
     </div>
@@ -1048,21 +1038,21 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="culture">
   <summary class="day-hdr">
     <div class="day-badge culture">
-      <div class="badge-num">2</div>
+      <div class="badge-num">29</div>
       <div class="badge-wday">Fri</div>
       <div class="badge-icon">🟦</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Imperial Palace · Meiji Jingu · Shibuya Sky</span><span class="es">Palacio Imperial · Meiji Jingu · Shibuya Sky</span></div>
-      <div class="day-subtitle"><span class="en">May 29 — Culture Day</span><span class="es">29 May — Día Cultural</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott (cont.)</span><span class="day-pill pill-cost">Free–¥3,400 entries</span></div>
+      <div class="day-subtitle"><span class="en">May 29, 2026 — Culture Day</span><span class="es">29 May 2026 — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 THE KNOT TOKYO (cont.)</span><span class="day-pill pill-cost">Free–¥3,400 entries</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
   <img class="day-hero-img" src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=900&q=80" alt="Day 2">
 <div class="day-body">
     <div class="day-body-inner">
-<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=75" alt="Imperial Palace"><div class="photo-cap">Imperial Palace</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1583400683082-aef1af9f1e4f?w=400&q=75" alt="Meiji Jingu"><div class="photo-cap">Meiji Jingu</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&q=75" alt="Shibuya Crossing"><div class="photo-cap">Shibuya Crossing</div></div></div>      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=75" alt="Imperial Palace"><div class="photo-cap">Imperial Palace</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1583400683082-aef1af9f1e4f?w=400&q=75" alt="Meiji Jingu"><div class="photo-cap">Meiji Jingu</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&q=75" alt="Shibuya Crossing"><div class="photo-cap">Shibuya Crossing</div></div></div>      <div class="hotel-strip"><div class="hs-name">THE KNOT TOKYO Shinjuku — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
       <div class="activities"><div class="act">
   <div class="act-time">08:00–09:15</div>
   <div>
@@ -1106,7 +1096,7 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
     <div class="act-tags"><span class="tag t-cost">¥2,700 before 15:00 · ¥3,400 after 15:00</span></div><div class="act-note"><span class="en">The open-air rooftop of Shibuya Scramble Square at 230m gives 360° views across the entire Kanto plain. Mt. Fuji appears clearly on low-humidity days (late May mornings are ideal). Looking straight down at the Scramble crossing gives you a visceral sense of Tokyo's density that becomes a spatial reference for the whole trip. Book tickets online in advance — they sell out. Wind warning: it can be genuinely strong on the open deck; hold hats.</span><span class="es">La azotea al aire libre del Shibuya Scramble Square a 230m ofrece vistas de 360° sobre toda la llanura de Kanto. El Monte Fuji aparece claramente en días de baja humedad (las mañanas de finales de mayo son ideales). Mirar directamente hacia abajo al cruce Scramble te da una sensación visceral de la densidad de Tokio que se convierte en referencia espacial para todo el viaje. Reserva entradas en línea con anticipación — se agotan. Aviso de viento: puede ser realmente fuerte en la cubierta abierta; sujeta los sombreros.</span></div><div class="act-tip">💡 <span class="en">Afternoon slot (14:30–15:30) catches good light. Sunset slots (after 18:00) are pricier and book earliest. Arrive 15 min early for the elevator queue.</span><span class="es">El horario de tarde (14:30–15:30) tiene buena luz. Los horarios del atardecer (después de las 18:00) son más caros y se reservan primero. Llega 15 min antes para la cola del ascensor.</span></div>
   </div>
 </div><div class="act">
-  <div class="act-time">16:00–18:30</div>
+  <div class="act-time"><!-- --></div>
   <div>
     <div class="act-name"><span class="en">Dinner + return to hotel</span><span class="es">Cena + regreso al hotel</span></div>
     <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote Line → Shinagawa or Osaki</span><span class="tag t-cost">~¥200</span><span class="tag t-dur">~15 min</span></div><div class="act-note"><span class="en">Shibuya options: Ichiran ramen (famous solo-booth system, ¥1,000), a standing sushi counter (Uobei for fun conveyor-belt format), or Nonbei Yokocho ('Memory Lane') — lantern-lit alleys of tiny yakitori bars under the train tracks, cold Sapporo and skewers from ¥500.</span><span class="es">Opciones en Shibuya: Ichiran ramen (famoso sistema de cabina individual, ¥1,000), una barra de sushi de pie (Uobei para el divertido formato de cinta transportadora), o Nonbei Yokocho ('Memory Lane') — callejones iluminados con linternas de pequeños bares de yakitori bajo las vías del tren, Sapporo frío y brochetas desde ¥500.</span></div>
@@ -1118,21 +1108,21 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="hike">
   <summary class="day-hdr">
     <div class="day-badge hike">
-      <div class="badge-num">3</div>
+      <div class="badge-num">30</div>
       <div class="badge-wday">Sat</div>
       <div class="badge-icon">🟩</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Mt. Takao Hike</span><span class="es">Caminata al Monte Takao</span></div>
-      <div class="day-subtitle"><span class="en">May 30 — Hike Day</span><span class="es">30 May — Día de Caminata</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott (cont.)</span><span class="day-pill pill-cost">Free trails · ¥430 train</span><span class="day-pill pill-dist">4h hike</span></div>
+      <div class="day-subtitle"><span class="en">May 30, 2026 — Hike Day</span><span class="es">30 May 2026 — Día de Caminata</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 THE KNOT TOKYO (cont.)</span><span class="day-pill pill-cost">Free trails · ¥430 train</span><span class="day-pill pill-dist">4h hike</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
   <img class="day-hero-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Day 3">
 <div class="day-body">
     <div class="day-body-inner">
-      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — day trip, return tonight</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+      <div class="hotel-strip"><div class="hs-name">THE KNOT TOKYO Shinjuku — day trip, return tonight</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
       <div class="activities"><div class="act">
   <div class="act-time">06:45–08:00</div>
   <div>
@@ -1176,23 +1166,23 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="culture">
   <summary class="day-hdr">
     <div class="day-badge culture">
-      <div class="badge-num">4</div>
+      <div class="badge-num">31</div>
       <div class="badge-wday">Sun</div>
       <div class="badge-icon">🟦</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Kamakura — Great Buddha · Hase-dera · Seaside</span><span class="es">Kamakura — Gran Buda · Hase-dera · Costa</span></div>
-      <div class="day-subtitle"><span class="en">May 31 — Culture Day</span><span class="es">31 May — Día Cultural</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott (cont.)</span><span class="day-pill pill-cost">¥300–¥400 entries · ¥1,240 rail</span><span class="day-pill pill-dist">~1h from Tokyo</span></div>
+      <div class="day-subtitle"><span class="en">May 31, 2026 — Culture Day</span><span class="es">31 May 2026 — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 THE KNOT TOKYO (cont.)</span><span class="day-pill pill-cost">¥300–¥400 entries · ¥1,240 rail</span><span class="day-pill pill-dist">~1h from Tokyo</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
   <img class="day-hero-img" src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=900&q=80" alt="Day 4">
 <div class="day-body">
     <div class="day-body-inner">
-<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=400&q=75" alt="Great Buddha"><div class="photo-cap">Great Buddha</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Hase-dera Gardens"><div class="photo-cap">Hase-dera Gardens</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=75" alt="Kamakura Coast"><div class="photo-cap">Kamakura Coast</div></div></div>      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — day trip, return tonight</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=400&q=75" alt="Great Buddha"><div class="photo-cap">Great Buddha</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Hase-dera Gardens"><div class="photo-cap">Hase-dera Gardens</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=75" alt="Kamakura Coast"><div class="photo-cap">Kamakura Coast</div></div></div>      <div class="hotel-strip"><div class="hs-name">THE KNOT TOKYO Shinjuku — day trip, return tonight</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
       <div class="activities"><div class="act">
-  <div class="act-time">07:30–09:00</div>
+  <div class="act-time">07:30–08:45</div>
   <div>
     <div class="act-name transit"><span class="en">Hotel → Tokyo Station → Kamakura</span><span class="es">Hotel → Estación Tokyo → Kamakura</span></div>
     <div class="act-tags"><span class="tag t-train">🚃 JR Yokosuka Line — Tokyo Station direct to Kamakura, no transfers</span><span class="tag t-cost">~¥1,040</span><span class="tag t-dur">~1h direct</span></div><div class="act-note"><span class="en">The JR Yokosuka Line runs direct from Tokyo Station to Kamakura. Take an early train — Kamakura is very popular on Sundays and sites get crowded by 10 AM. Have your Suica/IC card loaded; all fares in Kamakura accept IC cards.</span><span class="es">La Línea JR Yokosuka va directo desde la Estación Tokyo a Kamakura. Toma un tren temprano — Kamakura es muy popular los domingos y los sitios se llenan antes de las 10 AM. Ten tu tarjeta Suica/IC cargada; todas las tarifas en Kamakura aceptan tarjetas IC.</span></div>
@@ -1240,14 +1230,14 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="travel">
   <summary class="day-hdr">
     <div class="day-badge travel">
-      <div class="badge-num">5</div>
+      <div class="badge-num">1</div>
       <div class="badge-wday">Mon</div>
       <div class="badge-icon">🟧</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Tokyo → Nagoya → Takayama</span><span class="es">Tokio → Nagoya → Takayama</span></div>
-      <div class="day-subtitle"><span class="en">Jun 1 — Travel Day</span><span class="es">1 Jun — Día de Viaje</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Mercure Hida Takayama · Check-in 15:00</span><span class="day-pill pill-cost">¥20,170 rail</span><span class="day-pill pill-dist">~4.5h total travel</span></div>
+      <div class="day-subtitle"><span class="en">Jun 1, 2026 — Travel Day</span><span class="es">1 Jun 2026 — Día de Viaje</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Ichinomatsu Japanese Modern · Check-in 15:00</span><span class="day-pill pill-cost">¥20,170 rail</span><span class="day-pill pill-dist">~4.5h total travel</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
@@ -1255,7 +1245,7 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <div class="day-body">
     <div class="day-body-inner">
       <div class="hotel-strip">
-  <div class="hs-name">Mercure Hida Takayama<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Accor Hotels · Takayama Station area</span></div>
+  <div class="hs-name">Ichinomatsu Japanese Modern Hotel<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Confirmed · Itinerary 72073458471935 · Check-in 3:00 PM</span></div>
   <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
   <span class="hs-badge hsb-out">Check-out 11:00 AM</span>
   <span class="hs-badge hsb-price">~$130–$180<span class="en">/night</span><span class="es">/noche</span></span>
@@ -1289,7 +1279,7 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 </div><div class="act">
   <div class="act-time">15:00</div>
   <div>
-    <div class="act-name"><span class="en">✅ Hotel check-in — Mercure Hida Takayama</span><span class="es">✅ Check-in — Mercure Hida Takayama</span></div>
+    <div class="act-name"><span class="en">✅ Hotel check-in — Ichinomatsu Japanese Modern Hotel</span><span class="es">✅ Check-in — Ichinomatsu Japanese Modern Hotel</span></div>
     
   </div>
 </div><div class="act">
@@ -1305,21 +1295,21 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="culture">
   <summary class="day-hdr">
     <div class="day-badge culture">
-      <div class="badge-num">6</div>
+      <div class="badge-num">2</div>
       <div class="badge-wday">Tue</div>
       <div class="badge-icon">🟦</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Shirakawa-go UNESCO Village · Takayama Jinya</span><span class="es">Aldea UNESCO Shirakawa-go · Takayama Jinya</span></div>
-      <div class="day-subtitle"><span class="en">Jun 2 — Culture Day</span><span class="es">2 Jun — Día Cultural</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Mercure Hida Takayama (cont.)</span><span class="day-pill pill-cost">¥600–¥1,100 entries + bus fare</span><span class="day-pill pill-dist">~1h bus each way</span></div>
+      <div class="day-subtitle"><span class="en">Jun 2, 2026 — Culture Day</span><span class="es">2 Jun 2026 — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Ichinomatsu Japanese Modern (cont.)</span><span class="day-pill pill-cost">¥600–¥1,100 entries + bus fare</span><span class="day-pill pill-dist">~1h bus each way</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
   <img class="day-hero-img" src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=900&q=80" alt="Day 6">
 <div class="day-body">
     <div class="day-body-inner">
-<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=400&q=75" alt="Shirakawa-go"><div class="photo-cap">Shirakawa-go</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1601823984359-98e30ba44d2d?w=400&q=75" alt="Gassho Houses"><div class="photo-cap">Gassho Houses</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1598887142487-3c854d51eabb?w=400&q=75" alt="Mountain Village"><div class="photo-cap">Mountain Village</div></div></div>      <div class="hotel-strip"><div class="hs-name">Mercure Hida Takayama — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=400&q=75" alt="Shirakawa-go"><div class="photo-cap">Shirakawa-go</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1601823984359-98e30ba44d2d?w=400&q=75" alt="Gassho Houses"><div class="photo-cap">Gassho Houses</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1598887142487-3c854d51eabb?w=400&q=75" alt="Mountain Village"><div class="photo-cap">Mountain Village</div></div></div>      <div class="hotel-strip"><div class="hs-name">Ichinomatsu Japanese Modern Hotel — continuing stay</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
       <div class="activities"><div class="act">
   <div class="act-time">08:00–09:00</div>
   <div>
@@ -1363,13 +1353,13 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="travel">
   <summary class="day-hdr">
     <div class="day-badge travel">
-      <div class="badge-num">7</div>
+      <div class="badge-num">3</div>
       <div class="badge-wday">Wed</div>
       <div class="badge-icon">🟧</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Takayama → Nagoya → Kyoto</span><span class="es">Takayama → Nagoya → Kioto</span></div>
-      <div class="day-subtitle"><span class="en">Jun 3 — Travel Day</span><span class="es">3 Jun — Día de Viaje</span></div>
+      <div class="day-subtitle"><span class="en">Jun 3, 2026 — Travel Day</span><span class="es">3 Jun 2026 — Día de Viaje</span></div>
       <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 The Chapter Kyoto · Check-in 15:00</span><span class="es">🏨 The Chapter Kioto · Check-in 15:00</span></span><span class="day-pill pill-cost">¥14,980 rail</span><span class="day-pill pill-dist">~4h total travel</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
@@ -1378,7 +1368,7 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <div class="day-body">
     <div class="day-body-inner">
 <div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&q=75" alt="Gion Evening"><div class="photo-cap">Gion Evening</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Pontocho Alley"><div class="photo-cap">Pontocho Alley</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=75" alt="Kyoto Canal"><div class="photo-cap">Kyoto Canal</div></div></div>      <div class="hotel-strip">
-  <div class="hs-name">The Chapter Kyoto<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Autograph Collection · Central Kyoto</span></div>
+  <div class="hs-name">The Chapter Kyoto<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Confirmed · Conf #83137177 · Jun 3–6 · Superior Room 2 Twin · Check-in 3:00 PM</span></div>
   <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
   <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
   <span class="hs-badge hsb-price">~$280–$380<span class="en">/night</span><span class="es">/noche</span></span>
@@ -1422,13 +1412,13 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="culture">
   <summary class="day-hdr">
     <div class="day-badge culture">
-      <div class="badge-num">8</div>
+      <div class="badge-num">4</div>
       <div class="badge-wday">Thu</div>
       <div class="badge-icon">🟦</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Kiyomizu-dera · Higashiyama · Byodo-in (Uji)</span><span class="es">Kiyomizu-dera · Higashiyama · Byodo-in (Uji)</span></div>
-      <div class="day-subtitle"><span class="en">Jun 4 — Culture Day</span><span class="es">4 Jun — Día Cultural</span></div>
+      <div class="day-subtitle"><span class="en">Jun 4, 2026 — Culture Day</span><span class="es">4 Jun 2026 — Día Cultural</span></div>
       <div class="day-pills"><span class="day-pill pill-hotel">🏨 The Chapter Kyoto (cont.)</span><span class="day-pill pill-cost">¥500–¥1,000 entries · ¥240 rail</span><span class="day-pill pill-dist">Uji: 25 min from Kyoto</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
@@ -1486,13 +1476,13 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="hike">
   <summary class="day-hdr">
     <div class="day-badge hike">
-      <div class="badge-num">9</div>
+      <div class="badge-num">5</div>
       <div class="badge-wday">Fri</div>
       <div class="badge-icon">🟩</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Kurama → Kibune Sacred Mountain Hike</span><span class="es">Caminata Sagrada Kurama → Kibune</span></div>
-      <div class="day-subtitle"><span class="en">Jun 5 — Hike Day</span><span class="es">5 Jun — Día de Caminata</span></div>
+      <div class="day-subtitle"><span class="en">Jun 5, 2026 — Hike Day</span><span class="es">5 Jun 2026 — Día de Caminata</span></div>
       <div class="day-pills"><span class="day-pill pill-hotel">🏨 The Chapter Kyoto (cont.)</span><span class="day-pill pill-cost">¥500 entry · ¥470 train</span><span class="day-pill pill-dist">~3h 50m hike</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
@@ -1544,13 +1534,13 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="travel">
   <summary class="day-hdr">
     <div class="day-badge travel">
-      <div class="badge-num">10</div>
+      <div class="badge-num">6</div>
       <div class="badge-wday">Sat</div>
       <div class="badge-icon">🟧</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Kyoto → Osaka</span><span class="es">Kioto → Osaka</span></div>
-      <div class="day-subtitle"><span class="en">Jun 6 — Travel Day</span><span class="es">6 Jun — Día de Viaje</span></div>
+      <div class="day-subtitle"><span class="en">Jun 6, 2026 — Travel Day</span><span class="es">6 Jun 2026 — Día de Viaje</span></div>
       <div class="day-pills"><span class="day-pill pill-hotel">🏨 Aloft Osaka Dojima · Check-in 15:00</span><span class="day-pill pill-cost">¥580 rail</span><span class="day-pill pill-dist">30 min from Kyoto</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
@@ -1559,7 +1549,7 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <div class="day-body">
     <div class="day-body-inner">
       <div class="hotel-strip">
-  <div class="hs-name">Aloft Osaka Dojima<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Bonvoy · Dojima, Osaka</span></div>
+  <div class="hs-name">Aloft Osaka Dojima · CONFIRMED<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Confirmed · Conf #84647948 · Jun 6–8 · 2 nights · Check-in 3:00 PM</span></div>
   <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
   <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
   <span class="hs-badge hsb-price">~$170–$230<span class="en">/night</span><span class="es">/noche</span></span>
@@ -1603,14 +1593,14 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="hike">
   <summary class="day-hdr">
     <div class="day-badge hike">
-      <div class="badge-num">11</div>
+      <div class="badge-num">7</div>
       <div class="badge-wday">Sun</div>
       <div class="badge-icon">🟩</div>
     </div>
     <div class="day-summary">
-      <div class="day-title"><span class="en">Nara · Todai-ji · Kasuga Taisha → Kiso Valley Night</span><span class="es">Nara · Todai-ji · Kasuga Taisha → Noche en el Valle Kiso</span></div>
-      <div class="day-subtitle"><span class="en">Jun 7 — Mixed Day</span><span class="es">7 Jun — Día Mixto</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Minshuku Tsumago/Magome · Check-in ~17:30</span><span class="day-pill pill-cost">¥1,500 entries · ¥840 to Nara</span><span class="day-pill pill-dist">Nara 1h · Kiso 4h from Nara</span></div>
+      <div class="day-title"><span class="en">Nara · Todai-ji · Kasuga Taisha · Deer Park</span><span class="es">Nara · Todai-ji · Kasuga Taisha · Parque de Ciervos</span></div>
+      <div class="day-subtitle"><span class="en">Jun 7, 2026 — Culture Day</span><span class="es">7 Jun 2026 — Día Cultural</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Aloft Osaka Dojima (cont.)</span><span class="day-pill pill-cost">¥1,500 entries · ¥840 to Nara</span><span class="day-pill pill-dist">Nara ~50 min from Osaka</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
@@ -1621,14 +1611,7 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
   <div class="photo-item"><img src="https://images.unsplash.com/photo-1559386484-97dfc0e15539?w=400&q=75" alt="Nara Deer Park"><div class="photo-cap">Nara Deer Park</div></div>
   <div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Todai-ji Temple"><div class="photo-cap">Todai-ji Temple</div></div>
   <div class="photo-item"><img src="https://images.unsplash.com/photo-1601823984359-98e30ba44d2d?w=400&q=75" alt="Kiso Valley Post Town"><div class="photo-cap">Kiso Valley Post Town</div></div>
-</div>      <div class="hotel-strip">
-  <div class="hs-name">Minshuku — Tsumago or Magome<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Local family inn · Kiso Valley, Nagano</span></div>
-  <span class="hs-badge hsb-in">✅ Check-in ~5:30 PM</span>
-  <span class="hs-badge hsb-out"><span class="en">Check-out by 9:00 AM</span><span class="es">Check-out antes de 9:00 AM</span></span>
-  <span class="hs-badge hsb-price">~$80–$120<span class="en">/night</span><span class="es">/noche</span> incl. dinner + breakfast</span>
-  <span class="hs-badge hsb-brand"><span class="en">Traditional Tatami Experience</span><span class="es">Experiencia Tradicional en Tatami</span></span>
-  <div class="hs-note"><span class="en">Futon on tatami, yukata robe, communal bath, multi-course dinner served in your room. The most culturally immersive accommodation of the trip. Dinner (typically 6 courses of mountain vegetables, river fish, and local sake) and breakfast are included — exceptional value. Book well in advance as these small inns fill quickly.</span><span class="es">Futón sobre tatami, bata yukata, baño comunal, cena de varios platos servida en tu habitación. El alojamiento más culturalmente inmersivo del viaje. Cena (tipicamente 6 platos de verduras de montaña, pescado de río y sake local) y desayuno incluidos — valor excepcional. Reservar con mucha anticipación.</span></div>
-</div>
+</div>      <div class="hotel-strip"><div class="hs-name">Aloft Osaka Dojima — day trip, return tonight · Check-out tomorrow Jun 8</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
       <div class="activities"><div class="act">
   <div class="act-time">07:30–08:30</div>
   <div>
@@ -1654,116 +1637,156 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
     <div class="act-note"><span class="en">Nara has excellent kakinoha-zushi (pressed sushi wrapped in persimmon leaf — a Nara specialty, ¥800–¥1,500) and warabi-mochi (bracken-starch jelly with kinako powder, Nara's famous sweet). Higashimuki and Mochiidono covered shopping arcades near the station have many options.</span><span class="es">Nara tiene excelente kakinoha-zushi (sushi prensado envuelto en hoja de caqui — especialidad de Nara, ¥800–¥1,500) y warabi-mochi (gelatina de almidón de helecho con polvo kinako, el famoso dulce de Nara). Las galerías comerciales cubiertas Higashimuki y Mochiidono cerca de la estación tienen muchas opciones.</span></div>
   </div>
 </div><div class="act">
-  <div class="act-time">13:15–17:30</div>
+  <div class="act-time">13:15–14:15</div>
   <div>
-    <div class="act-name transit"><span class="en">Nara → Kiso Valley reposition</span><span class="es">Nara → Reposicionamiento en el Valle Kiso</span></div>
-    <div class="act-tags"><span class="tag t-train">🚃 Nara → Nagoya (JR Kintetsu Limited Express or JR Yamato) then JR Chuo Line → Nagiso Station</span><span class="tag t-cost">~¥3,500–¥4,500 total</span><span class="tag t-dur">~4h including transfers</span></div><div class="act-note"><span class="en">Complex routing — Nara to Nagoya (~1h, ¥2,310 JR or ¥1,500+ Kintetsu) then JR Chuo Line from Nagoya to Nagiso Station (~1h 20m, ¥1,690). From Nagiso, a 10-min taxi or bus reaches Tsumago or Magome post towns. Exact routing depends on which minshuku you book. Confirm transfer timing with the inn when you book.</span><span class="es">Ruta compleja — Nara a Nagoya (~1h, ¥2,310 JR o ¥1,500+ Kintetsu) luego Línea JR Chuo de Nagoya a la Estación Nagiso (~1h 20m, ¥1,690). Desde Nagiso, un taxi o autobús de 10 min llega a los pueblos de Tsumago o Magome. La ruta exacta depende del minshuku que reserves. Confirma los horarios de traslado con el alojamiento al reservar.</span></div>
+    <div class="act-name transit"><span class="en">Nara → Osaka (return)</span><span class="es">Nara → Osaka (regreso)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamatoji Line — Nara → Osaka/Namba (direct rapid)</span><span class="tag t-cost">¥840/person</span><span class="tag t-dur">~50 min</span></div>
   </div>
 </div><div class="act">
-  <div class="act-time">17:30–18:00</div>
+  <div class="act-time">14:30–17:30</div>
   <div>
-    <div class="act-name"><span class="en">✅ Minshuku check-in — Tsumago or Magome</span><span class="es">✅ Check-in Minshuku — Tsumago o Magome</span></div>
-    <div class="act-note"><span class="en">Check-in is typically tied to the dinner service schedule. Call ahead if running late. Expect a warm welcome, slippers at the entrance, and a yukata robe waiting in your tatami room.</span><span class="es">El check-in generalmente está vinculado al horario del servicio de cena. Llama con anticipación si llegas tarde. Espera una cálida bienvenida, pantuflas en la entrada y una bata yukata esperando en tu habitación de tatami.</span></div>
+    <div class="act-name"><span class="en">Shinsekai + Tsutenkaku Tower · Osaka street food</span><span class="es">Shinsekai + Torre Tsutenkaku · Comida callejera de Osaka</span></div>
+    <div class="act-note"><span class="en">Shinsekai is Osaka's retro district — built in 1912 modeled on Paris (south) and New York (north), now a wonderfully kitsch neighborhood of kushikatsu (deep-fried skewer) restaurants, pachinko parlors, and the Tsutenkaku Tower (¥1,000). Try kushikatsu at any counter-seating spot — the rule is never double-dip in the communal sauce.</span><span class="es">Shinsekai es el barrio retro de Osaka — construido en 1912 inspirado en París (sur) y Nueva York (norte), ahora un barrio maravillosamente kitsch de restaurantes kushikatsu (brochetas fritas), salones de pachinko y la Torre Tsutenkaku (¥1,000).</span></div>
   </div>
 </div><div class="act">
-  <div class="act-time">18:30–21:00</div>
+  <div class="act-time">18:00–21:00</div>
   <div>
-    <div class="act-name"><span class="en">Multi-course dinner at the minshuku</span><span class="es">Cena de varios platos en el minshuku</span></div>
-    <div class="act-note"><span class="en">Traditional Japanese kaiseki-style dinner served in your room or communal dining area — typically 6–8 courses of seasonal mountain vegetables, river fish (ayu sweetfish or iwana char), local sake, pickles, and rice. This is the type of meal that travelers remember years later. Eat slowly and ask questions — the family will often share the story of each dish.</span><span class="es">Cena tradicional japonesa estilo kaiseki servida en tu habitación o comedor comunal — típicamente 6–8 platos de verduras de montaña de temporada, pescado de río (dulce ayu o iwana char), sake local, encurtidos y arroz. Este es el tipo de comida que los viajeros recuerdan años después. Come despacio y haz preguntas — la familia a menudo compartirá la historia de cada plato.</span></div>
+    <div class="act-name"><span class="en">Dotonbori evening — Glico Man · Takoyaki · Neon</span><span class="es">Tarde en Dotonbori — Glico Man · Takoyaki · Neones</span></div>
+    <div class="act-note"><span class="en">Dotonbori is Osaka's most electric evening district — neon reflections on the canal, the iconic Glico Running Man billboard, street food chaos. Must-try: takoyaki (octopus balls ¥500–¥600/8 pcs), Osaka-style okonomiyaki, and fresh crab at Kuromon Market.</span><span class="es">Dotonbori es el distrito nocturno más eléctrico de Osaka — reflejos de neón en el canal, el icónico Glico Running Man, caos de vendedores de comida callejera. Imprescindible: takoyaki (¥500–¥600/8 pzas), okonomiyaki estilo Osaka.</span></div>
+  </div>
+</div><div class="act">
+  <div class="act-time">21:00–21:30</div>
+  <div>
+    <div class="act-name"><span class="en">📦 Ship luggage to THE KNOT TOKYO Shinjuku — tonight</span><span class="es">📦 Enviar equipaje al THE KNOT TOKYO Shinjuku — esta noche</span></div>
+    <div class="act-tags"><span class="tag t-cost">~¥1,500–¥2,000/bag · Next-day delivery</span></div>
+    <div class="act-note"><span class="en">Before turning in, bring all main suitcases to the Aloft front desk and arrange takkyubin (宅配便) delivery to THE KNOT TOKYO Shinjuku. Ask the concierge for Yamato Transport (クロネコヤマト) or Sagawa Express. Address: THE KNOT TOKYO Shinjuku, 1-8-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-0023. Specify delivery for June 8 (same day). Cost ~¥1,500–¥2,000 per bag. Keep out only: daypack, trail clothes, snacks, water bottle, phone charger, and cash (Nagiso Station has no IC card readers).</span><span class="es">Antes de dormir, lleva todas las maletas a la recepción del Aloft y arregla la entrega takkyubin (宅配便) al THE KNOT TOKYO Shinjuku. Pide al conserje Yamato Transport o Sagawa Express. Dirección: THE KNOT TOKYO Shinjuku, 1-8-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-0023. Especifica entrega para el 8 de junio. Costo ~¥1,500–¥2,000 por bolsa.</span></div>
   </div>
 </div></div>
     </div>
   </div>
 </details>
-<details class="day-card" data-type="travel">
+<details class="day-card" data-type="hike">
   <summary class="day-hdr">
-    <div class="day-badge travel">
-      <div class="badge-num">12</div>
+    <div class="day-badge hike">
+      <div class="badge-num">8</div>
       <div class="badge-wday">Mon</div>
-      <div class="badge-icon">🟧</div>
+      <div class="badge-icon">🟩</div>
     </div>
     <div class="day-summary">
-      <div class="day-title"><span class="en">Kiso Valley → Nagiso → Tokyo</span><span class="es">Valle Kiso → Nagiso → Tokio</span></div>
-      <div class="day-subtitle"><span class="en">Jun 8 — Travel Day</span><span class="es">8 Jun — Día de Viaje</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel">🏨 Tokyo Marriott Hotel · Check-in 15:00</span><span class="day-pill pill-cost">¥12,990 rail</span><span class="day-pill pill-dist">~4h total travel</span></div>
+      <div class="day-title"><span class="en">Kiso Valley Day Trip — Magome → Tsumago Nakasendo Hike</span><span class="es">Excursión Valle Kiso — Caminata Nakasendo Magome → Tsumago</span></div>
+      <div class="day-subtitle"><span class="en">Jun 8, 2026 — Hike Day</span><span class="es">8 Jun 2026 — Día de Caminata</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel">🏨 THE KNOT TOKYO Shinjuku · Check-in PM</span><span class="day-pill pill-cost">~¥9,500–¥11,000 rail · Free trail</span><span class="day-pill pill-dist">8km hike · Osaka → Tokyo same day</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
-  <img class="day-hero-img" src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=900&q=80" alt="Day 12">
+  <img class="day-hero-img" src="https://images.unsplash.com/photo-1580135682953-90ba9df10a57?w=900&q=80" alt="Nakasendo Kiso Valley">
 <div class="day-body">
     <div class="day-body-inner">
       <div class="hotel-strip">
-  <div class="hs-name">Tokyo Marriott Hotel<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Marriott Bonvoy · Shinagawa, Tokyo</span></div>
-  <span class="hs-badge hsb-in">✅ Check-in 3:00 PM</span>
-  <span class="hs-badge hsb-out">Check-out 12:00 PM</span>
-  <span class="hs-badge hsb-price">~$290–$360<span class="en">/night</span><span class="es">/noche</span></span>
-  <span class="hs-badge hsb-brand"><span class="en">Bonvoy Points Eligible</span><span class="es">Elegible para Puntos Bonvoy</span></span>
-  <div class="hs-note"><span class="en">Return stay</span><span class="es">Estadía de regreso</span> — same property as nights 1–4. Familiar base for final Tokyo day and Haneda departure. Request late checkout (2:00 PM) with Bonvoy status if applicable — useful for Jun 10 departure.</div>
+  <div class="hs-name">THE KNOT TOKYO Shinjuku<br><span style="font-size:.68rem;color:#9A7040;font-family:'DM Mono',monospace;font-weight:400;">Bags shipped last night · Check-in ~8:00 PM · 2 nights Jun 8–10</span></div>
+  <span class="hs-badge hsb-in">✅ Check-in ~8:00 PM — THE KNOT TOKYO Shinjuku</span>
+  <span class="hs-badge hsb-brand"><span class="en">Travel light with daypacks only — luggage already en route</span><span class="es">Viaja ligero solo con mochila — equipaje ya en camino</span></span>
 </div>
-      <div class="activities"><div class="act">
-  <div class="act-time">08:00–09:00</div>
+      <div class="activities">
+<div class="act">
+  <div class="act-time">07:00–07:30</div>
   <div>
-    <div class="act-name"><span class="en">Tsumago/Magome morning walk before departure</span><span class="es">Paseo matutino en Tsumago/Magome antes de partir</span></div>
-    <div class="act-tags"><span class="tag t-free">Free — post town streets</span></div><div class="act-note"><span class="en">The Kiso Valley post towns (Tsumago and Magome) were stops on the historic Nakasendo highway that linked Edo (Tokyo) to Kyoto through the mountains — used by feudal lords, messengers, and merchants for 250 years. In the early morning before day-trippers arrive, these stone-paved lanes with their preserved Edo-period inns and shops are extraordinarily atmospheric. The short Nakasendo trail between the two towns (8km, ~2.5h) is one of Japan's best historic walks — not possible today with the schedule, but even a 30-min walk from your inn shows you why it's special.</span><span class="es">Los pueblos de postas del Valle Kiso (Tsumago y Magome) eran paradas en el histórico camino Nakasendo que unía Edo (Tokio) con Kioto a través de las montañas — utilizado por señores feudales, mensajeros y comerciantes durante 250 años. A primera hora de la mañana antes de que lleguen los excursionistas de día, estos callejones pavimentados con piedra con sus posadas y tiendas del período Edo conservadas son extraordinariamente atmosféricos. El corto sendero Nakasendo entre los dos pueblos (8km, ~2.5h) es una de las mejores caminatas históricas de Japón — no es posible hoy con el horario, pero incluso una caminata de 30 min desde tu alojamiento te muestra por qué es especial.</span></div>
+    <div class="act-name"><span class="en">📦 Check-out Aloft Osaka</span><span class="es">📦 Check-out Aloft Osaka</span></div>
+    <div class="act-note"><span class="en">Bags were shipped last night — nothing to handle this morning except checkout. Grab your daypack, settle the bill, and walk to Shin-Osaka Station. 7-Eleven/FamilyMart near Dojima are open 24h for a quick breakfast. Important: bring enough cash for train tickets today — Nagiso Station has no IC card readers or ticket machines.</span><span class="es">Las maletas fueron enviadas anoche. Esta mañana solo hay que hacer checkout. Toma tu mochila, liquida la cuenta y camina a la Estación Shin-Osaka. Importante: lleva suficiente efectivo — la Estación Nagiso no tiene lectores IC ni máquinas de boletos.</span></div>
   </div>
-</div><div class="act">
-  <div class="act-time">08:00–09:00</div>
+</div>
+<div class="act">
+  <div class="act-time">07:30–10:00</div>
   <div>
-    <div class="act-name transit"><span class="en">Local transfer → Nagiso Station</span><span class="es">Traslado local → Estación Nagiso</span></div>
-    <div class="act-tags"><span class="tag t-bus">🚌 Bus or taxi from Tsumago/Magome to Nagiso Station</span><span class="tag t-cost">~¥300–¥600</span><span class="tag t-dur">~10–20 min</span></div>
+    <div class="act-name transit"><span class="en">Osaka → Nagoya → Nagiso (JR)</span><span class="es">Osaka → Nagoya → Nagiso (JR)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Shin-Osaka → Nagoya: Shinkansen Hikari (~50 min, ¥6,680) · Nagoya → Nagiso: JR Chuo Ltd Exp (~1h 20m, ¥1,690)</span><span class="tag t-cost">~¥8,370/person one-way</span><span class="tag t-dur">~2h 30m total</span></div>
+    <div class="act-note"><span class="en">Buy both tickets at Shin-Osaka Station. Note: Nagiso Station has NO IC card readers — buy onward tickets at Nagoya with cash or at a ticket window. You will NOT return to Osaka tonight.</span><span class="es">Compra ambos tickets en la Estación Shin-Osaka. Nota: la Estación Nagiso NO tiene lectores IC — compra los tickets en Nagoya con efectivo. No regresarás a Osaka esta noche.</span></div>
   </div>
-</div><div class="act">
-  <div class="act-time">09:10–10:30</div>
+</div>
+<div class="act">
+  <div class="act-time">09:00–09:30</div>
   <div>
-    <div class="act-name transit"><span class="en">Nagiso → Nagoya (JR Chuo Line)</span><span class="es">Nagiso → Nagoya (Línea JR Chuo)</span></div>
-    <div class="act-tags"><span class="tag t-train">🚃 JR Chuo Main Line — Nagiso to Nagoya</span><span class="tag t-cost">¥1,690/person</span><span class="tag t-dur">1h 20m</span></div><div class="act-note"><span class="en">The Chuo Line from Nagiso to Nagoya follows the Kiso River valley — stunning early-morning light on the gorge and cedar forests.</span><span class="es">La Línea Chuo de Nagiso a Nagoya sigue el valle del río Kiso — impresionante luz de primera hora de la mañana sobre la garganta y los bosques de cedros.</span></div>
+    <div class="act-name transit"><span class="en">Nagiso Station → Magome (bus)</span><span class="es">Estación Nagiso → Magome (autobús)</span></div>
+    <div class="act-tags"><span class="tag t-bus">🚌 Community bus Nagiso Station → Magome-juku</span><span class="tag t-cost">~¥600/person</span><span class="tag t-dur">~25 min</span></div>
+    <div class="act-note"><span class="en">Community bus runs several times daily (confirm at nagiso-kankou.com). Taxi available if timing doesn't align (~¥2,500). Start at Magome — slightly uphill leaving town is easier in the morning.</span><span class="es">El autobús comunitario corre varias veces al día (confirma en nagiso-kankou.com). Taxi disponible si el horario no coincide (~¥2,500).</span></div>
   </div>
-</div><div class="act">
-  <div class="act-time">11:00–12:40</div>
+</div>
+<div class="act">
+  <div class="act-time">09:30–10:00</div>
   <div>
-    <div class="act-name transit"><span class="en">Nagoya → Tokyo (Shinkansen Nozomi/Hikari)</span><span class="es">Nagoya → Tokio (Shinkansen Nozomi/Hikari)</span></div>
-    <div class="act-tags"><span class="tag t-train">🚃 JR Tokaido Shinkansen — reserved seat, Nagoya Station</span><span class="tag t-cost">¥11,300/person</span><span class="tag t-dur">1h 40m</span></div><div class="act-note"><span class="en">Final shinkansen of the trip. Window seats on the left (north) side for potential Mt. Fuji views ~60 min from Nagoya. Nagoya Station's underground food hall has excellent ekiben and pastry shops — worth 15 min exploring before the train.</span><span class="es">Último shinkansen del viaje. Asientos de ventana en el lado izquierdo (norte) para posibles vistas del Monte Fuji ~60 min desde Nagoya. El salón de comidas subterráneo de la Estación Nagoya tiene excelentes ekiben y pastelerías — vale la pena explorarlos 15 min antes del tren.</span></div>
+    <div class="act-name"><span class="en">Magome-juku — explore before hiking</span><span class="es">Magome-juku — explorar antes de caminar</span></div>
+    <div class="act-note"><span class="en">Magome (馬籠宿) is a beautifully preserved Edo-period post town on a hillside — stone-paved lanes, wooden inn facades, small waterfalls. Browse shops at the top of town. Pick up hiking snacks from one of the vendors.</span><span class="es">Magome (馬籠宿) es un pueblo de postas del período Edo bellamente conservado en una ladera — callejones empedrados, fachadas de posadas de madera, pequeñas cascadas. Explora las tiendas y toma snacks para la caminata.</span></div>
   </div>
-</div><div class="act">
-  <div class="act-time">13:15–14:30</div>
+</div>
+<div class="act">
+  <div class="act-time">10:00–13:30</div>
   <div>
-    <div class="act-name transit"><span class="en">Tokyo arrival + transfer to hotel</span><span class="es">Llegada a Tokio + traslado al hotel</span></div>
-    <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote Line → Shinagawa/Gotanda</span><span class="tag t-cost">~¥200</span><span class="tag t-dur">~20 min</span></div>
+    <div class="act-name"><span class="en">🥾 Nakasendo Trail: Magome → Tsumago (8 km, ~3h 30m)</span><span class="es">🥾 Sendero Nakasendo: Magome → Tsumago (8 km, ~3h 30m)</span></div>
+    <div class="act-tags"><span class="tag t-free">Free — open trail</span><span class="tag t-dur">8 km · ~350m elevation change · Moderate</span></div>
+    <div class="act-note"><span class="en">One of Japan's finest historic walks — the preserved Nakasendo (中山道), the mountain highway linking Edo to Kyoto for 250 years. Trail runs through dense cedar and cypress forest, past thatched farmhouses, stone Jizo shrines, and two waterfalls (Odaki and Medaki). Arrive at Tsumago (妻籠宿) — Japan's best-preserved post town, with strict preservation laws since 1968 prohibiting modern signs and cars.</span><span class="es">Una de las mejores caminatas históricas de Japón — el Nakasendo (中山道) preservado. El sendero atraviesa denso bosque de cedros, granjas con techo de paja y santuarios Jizo de piedra. Llega a Tsumago (妻籠宿) — considerado el mejor pueblo de postas preservado de Japón.</span></div>
+    <div class="act-tip">💡 <span class="en">Use the baggage forwarding service (nimotsu takuhai) between Magome and Tsumago ~¥700/bag — but since your main luggage is already in Tokyo, you only need this if you have any bags with you. Trail shoes sufficient — well-marked, no guide needed.</span><span class="es">El servicio de envío de equipaje entre Magome y Tsumago cuesta ~¥700/bolsa. Zapatos de trail son suficientes — bien señalizado, no se necesita guía.</span></div>
   </div>
-</div><div class="act">
-  <div class="act-time">15:00</div>
+</div>
+<div class="act">
+  <div class="act-time">13:30–14:30</div>
   <div>
-    <div class="act-name"><span class="en">✅ Hotel check-in — Tokyo Marriott</span><span class="es">✅ Check-in — Tokyo Marriott</span></div>
-    
+    <div class="act-name"><span class="en">Lunch in Tsumago + explore the post town</span><span class="es">Almuerzo en Tsumago + explorar el pueblo</span></div>
+    <div class="act-note"><span class="en">Tsumago has teahouses and small restaurants serving handmade soba (¥1,000–¥1,500), mountain vegetable tempura, and gohei-mochi (rice cake on a skewer with walnut-miso glaze, ~¥200). The Waki-honjin warlord's inn is open as a museum (¥300). Every building maintains Edo-period aesthetics by law — the street is car-free and perfectly preserved.</span><span class="es">Tsumago tiene casas de té y restaurantes con soba hecho a mano (¥1,000–¥1,500), tempura de verduras de montaña y gohei-mochi (~¥200). El Waki-honjin está abierto como museo (¥300).</span></div>
   </div>
-</div><div class="act">
-  <div class="act-time">16:30–19:30</div>
+</div>
+<div class="act">
+  <div class="act-time">14:45–15:15</div>
   <div>
-    <div class="act-name"><span class="en">Buffer evening / Setagaya / Nakameguro</span><span class="es">Tarde tranquila / Setagaya / Nakameguro</span></div>
-    <div class="act-note"><span class="en">A relaxed final-legs evening. Nakameguro canal or Daikanyama for a slow walk and dinner. A good time to revisit a favorite spot from the first days or try something new — Ebisu Garden Place has good restaurants and a pleasant evening atmosphere. Start packing for the departure tomorrow.</span><span class="es">Una tarde relajada de etapa final. Canal Nakameguro o Daikanyama para un paseo tranquilo y cena. Un buen momento para revisitar un lugar favorito de los primeros días o probar algo nuevo — Ebisu Garden Place tiene buenos restaurantes y una agradable atmósfera nocturna. Empieza a empacar para la salida de mañana.</span></div>
+    <div class="act-name transit"><span class="en">Tsumago → Nagiso Station (bus)</span><span class="es">Tsumago → Estación Nagiso (autobús)</span></div>
+    <div class="act-tags"><span class="tag t-bus">🚌 Community bus Tsumago → Nagiso Station</span><span class="tag t-cost">~¥270/person</span><span class="tag t-dur">~10 min</span></div>
+    <div class="act-note"><span class="en">Check the timetable at the Tsumago tourist information booth before finishing lunch. Last bus typically ~5 PM.</span><span class="es">Consulta el horario en el puesto de información turística de Tsumago antes de terminar el almuerzo. Último autobús típicamente ~5 PM.</span></div>
   </div>
-</div></div>
+</div>
+<div class="act">
+  <div class="act-time">15:15–19:00</div>
+  <div>
+    <div class="act-name transit"><span class="en">Nagiso → Nagoya → Tokyo</span><span class="es">Nagiso → Nagoya → Tokio</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 Nagiso → Nagoya: JR Chuo Line (~1h 20m, ¥1,690) · Nagoya → Tokyo: Shinkansen Nozomi/Hikari (~1h 40m, ¥11,300)</span><span class="tag t-cost">~¥12,990/person</span><span class="tag t-dur">~3h total</span></div>
+    <div class="act-note"><span class="en">From Nagiso take the JR Chuo Line to Nagoya (~1h 20m) — the gorge views heading east are spectacular in late afternoon light. At Nagoya transfer to the Tokaido Shinkansen Nozomi or Hikari to Tokyo Station (~1h 40m). Window seats on the right side offer potential Mt. Fuji views ~40 min from Nagoya. Arrive Tokyo ~7:00–7:30 PM. Buy the Nagoya→Tokyo Shinkansen tickets at Nagoya Station.</span><span class="es">Desde Nagiso toma la Línea JR Chuo a Nagoya (~1h 20m). En Nagoya transborda al Shinkansen Tokaido a la Estación Tokyo (~1h 40m). Llega a Tokyo ~7:00–7:30 PM.</span></div>
+  </div>
+</div>
+<div class="act">
+  <div class="act-time">19:30–20:15</div>
+  <div>
+    <div class="act-name transit"><span class="en">Tokyo Station → Shinjuku (THE KNOT TOKYO)</span><span class="es">Estación Tokyo → Shinjuku (THE KNOT TOKYO)</span></div>
+    <div class="act-tags"><span class="tag t-train">🚃 JR Yamanote Line — Tokyo Station → Shinjuku (~25 min, ~¥200)</span><span class="tag t-cost">~¥200/person</span><span class="tag t-dur">~13 min</span></div>
+    <div class="act-note"><span class="en">Your bags shipped last night are waiting at THE KNOT TOKYO Shinjuku front desk. Short hop on the Yamanote Line from Tokyo Station to Shinjuku.</span><span class="es">Tus bolsas llegaron hoy vía takkyubin y te esperan en la recepción. Corto trayecto en la Línea Yamanote desde la Estación Tokyo a Shinagawa.</span></div>
+  </div>
+</div>
+<div class="act">
+  <div class="act-time">20:15</div>
+  <div>
+    <div class="act-name"><span class="en">✅ Check-in THE KNOT TOKYO Shinjuku · Late dinner near hotel</span><span class="es">✅ Check-in THE KNOT TOKYO Shinjuku · Cena tardía cerca del hotel</span></div>
+    <div class="act-note"><span class="en">Check in at THE KNOT TOKYO Shinjuku — same hotel as your first four nights, so the neighborhood will feel familiar. Freshen up and enjoy a relaxed late dinner. Shinjuku has excellent late-night ramen and izakaya options just steps from the hotel. Tomorrow is the final full day — just Asakusa, shopping, and packing. No early start required.</span><span class="es">Haz check-in, refréscate y disfruta una cena tardía relajada. El canal Nakameguro es perfecto para una cena tranquila. Mañana es el día final — solo Asakusa, compras y empaque.</span></div>
+  </div>
+</div>
+</div>
     </div>
   </div>
 </details>
 <details class="day-card" data-type="rest">
   <summary class="day-hdr">
     <div class="day-badge rest">
-      <div class="badge-num">13</div>
+      <div class="badge-num">9</div>
       <div class="badge-wday">Tue</div>
       <div class="badge-icon">🟫</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Asakusa · Senso-ji · Shopping · Final Packing</span><span class="es">Asakusa · Senso-ji · Compras · Último Empaque</span></div>
-      <div class="day-subtitle"><span class="en">Jun 9 — Rest Day</span><span class="es">9 Jun — Día de Descanso</span></div>
-      <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 Tokyo Marriott (last night)</span><span class="es">🏨 Tokyo Marriott (última noche)</span></span><span class="day-pill pill-cost">Free entry · shopping budget varies</span><span class="day-pill pill-dist">~30 min to Asakusa</span></div>
+      <div class="day-subtitle"><span class="en">Jun 9, 2026 — Rest Day</span><span class="es">9 Jun 2026 — Día de Descanso</span></div>
+      <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 THE KNOT TOKYO Shinjuku (last night)</span><span class="es">🏨 THE KNOT TOKYO Shinjuku (última noche)</span></span><span class="day-pill pill-cost">Free entry · shopping budget varies</span><span class="day-pill pill-dist">~30 min to Asakusa</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
   </summary>
   <img class="day-hero-img" src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=900&q=80" alt="Day 13">
 <div class="day-body">
     <div class="day-body-inner">
-<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&q=75" alt="Senso-ji Gate"><div class="photo-cap">Senso-ji Gate</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Nakamise Lane"><div class="photo-cap">Nakamise Lane</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=75" alt="Asakusa Night"><div class="photo-cap">Asakusa Night</div></div></div>      <div class="hotel-strip"><div class="hs-name">Tokyo Marriott Hotel — final night</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay — no check-in today</span><span class="es">Estadía continua — sin check-in hoy</span></span></div>
+<div class="photo-grid"><div class="photo-item"><img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&q=75" alt="Senso-ji Gate"><div class="photo-cap">Senso-ji Gate</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=75" alt="Nakamise Lane"><div class="photo-cap">Nakamise Lane</div></div><div class="photo-item"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&q=75" alt="Asakusa Night"><div class="photo-cap">Asakusa Night</div></div></div>      <div class="hotel-strip"><div class="hs-name">THE KNOT TOKYO Shinjuku — final night</div><span class="hs-badge hsb-brand"><span class="en">Continuing stay · Check-out tomorrow Jun 10 by 12:00 PM</span><span class="es">Estadía continua · Check-out mañana 10 Jun antes de 12:00 PM</span></span></div>
       <div class="activities"><div class="act">
   <div class="act-time">09:00–11:00</div>
   <div>
@@ -1789,13 +1812,13 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
 <details class="day-card" data-type="travel">
   <summary class="day-hdr">
     <div class="day-badge travel">
-      <div class="badge-num">14</div>
+      <div class="badge-num">10</div>
       <div class="badge-wday">Wed</div>
       <div class="badge-icon">🟧</div>
     </div>
     <div class="day-summary">
       <div class="day-title"><span class="en">Departure from HND</span><span class="es">Salida desde HND</span></div>
-      <div class="day-subtitle"><span class="en">Jun 10 — Departure Day</span><span class="es">10 Jun — Día de Salida</span></div>
+      <div class="day-subtitle"><span class="en">Jun 10, 2026 — Departure Day</span><span class="es">10 Jun 2026 — Día de Salida</span></div>
       <div class="day-pills"><span class="day-pill pill-hotel"><span class="en">🏨 Check-out by 12:00 PM</span><span class="es">🏨 Check-out antes de 12:00 PM</span></span><span class="day-pill pill-cost">¥410 to airport</span><span class="day-pill pill-dist">~30 min to HND</span></div>
     </div>
     <div class="toggle-btn ">&#9660;</div>
@@ -1814,12 +1837,12 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
   <div class="act-time">09:00–11:55</div>
   <div>
     <div class="act-name"><span class="en">Airport buffer + immigration + boarding</span><span class="es">Margen en aeropuerto + migración + abordaje</span></div>
-    <div class="act-note"><span class="en">Japanese airports are efficient but international departures require immigration clearance — allow 2h 30m minimum for a 12:00 PM flight. HND International Terminal has excellent shopping (Japanese whisky, matcha products, food gifts) airside if you missed anything. Currency exchange rates at the airport are poor — use an ATM (7-Eleven airport ATMs accept foreign cards) for any remaining yen you want.</span><span class="es">Los aeropuertos japoneses son eficientes pero las salidas internacionales requieren despacho migratorio — reserva mínimo 2h 30m para un vuelo a las 12:00 PM. La Terminal Internacional de HND tiene excelentes tiendas (whisky japonés, productos de matcha, regalos de comida) después de los controles si te perdiste algo. Los tipos de cambio en el aeropuerto son malos — usa un cajero automático (los cajeros 7-Eleven aceptan tarjetas extranjeras) para los yenes que quieras.</span></div>
+    <div class="act-note"><span class="en">Japanese airports are efficient but international departures require immigration clearance — allow 2h 30m minimum for the 11:55 AM AA 170 departure to LAX. HND International Terminal has excellent shopping (Japanese whisky, matcha products, food gifts) airside if you missed anything. Currency exchange rates at the airport are poor — use an ATM (7-Eleven airport ATMs accept foreign cards) for any remaining yen you want.</span><span class="es">Los aeropuertos japoneses son eficientes pero las salidas internacionales requieren despacho migratorio — reserva mínimo 2h 30m para un vuelo a las 12:00 PM. La Terminal Internacional de HND tiene excelentes tiendas (whisky japonés, productos de matcha, regalos de comida) después de los controles si te perdiste algo. Los tipos de cambio en el aeropuerto son malos — usa un cajero automático (los cajeros 7-Eleven aceptan tarjetas extranjeras) para los yenes que quieras.</span></div>
   </div>
 </div><div class="act">
   <div class="act-time">11:55</div>
   <div>
-    <div class="act-name"><span class="en">✈ Flight departs HND</span><span class="es">✈ Vuelo sale de HND</span></div>
+    <div class="act-name"><span class="en">✈ AA 170 · HND→LAX · Seats 17A/17B/17C · Departs 11:55 AM · Arrives LAX 6:00 AM</span><span class="es">✈ AA 170 · HND→LAX · Asientos 17A/17B/17C · Sale 11:55 AM · Llega LAX 6:00 AM</span></div>
     <div class="act-note"><span class="en">Sayonara! Japan will stay with you — the precision, the quiet, the extraordinary food, the ancient and the hypermodern living side by side. Safe travels home.</span><span class="es">¡Sayonara! Japón se quedará contigo — la precisión, la tranquilidad, la comida extraordinaria, lo antiguo y lo hipermoderno viviendo lado a lado. ¡Buen viaje de regreso a casa!</span></div>
   </div>
 </div></div>
@@ -1870,25 +1893,25 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
   <div class="hotels-grid">
 
     <div class="hcard">
-      <div class="hcard-nights"><span class="en">NIGHTS 1–4 · May 28 – Jun 1</span><span class="es">NOCHES 1–4 · 28 May – 1 Jun</span></div>
-      <div class="hcard-name">Tokyo Marriott Hotel</div>
-      <div class="hcard-brand"><span class="en">Marriott Bonvoy · 5-star</span><span class="es">Marriott Bonvoy · 5 estrellas</span></div>
+      <div class="hcard-nights"><span class="en">NIGHTS 1–4 · May 28 – Jun 1, 2026</span><span class="es">NOCHES 1–4 · 28 May – 1 Jun 2026</span></div>
+      <div class="hcard-name">THE KNOT TOKYO Shinjuku</div>
+      <div class="hcard-brand"><span class="en">Global Hotel Alliance · 4-star · Shinjuku</span><span class="es">Global Hotel Alliance · 4 estrellas · Shinjuku</span></div>
       <div class="hcard-price">~$290–$360<span><span class="en">/night</span><span class="es">/noche</span></span></div>
       <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
-      <div class="hcard-why"><span class="en">Shinagawa area — excellent Keikyu rail access to Haneda, close to Setagaya. Full-service Marriott, points-eligible. Concierge, onsite dining, and luggage storage for early Day 1 arrival.</span><span class="es">Zona Shinagawa — excelente acceso en tren Keikyu a Haneda, cerca de Setagaya. Marriott de servicio completo, elegible para puntos. Conserje, restaurante y guarda equipaje para llegada temprana del Día 1.</span></div>
+      <div class="hcard-why"><span class="en">Shinjuku — stylish boutique hotel in Tokyo's most vibrant district. Confirmed May 28–Jun 1. Itinerary: 73424697622455. Check-in 3:00 PM · Check-out Jun 1, 10:00 AM.</span><span class="es">Shinjuku — elegante hotel boutique en el distrito más vibrante de Tokio. Confirmado 28 May–1 Jun. Itinerario: 73424697622455. Check-in 3:00 PM · Check-out 1 Jun, 10:00 AM.</span></div>
     </div>
 
     <div class="hcard">
-      <div class="hcard-nights"><span class="en">NIGHTS 5–6 · Jun 1 – Jun 3</span><span class="es">NOCHES 5–6 · 1 Jun – 3 Jun</span></div>
-      <div class="hcard-name">Mercure Hida Takayama</div>
-      <div class="hcard-brand"><span class="en">Accor Hotels · 4-star</span><span class="es">Accor Hotels · 4 estrellas</span></div>
+      <div class="hcard-nights"><span class="en">NIGHTS 5–6 · Jun 1 – Jun 3, 2026</span><span class="es">NOCHES 5–6 · 1 Jun – 3 Jun 2026</span></div>
+      <div class="hcard-name">Ichinomatsu Japanese Modern Hotel</div>
+      <div class="hcard-brand"><span class="en">Hotels.com · Itinerary 72073458471935 · Check-in 3:00 PM · Check-out Jun 3, 10:00 AM</span><span class="es">Hotels.com · Itinerario 72073458471935 · Check-in 3:00 PM · Check-out 3 Jun, 10:00 AM</span></div>
       <div class="hcard-price">~$130–$180<span><span class="en">/night</span><span class="es">/noche</span></span></div>
       <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 11:00 AM</div>
       <div class="hcard-why">Best cost/location in Takayama — 5 min walk to Sanmachi old town and station. <span class="en">No Marriott within 15 miles</span><span class="es">Sin Marriott en 25 km a la redonda</span>; Accor is the closest brand-quality option. <span class="en">Breakfast available onsite</span><span class="es">Desayuno disponible en el hotel</span>.</div>
     </div>
 
     <div class="hcard">
-      <div class="hcard-nights"><span class="en">NIGHTS 7–9 · Jun 3 – Jun 6</span><span class="es">NOCHES 7–9 · 3 Jun – 6 Jun</span></div>
+      <div class="hcard-nights"><span class="en">NIGHTS 7–9 · Jun 3 – Jun 6, 2026</span><span class="es">NOCHES 7–9 · 3 Jun – 6 Jun 2026</span></div>
       <div class="hcard-name">The Chapter Kyoto</div>
       <div class="hcard-brand"><span class="en">Marriott Autograph Collection · 4-star</span><span class="es">Marriott Autograph Collection · 4 estrellas</span></div>
       <div class="hcard-price">~$280–$380<span><span class="en">/night</span><span class="es">/noche</span></span></div>
@@ -1897,34 +1920,29 @@ button, .leg, .ctrl-btn, summary, .day-hdr {
     </div>
 
     <div class="hcard">
-      <div class="hcard-nights"><span class="en">NIGHT 10 · Jun 6 – Jun 7</span><span class="es">NOCHE 10 · 6 Jun – 7 Jun</span></div>
+      <div class="hcard-nights"><span class="en">NIGHTS 10–11 · Jun 6 – Jun 8, 2026</span><span class="es">NOCHES 10–11 · 6 Jun – 8 Jun 2026</span></div>
       <div class="hcard-name">Aloft Osaka Dojima</div>
-      <div class="hcard-brand"><span class="en">Marriott Bonvoy · 4-star</span><span class="es">Marriott Bonvoy · 4 estrellas</span></div>
+      <div class="hcard-brand"><span class="en">Marriott Bonvoy · Confirmation #84647948 · 1 Queen Corner Sofa Bed · Check-in 3:00 PM · Check-out Jun 8</span><span class="es">Marriott Bonvoy · Confirmación #84647948 · Queen Esquina Sofá Cama · Check-in 3:00 PM · Check-out 8 Jun</span></div>
       <div class="hcard-price">~$170–$230<span><span class="en">/night</span><span class="es">/noche</span></span></div>
       <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
       <div class="hcard-why">Trendy Dojima district — 10 min walk to Dotonbori food scene, good subway access to Nara next morning. Aloft is Marriott's lifestyle brand: modern, lively, bar-forward.</div>
     </div>
 
     <div class="hcard">
-      <div class="hcard-nights"><span class="en">NIGHT 11 · Jun 7 – Jun 8</span><span class="es">NOCHE 11 · 7 Jun – 8 Jun</span></div>
-      <div class="hcard-name">Minshuku (Tsumago or Magome)</div>
-      <div class="hcard-brand"><span class="en">Local family inn · Traditional</span><span class="es">Posada familiar local · Tradicional</span></div>
-      <div class="hcard-price">~$80–$120<span><span class="en">/night</span><span class="es">/noche</span> incl. dinner+breakfast</span></div>
+      
       <div class="hcard-times">✅ Check-in ~5:30 PM &nbsp;·&nbsp; <span class="en">Check-out by 9:00 AM</span><span class="es">Check-out antes de 9:00 AM</span></div>
-      <div class="hcard-why">Futon on tatami, yukata robe, communal bath, multi-course dinner served in your room. The most culturally immersive night of the trip. Dinner and breakfast included in rate — best value of the whole itinerary.</div>
-    </div>
 
     <div class="hcard">
-      <div class="hcard-nights"><span class="en">NIGHTS 12–13 · Jun 8 – Jun 10</span><span class="es">NOCHES 12–13 · 8 Jun – 10 Jun</span></div>
-      <div class="hcard-name">Tokyo Marriott Hotel</div>
-      <div class="hcard-brand"><span class="en">Marriott Bonvoy · 5-star</span><span class="es">Marriott Bonvoy · 5 estrellas</span></div>
+      <div class="hcard-nights"><span class="en">NIGHTS 13–14 · Jun 8 – Jun 10, 2026</span><span class="es">NOCHES 13–14 · 8 Jun – 10 Jun 2026</span></div>
+      <div class="hcard-name">THE KNOT TOKYO Shinjuku</div>
+      <div class="hcard-brand"><span class="en">Global Hotel Alliance · Return stay · Same hotel as Nights 1–4</span><span class="es">Global Hotel Alliance · Estadía de regreso · Mismo hotel que Noches 1–4</span></div>
       <div class="hcard-price">~$290–$360<span><span class="en">/night</span><span class="es">/noche</span></span></div>
       <div class="hcard-times">✅ Check-in 3:00 PM &nbsp;·&nbsp; Check-out 12:00 PM</div>
-      <div class="hcard-why"><span class="en">Return stay</span><span class="es">Estadía de regreso</span> — same property as nights 1–4. Familiar base for final Tokyo day and Haneda departure. <span class="en">Late checkout (2:00 PM) may be available with Bonvoy status</span><span class="es">Salida tardía (2:00 PM) disponible con estatus Bonvoy</span> — <span class="en">request in advance</span><span class="es">solicitar con anticipación</span>.</div>
+      <div class="hcard-why"><span class="en">Return stay — same boutique property as nights 1–4. Familiar Shinjuku base for the final Tokyo day and Haneda departure. Itinerary: 73424697622455. Check-out Jun 10 by 10:00 AM.</span><span class="es">Estadía de regreso — el mismo hotel boutique que las noches 1–4. Base familiar en Shinjuku para el último día en Tokio y salida desde Haneda. Check-out 10 Jun antes de las 10:00 AM.</span></div>
     </div>
 
   </div>
-  <div class="h-note"><span class="en">Prices are approximate rack rates for May–June 2025. Marriott Bonvoy point redemptions or negotiated corporate rates may reduce costs significantly. Minshuku dinner+breakfast included in quoted rate.</span><span class="es">Los precios son tarifas de mostrador aproximadas para Mayo–Junio 2025. Las redenciones de puntos Bonvoy o tarifas corporativas pueden reducir los costos considerablemente. Cena+desayuno del minshuku incluidos en la tarifa.</span></div>
+  <div class="h-note"><span class="en">Prices are approximate rack rates for May–June 2026. Marriott Bonvoy point redemptions or negotiated corporate rates may reduce costs significantly.</span><span class="es">Los precios son tarifas de mostrador aproximadas para Mayo–Junio 2026. Las redenciones de puntos Bonvoy o tarifas corporativas pueden reducir los costos considerablemente.</span></div>
 </div>
 </div>
 
